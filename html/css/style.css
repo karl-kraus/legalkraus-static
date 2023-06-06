@@ -622,15 +622,22 @@ low resolution
     margin-bottom: 1em;
 }
 .custom-footer {
-    background-color: #C6C2BC;
     padding: 2rem;
-  margin: 0 !important;
+    margin: 0 !important;
 }
 .horizontal {
     color: #A73D2E;
     background-color: #A73D2E;
 }
 
-.b{
+.dunkelgrau {
+    background-color: #C6C2BC;
+}
+
+.hellgrau {
+    background-color: #e0ded5;
+}
+
+.b {
     font-weight: 600;
   }

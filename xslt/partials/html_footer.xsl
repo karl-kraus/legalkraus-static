@@ -8,7 +8,7 @@
     <xsl:template match="/" name="html_footer">
 
 
-        <div id="footer-full-content" tabindex="-1" class="custom-footer">
+        <div id="footer-full-content" tabindex="-1" class="custom-footer dunkelgrau">
             <div class="row">
                 <div class="col">
                     <p class="b mb-0"> Karl Kraus: Rechtsakten der Kanzlei Oskar Samek. <br></br>
@@ -29,51 +29,45 @@
 
                 </div>
                 <div class="col">
-                    <div class="contact-info">
+                    <div>
                         <p class="b">
                             <router-link class="imprint-link" to="/impressum">Impressum</router-link>
                         </p>
                     </div>
-                    <p class="b r">HELPDESK</p>
+                    <p class="b">HELPDESK</p>
                     <p>ACDH runs a helpdesk offering
                         advice for questions related to
                         various digital humanities topics.</p>
-                    <div class="ask">
+                    <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
                             fill="#A73D2E" class="bi bi-headset" viewBox="0 0 16 16">
                             <path
                                 d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5z" />
                         </svg>
-                        <a class="r b" href="mailto:acdh-ch-helpdesk@oeaw.ac.at">ASK US!</a>
+                        <a class="r" href="mailto:acdh-ch-helpdesk@oeaw.ac.at">ASK US!</a>
                     </div>
                 </div>
             </div>
-             <div class="row">
+            <div class="row custom-footer" >
                 <div class="col">
-                <p>hallo</p>
-                    <!-- <img src="images/acdh-ch-logo96.png" width="auto" height="70px"
-                        alt="acdh-logo" /> -->
-                </div>
-                <div clas="col">
-                <p>hallo</p>
-                    <!-- <img src="images/stadtwien.svg" width="auto" height="70px"
-                        alt="Stadtwien Logo" /> -->
-                </div>
-                <div clas="col">
-                <p>hallo</p>
-                    <!-- <img src="images/boltzmann.svg" width="auto" height="70px"
-                        alt="acdh-logo" /> -->
+                    <img src="images/acdh-ch-logo96.png" width="auto" height="70px"
+                        alt="acdh-logo" />
                 </div>
                 <div class="col">
-                <p>hallo</p>
-                    <!-- <img src="images/fwf.png" width="auto" height="70px"
-                        alt="acdh-logo" /> -->
+                    <img src="images/stadtwien.svg" width="auto" height="70px"
+                        alt="Stadtwien Logo" />
+                </div>
+                <div class="col">
+                    <img src="images/boltzmann.svg" width="auto" height="70px"
+                        alt="Boltzmann" />
+                </div>
+                <div class="col">
+                    <img src="images/fwf.png" width="auto" height="70px"
+                        alt="acdh-logo" />
                 </div>
             </div>
         </div>
-        <div>
-           
-        </div>
+        
         
         <script
             src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -97,8 +91,7 @@
         </script>
         
         
-        <script
-            src="js/i18n.js"></script>
+        <script src="js/i18n.js"></script>
 
     </xsl:template>
 </xsl:stylesheet>
