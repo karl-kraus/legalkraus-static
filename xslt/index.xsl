@@ -74,10 +74,10 @@
                                 </div>
                             </div>
                             <div class="card" style="width: 18rem;">
-                                <img src="images/beitraege.png" class="card-img-top" alt="..." />
+                                <a href="beitraege.html"><img src="images/beitraege.png" class="card-img-top" alt="..." />
                                 <div class="card-body">
                                     <p class="card-text">Beiträge</p>
-                                </div>
+                                </div></a>
                             </div>
                             <div class="card" style="width: 18rem;">
                                 <img src="images/verlage.png" class="card-img-top" alt="..." />

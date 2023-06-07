@@ -8,7 +8,7 @@
     <xsl:template match="/" name="html_footer">
 
 
-        <div id="footer-full-content" tabindex="-1" class="custom-footer dunkelgrau">
+        <div tabindex="-1" class="custom-footer dunkelgrau">
             <div class="row">
                 <div class="col">
                     <p class="b mb-0"> Karl Kraus: Rechtsakten der Kanzlei Oskar Samek. <br></br>

@@ -25,6 +25,19 @@
                                     <li>
                                         <a class="dropdown-item" href="about.html"  data-i18n="navbar__about" ></a>
                                     </li>
+                                    <li>
+                                        <a class="dropdown-item" href="editionsrichtlinien.html"  data-i18n="navbar__richtlinien"></a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="team.html"  data-i18n="navbar__team" ></a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="publikationen.html"  data-i18n="navbar__publication" ></a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="hinweise.html"  data-i18n="navbar__hints" ></a>
+                                    </li>
+                                   
                                 </ul>
                             </li>
                             

@@ -148,4 +148,5 @@ html/*.html
 html/*.xml
 html/*.rdf
 html/*.txt
-locales/
+locales
+data
