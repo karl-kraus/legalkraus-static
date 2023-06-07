@@ -25,8 +25,15 @@
             <body class="page">
                 <div class="hfeed site" id="page">
                     <xsl:call-template name="nav_bar"/>
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><xsl:value-of select="$doc_title"/></li>
+                        </ol>
+                    </nav>
 
                     <div class="container">
+                        
                         <h1>
                             <xsl:value-of select="$doc_title"/>
                         </h1>
