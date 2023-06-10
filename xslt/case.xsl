@@ -14,6 +14,9 @@
         <xsl:variable name="doc_title">
             <xsl:value-of select=".//tei:title[1]/text()"/>
         </xsl:variable>
+        <xsl:variable name="caseId">
+            <xsl:value-of select="replace(replace(data(/tei:TEI/@xml:id), 'C_', 'D_'), '.xml', '-')"/>
+        </xsl:variable>
         <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
         <html>
             <head>
@@ -33,9 +36,8 @@
                     </nav>
 
                     <div class="container">
-                        
                         <h1 class="text-center">
-                            <xsl:value-of select="$doc_title"/>
+                            <xsl:value-of select="$doc_title"/><xsl:value-of select="$caseId"/>
                         </h1>
                         <xsl:apply-templates select="//tei:abstract"></xsl:apply-templates>
                         <h2 class="text-center">Schlagworte</h2>
@@ -57,16 +59,43 @@
                                 </xsl:for-each>
                             </div>
                         </div>
-                        
-                        <xsl:for-each select="collection('../data/cases_tei?select=C_00004-*.xml')//tei:TEI">
-                            <xsl:variable name="full_path">
-                                <xsl:value-of select="document-uri(/)"/>
-                            </xsl:variable>
-                            <xsl:variable name="fileName">
-                                <xsl:value-of select=".//tei:title[1]/text()"/>
-                            </xsl:variable>
-                            <h4><xsl:value-of select="$fileName"/></h4>
-                        </xsl:for-each>
+                        <div class="row">
+                            <xsl:for-each select="collection(concat('../data/editions?select=', $caseId, '*.xml'))//tei:TEI">
+                                <xsl:sort select="document-uri(/)"></xsl:sort>
+                                <xsl:variable name="full_path">
+                                    <xsl:value-of select="document-uri(/)"/>
+                                </xsl:variable>
+                                <xsl:variable name="fileName">
+                                    <xsl:value-of select=".//tei:titleStmt/tei:title[1]/text()"/>
+                                </xsl:variable>
+                                <xsl:variable name="facsUrl">
+                                    <xsl:value-of select="replace(data(.//tei:graphic[1]/@url)[1], '/full/full/', '/full/250,/')"/>
+                                </xsl:variable>
+                                <xsl:variable name="creationDate">
+                                    <xsl:value-of select=".//tei:profileDesc/tei:creation"/>
+                                </xsl:variable>
+
+                                
+                               
+                                <div class="card mb-2" style="max-width: 450px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-5">
+                                            <img class="img-fluid rounded" loading="lazy" alt="kein Bild" >
+                                                <xsl:attribute name="src"><xsl:value-of select="$facsUrl"/></xsl:attribute>
+                                            </img>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><xsl:value-of select="$fileName"/></h5>
+                                                <hr class="horizontal"/>
+                                                <p class="card-text"><xsl:value-of select="$creationDate"/></p>
+                                                <p class="card-text"><small class="text-muted"><xsl:value-of select="$facsUrl"/></small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </xsl:for-each>
+                        </div>
                     </div>
                     <xsl:call-template name="html_footer"/>
                 </div>
