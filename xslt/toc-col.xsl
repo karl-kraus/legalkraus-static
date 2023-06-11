@@ -32,7 +32,7 @@
                     <div class="container-fluid">
                         <div class="card">
                             <div class="card-header">
-                                <h1>Alle Akten</h1>
+                                <h1 class="text-center">Alle Akten</h1>
                             </div>
                             <div class="card-body">
                                 <table class="table table-striped display" id="tocTable" style="width:100%">
@@ -80,12 +80,12 @@
                                                 </td>
                                                 <td>
                                                     <xsl:for-each select="//tei:particDesc/tei:listPerson/tei:person[ends-with(data(@role), 'ANK') or ends-with(data(@role), 'AKV')]">
-                                                        <span class="badge rounded-pill bg-danger"><xsl:value-of select="./tei:persName/text()"/></span>
+                                                        <span class="badge rounded-pill m-1 bg-danger"><xsl:value-of select="./tei:persName/text()"/></span>
                                                     </xsl:for-each>
                                                 </td>
                                                 <td>
                                                     <xsl:for-each select="//tei:particDesc/tei:listPerson/tei:person[ends-with(data(@role), 'ANG') or ends-with(data(@role), 'ANV')]">
-                                                        <span class="badge rounded-pill bg-warning"><xsl:value-of select="./tei:persName/text()"/></span>
+                                                        <span class="badge rounded-pill m-1 bg-warning"><xsl:value-of select="./tei:persName/text()"/></span>
                                                     </xsl:for-each>
                                                 </td>
                                             </tr>

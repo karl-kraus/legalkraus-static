@@ -25,7 +25,7 @@
                     <div class="container-fluid">
                         <div class="card">
                             <div class="card-header">
-                                <h1>Dokumentenübersicht</h1>
+                                <h1 class="text-center">Dokumentenübersicht</h1>
                             </div>
                             <div class="card-body">
                                 <table class="table table-striped display" id="tocTable" style="width:100%">
@@ -34,6 +34,8 @@
                                             <th scope="col">Titel</th>
                                             <th scope="col">Akt</th>
                                             <th scope="col">Datum</th>
+                                            <th scope="col">Akteure</th>
+                                            <th scope="col">Orte</th>
                                             <th scope="col">Typisierung</th>
                                             <th scope="col">Material</th>
                                         </tr>
@@ -70,13 +72,23 @@
                                                     </xsl:choose>
                                                 </td>
                                                 <td>
+                                                    <xsl:for-each select="/tei:TEI/tei:text/tei:back/tei:listPerson/tei:person/tei:persName[1]">
+                                                        <span class="badge rounded-pill m-1 bg-success"><xsl:value-of select="normalize-space(string-join(.//text()))"/></span>
+                                                    </xsl:for-each>
+                                                </td>
+                                                <td>
+                                                    <xsl:for-each select="/tei:TEI/tei:text/tei:back/tei:listPlace/tei:place/tei:placeName[1]">
+                                                        <span class="badge rounded-pill m-1 bg-dark"><xsl:value-of select="normalize-space(string-join(.//text()))"/></span>
+                                                    </xsl:for-each>
+                                                </td>
+                                                <td>
                                                     <xsl:for-each select="/tei:TEI/tei:teiHeader/tei:profileDesc/tei:textClass/tei:keywords/tei:term">
-                                                        <span class="badge rounded-pill bg-info"><xsl:value-of select="./text()"/></span>
+                                                        <span class="badge rounded-pill m-1 bg-info"><xsl:value-of select="./text()"/></span>
                                                     </xsl:for-each>
                                                 </td>
                                                 <td>
                                                     <xsl:for-each select="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:physDesc/tei:ab/tei:objectType">
-                                                        <span class="badge rounded-pill bg-warning"><xsl:value-of select="./text()"/></span>
+                                                        <span class="badge rounded-pill m-1 bg-warning"><xsl:value-of select="./text()"/></span>
                                                     </xsl:for-each>
                                                 </td>  
                                             </tr>

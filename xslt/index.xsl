@@ -56,15 +56,9 @@
                         <h1>Mögliche Einstiege</h1>
                         <div class="row">
                             <div class="card" style="width: 18rem;">
-                                <img src="images/samek.png" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                    <p class="card-text">Oskar Samek</p>
-                                </div>
-                            </div>
-                            <div class="card" style="width: 18rem;">
                                 <img src="images/sozialdemokratie.png" class="card-img-top" alt="..." />
                                 <div class="card-body">
-                                    <p class="card-text">Sozialdemokratie</p>
+                                    <p class="card-text"><a href="editionsrichtlinien.html">Editionsrichtlinien</a></p>
                                 </div>
                             </div>
                             <div class="card" style="width: 18rem;">
@@ -82,7 +76,7 @@
                             <div class="card" style="width: 18rem;">
                                 <img src="images/verlage.png" class="card-img-top" alt="..." />
                                 <div class="card-body">
-                                    <p class="card-text">Verlage</p>
+                                    <p class="card-text"><a href="cases.html">Akten</a></p>
                                 </div>
                             </div>
                         </div>
