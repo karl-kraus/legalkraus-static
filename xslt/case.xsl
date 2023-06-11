@@ -37,7 +37,7 @@
 
                     <div class="container">
                         <h1 class="text-center">
-                            <xsl:value-of select="$doc_title"/><xsl:value-of select="$caseId"/>
+                            <xsl:value-of select="$doc_title"/>
                         </h1>
                         <xsl:apply-templates select="//tei:abstract"></xsl:apply-templates>
                         <h2 class="text-center">Schlagworte</h2>
@@ -79,7 +79,7 @@
                                
                                 <div class="card mb-2" style="max-width: 450px;">
                                     <div class="row g-0">
-                                        <div class="col-md-5">
+                                        <div class="col-md-5 ">
                                             <img class="img-fluid rounded" loading="lazy" alt="kein Bild" >
                                                 <xsl:attribute name="src"><xsl:value-of select="$facsUrl"/></xsl:attribute>
                                             </img>
@@ -89,7 +89,46 @@
                                                 <h5 class="card-title"><xsl:value-of select="$fileName"/></h5>
                                                 <hr class="horizontal"/>
                                                 <p class="card-text"><xsl:value-of select="$creationDate"/></p>
-                                                <p class="card-text"><small class="text-muted"><xsl:value-of select="$facsUrl"/></small></p>
+                                                <h6 class="card-title">Orte</h6>
+                                                <xsl:choose>
+                                                    <xsl:when test=".//tei:listPlace">
+                                                        <ul >
+                                                            <xsl:for-each select=".//tei:listPlace/tei:place">
+                                                                <li><xsl:value-of select="./tei:placeName[1]/text()"/></li>
+                                                            </xsl:for-each>
+                                                        </ul>
+                                                    </xsl:when>
+                                                    <xsl:otherwise>
+                                                        <span class="text-muted">keine Orte</span>
+                                                    </xsl:otherwise>
+                                                </xsl:choose>
+                                                <h6 class="card-title">Aktenklassifkiation</h6>
+                                                <xsl:choose>
+                                                    <xsl:when test=".//tei:listPlace">
+                                                        <ul >
+                                                            <xsl:for-each select="/tei:TEI/tei:teiHeader/tei:profileDesc/tei:textClass/tei:keywords/tei:term">
+                                                                <li><xsl:value-of select="./text()"/></li>
+                                                            </xsl:for-each>
+                                                        </ul>
+                                                    </xsl:when>
+                                                    <xsl:otherwise>
+                                                        <span class="text-muted">keine Klassifikation</span>
+                                                    </xsl:otherwise>
+                                                </xsl:choose>
+                                                <h6 class="card-title">Materialität</h6>
+                                                <xsl:choose>
+                                                    <xsl:when test="//tei:listPlace">
+                                                        <ul >
+                                                            <xsl:for-each select="//tei:objectType">
+                                                                <li><xsl:value-of select="./text()"/></li>
+                                                            </xsl:for-each>
+                                                        </ul>
+                                                    </xsl:when>
+                                                    <xsl:otherwise>
+                                                        <span class="text-muted">keine Angaben</span>
+                                                    </xsl:otherwise>
+                                                </xsl:choose>
+                                                
                                             </div>
                                         </div>
                                     </div>
