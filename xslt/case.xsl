@@ -62,8 +62,8 @@
                         <div class="row">
                             <xsl:for-each select="collection(concat('../data/editions?select=', $caseId, '*.xml'))//tei:TEI">
                                 <xsl:sort select="document-uri(/)"></xsl:sort>
-                                <xsl:variable name="full_path">
-                                    <xsl:value-of select="document-uri(/)"/>
+                                <xsl:variable name="fullPath">
+                                    <xsl:value-of select="tokenize(replace(document-uri(/), '.xml', '.html'), '/')[last()]"/>
                                 </xsl:variable>
                                 <xsl:variable name="fileName">
                                     <xsl:value-of select=".//tei:titleStmt/tei:title[1]/text()"/>
@@ -86,7 +86,11 @@
                                         </div>
                                         <div class="col-md-7">
                                             <div class="card-body">
-                                                <h5 class="card-title"><xsl:value-of select="$fileName"/></h5>
+                                                <h5 class="card-title">
+                                                    <a href="{$fullPath}">
+                                                        <xsl:value-of select="$fileName"/>
+                                                    </a>
+                                                </h5>
                                                 <hr class="horizontal"/>
                                                 <p class="card-text"><xsl:value-of select="$creationDate"/></p>
                                                 <h6 class="card-title">Orte</h6>
