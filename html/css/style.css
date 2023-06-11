@@ -59,10 +59,6 @@ hr {
     opacity: 100%;
 }
 
-/* a:hover {
-    color: #fff;
-} */
-
 .navbar-nav ul li a:hover,
 .navbar-nav ul li a:active {
     /* change navbar link color */
@@ -73,50 +69,6 @@ hr {
 .navbar-nav ul li.active a {
     /* change navbar link color */
     background-color: #C85545;
-}
-
-cite {
-    font-style: normal;
-}
-
-#wrapper-hero-content {
-    padding: 0;
-}
-
-.intro {
-    background-color: #fff;
-    height: 93vh;
-    overflow: hidden;
-    border-bottom: 3px solid #C85545;
-}
-
-.intro .col-md-6 {
-    padding: 0;
-    align-items: center;
-    vertical-align: middle;
-    display: flex;
-}
-
-.wp-intro_left {
-    display: flex;
-    align-items: center;
-    vertical-align: middle;
-}
-
-.intro_left {
-    display: block;
-    margin: 2em auto;
-    padding: 0 15%;
-}
-
-.intro_left h1,
-h5 {
-    padding: .5em 0;
-}
-
-.intro_left a {
-    display: inline-block;
-    padding: .5em .5em .5em 0;
 }
 
 .custom-logo-link {
@@ -204,15 +156,6 @@ a {
 .modal-body table tbody tr th,
 .modal-body table tbody tr td {
     border: none;
-}
-
-#wrapper-footer-full {
-    border-top: 3px solid #C85545;
-    margin-top: auto;
-    display: flex;
-    background-color: #fff;
-    z-index: 1;
-    padding: 8em 0;
 }
 
 a.anchor,
@@ -376,7 +319,6 @@ div.dataTables_filter {
 }
 
 .index-card .card-body {
-    background-color: transparent;
     border: none;
     text-align: center;
     padding: 0;
@@ -417,42 +359,6 @@ p {
     cursor: pointer;
 }
 
-span.ssQueryAndButton {
-    margin: 2em auto 0.25em auto !important;
-    max-width: 50% !important;
-    width: 50% !important;
-}
-
-input#ssQuery {
-    font-size: .9rem !important;
-    border-radius: 30px !important;
-    padding: .3rem 1.75rem .3rem .75rem !important;
-    border: 1px solid rgba(0, 0, 0, .075) !important;
-    background-color: #fff !important;
-    color: rgba(0, 0, 0, .9) !important;
-}
-
-button#ssDoSearch {
-    border: 0 !important;
-    padding: 0 !important;
-    background: 0 0 !important;
-    cursor: pointer !important;
-    color: rgba(0, 0, 0, .6) !important;
-    margin-left: -4.1em !important;
-    margin-top: .1em !important;
-}
-
-#github-logo {
-    width: 10%;
-    height: auto;
-    padding: 10px 0 10px 0;
-    transition: transform .2s;
-    margin-left: 1em;
-}
-
-#github-logo:hover {
-    transform: scale(1.05);
-}
 
 /*
 ####################################

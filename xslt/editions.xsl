@@ -2,17 +2,17 @@
 <xsl:stylesheet 
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:tei="http://www.tei-c.org/ns/1.0"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:local="http://dse-static.foo.bar"
-    version="2.0" exclude-result-prefixes="xsl tei xs">
+    xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    version="2.0" exclude-result-prefixes="#all">
     <xsl:output encoding="UTF-8" media-type="text/html" method="xhtml" version="1.0" indent="yes" omit-xml-declaration="yes"/>
     
-    <xsl:import href="./partials/shared.xsl"/>
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
-    <xsl:import href="./partials/html_footer.xsl"/>
-    <xsl:import href="./partials/aot-options.xsl"/>
+    <xsl:import href="partials/html_footer.xsl"/>
+    <xsl:import href="partials/osd-container.xsl"/>
+    <xsl:import href="partials/tei-facsimile.xsl"/>
+    <xsl:import href="partials/shared.xsl"/>
+    <xsl:import href="partials/aot-options.xsl"/>
 
     <xsl:variable name="prev">
         <xsl:value-of select="replace(tokenize(data(tei:TEI/@prev), '/')[last()], '.xml', '.html')"/>
@@ -40,18 +40,13 @@
                 <xsl:call-template name="html_head">
                     <xsl:with-param name="html_title" select="$doc_title"></xsl:with-param>
                 </xsl:call-template>
-                <style>
-                    .navBarNavDropdown ul li:nth-child(2) {
-                        display: none !important;
-                    }
-                </style>
             </head>
             <body class="page">
                 <div class="hfeed site" id="page">
                     <xsl:call-template name="nav_bar"/>
                     
                     <div class="container-fluid">                        
-                        <div class="card" data-index="true">
+                        <div class="wp-transcript">
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-md-2 col-lg-2 col-sm-12">
@@ -59,7 +54,7 @@
                                             <h1>
                                                 <a>
                                                     <xsl:attribute name="href">
-                                                        <xsl:value-of select="$prev"/>
+                                                        <xsl:value-of select="replace($prev, '.html', '_facsimile.html')"/>
                                                     </xsl:attribute>
                                                     <i class="fas fa-chevron-left" title="prev"/>
                                                 </a>
@@ -81,7 +76,7 @@
                                             <h1>
                                                 <a>
                                                     <xsl:attribute name="href">
-                                                        <xsl:value-of select="$next"/>
+                                                        <xsl:value-of select="replace($next, '.html', '_facsimile.html')"/>
                                                     </xsl:attribute>
                                                     <i class="fas fa-chevron-right" title="next"/>
                                                 </a>
@@ -94,57 +89,84 @@
                                     <xsl:call-template name="annotation-options"></xsl:call-template>
                                 </div>
                             </div>
-                            <div class="card-body">                                
-                                <xsl:apply-templates select=".//tei:body"></xsl:apply-templates>
-                            </div>
-                            <div class="card-footer">
-                                <p style="text-align:center;">
-                                    <xsl:for-each select=".//tei:note[not(./tei:p)]">
-                                        <div class="footnotes" id="{local:makeId(.)}">
-                                            <xsl:element name="a">
-                                                <xsl:attribute name="name">
-                                                    <xsl:text>fn</xsl:text>
-                                                    <xsl:number level="any" format="1" count="tei:note"/>
-                                                </xsl:attribute>
-                                                <a>
-                                                    <xsl:attribute name="href">
-                                                        <xsl:text>#fna_</xsl:text>
-                                                        <xsl:number level="any" format="1" count="tei:note"/>
-                                                    </xsl:attribute>
-                                                    <span style="font-size:7pt;vertical-align:super; margin-right: 0.4em">
-                                                        <xsl:number level="any" format="1" count="tei:note"/>
-                                                    </span>
-                                                </a>
-                                            </xsl:element>
-                                            <xsl:apply-templates/>
+                            <div id="container-resize" class="row transcript active">
+                                <div id="img-resize" class="col-md-6 col-lg-6 col-sm-12 facsimiles">
+                                    <div id="viewer">
+                                        <div id="container_facs_1">
+                                            <!-- container and facs handling in js -->
                                         </div>
-                                    </xsl:for-each>
-                                </p>
+                                    </div>
+                                </div>
+                                <div id="text-resize" class="col-md-6 col-lg-6 col-sm-12 text yes-index">
+                                    <div id="section">
+                                        <xsl:for-each select="//tei:body">
+                                            <div class="card-body">
+                                                <xsl:for-each-group select="*" group-starting-with="tei:pb">
+                                                    <xsl:for-each select="current-group()[self::tei:p|self::tei:lg|self::tei:pb]">
+                                                        <xsl:if test="name() = 'pb'">
+                                                            <span class="anchor-pb"></span>
+                                                            <span class="pb" source="{@facs}"><xsl:value-of select="@n"/></span>
+                                                        </xsl:if>
+                                                        <p><xsl:apply-templates/></p>
+                                                    </xsl:for-each>
+                                                </xsl:for-each-group>
+                                            </div>
+                                            <xsl:if test="//tei:note[@type='footnote']">
+                                                <div class="card-footer">
+                                                    <a class="anchor" id="footnotes"></a>
+                                                    <ul class="footnotes">
+                                                        <xsl:for-each select="//tei:note[@place='foot']">
+                                                            <li>
+                                                                <a class="anchorFoot" id="{@xml:id}"></a>
+                                                                <span class="footnote_link">
+                                                                    <a href="#{@xml:id}_inline" class="nounderline">
+                                                                        <xsl:value-of select="@n"/>
+                                                                    </a>
+                                                                </span>
+                                                                <span class="footnote_text">
+                                                                    <xsl:apply-templates/>
+                                                                </span>
+                                                            </li>
+                                                        </xsl:for-each>
+                                                    </ul>
+                                                </div>
+                                            </xsl:if>
+                                        </xsl:for-each>
+                                    </div>
+                                </div>
                             </div>
+                            <!-- create list* elements for entities bs-modal -->
+                            <xsl:for-each select="//tei:back">
+                                <div class="tei-back">
+                                    <xsl:apply-templates/>
+                                </div>
+                            </xsl:for-each>
                         </div>                       
                     </div>
-                    <xsl:for-each select="//tei:back">
-                        <div class="tei-back">
-                            <xsl:apply-templates/>
-                        </div>
-                    </xsl:for-each>
                     <xsl:call-template name="html_footer"/>
                 </div>
                 <script src="https://unpkg.com/de-micro-editor@0.2.6/dist/de-editor.min.js"></script>
-                <script type="text/javascript" src="js/run.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"></script>
                 <script type="text/javascript" src="js/osd_scroll.js"></script>
+                <script type="text/javascript" src="js/run.js"></script>
             </body>
         </html>
     </xsl:template>
-
-    <xsl:template match="tei:p">
-        <p id="{local:makeId(.)}" class="yes-index">
-            <xsl:apply-templates/>
-        </p>
+    
+    <xsl:template match="tei:note">
+        <xsl:choose>
+            <xsl:when test="@place='foot'">
+                <a class="anchorFoot" id="{@xml:id}_inline"></a>
+                <a href="#{@xml:id}" title="Fußnote {@n}" class="nounderline">
+                    <sup><xsl:value-of select="@n"/></sup>
+                </a>
+            </xsl:when>
+            <xsl:when test="@place='end'">
+                <a class="anchorFoot" id="{@xml:id}_inline"></a>
+                <a href="#{@xml:id}" title="Fußnote {@n}" class="nounderline">
+                    <sup><xsl:value-of select="@n"/></sup>
+                </a>
+            </xsl:when>
+        </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:div">
-        <div id="{local:makeId(.)}">
-            <xsl:apply-templates/>
-        </div>
-    </xsl:template>  
 </xsl:stylesheet>
