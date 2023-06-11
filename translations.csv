@@ -1,13 +1,13 @@
 key,de,en,it
 navbar__project,Projekt,Project,Progetto
-navbar__about,Projektinformation,About the project,Sul progetto
-navbar__richtlinien,Editionsrichtlinien,About the project,Sul progetto
-navbar__team,Projektteam,About the project,Sul progetto
-navbar__publication,Publikationen,About the project,Sul progetto
-navbar__hints,Benutzungshinweise,About the project,Sul progetto
-navbar__toc,Editionseinheiten,Edition units,Unità di edizione
-navbar__cases,Gerichtsfälle,Court cases,casi giudiziari
-navbar__files,Akten,Files,File
+navbar__about,Projektinformation,About the project,Informazioni sul progetto
+navbar__richtlinien,Editionsrichtlinien,Edition Guidelines,Linee guida dell'edizione
+navbar__team,Projektteam,Project Team,Team di Progetto
+navbar__publication,Publikationen,Publications,Pubblicazioni
+navbar__hints,Benutzungshinweise,Instructions for use,Istruzioni per l'uso
+navbar__toc,Akten & Dokumente,Files and Documents,File e Documenti
+navbar__cases,Akten,Files,File
+navbar__files,Dokumente,Documents,Documenti
 navbar__register,Register,Register,Registrati
 navbar__persons,Personen,Person,Persone
 navbar__places,Orte,Places,Luoghi
