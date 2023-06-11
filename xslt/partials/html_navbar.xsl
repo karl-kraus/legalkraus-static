@@ -45,10 +45,10 @@
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  data-i18n="navbar__toc" ></a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a class="dropdown-item" href="toc.html"  data-i18n="navbar__nofacs"  ></a>
+                                        <a class="dropdown-item" href="cases.html"  data-i18n="navbar__cases"></a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="toc_facs.html"  data-i18n="navbar__withfacs" title="Mit Faksimiles" ></a>
+                                        <a class="dropdown-item" href="toc.html"  data-i18n="navbar__files"></a>
                                     </li>
                                 </ul>
                             </li>
