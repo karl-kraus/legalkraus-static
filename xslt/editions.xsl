@@ -4,7 +4,7 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
     version="2.0" exclude-result-prefixes="#all">
-    <xsl:output encoding="UTF-8" media-type="text/html" method="xhtml" version="1.0" indent="yes" omit-xml-declaration="yes"/>
+    <xsl:output encoding="UTF-8" media-type="text/html" method="html" version="5.0" indent="yes" omit-xml-declaration="yes"/>
     
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
@@ -29,12 +29,18 @@
     <xsl:variable name="doc_title">
         <xsl:value-of select=".//tei:title[@type='label'][1]/text()"/>
     </xsl:variable>
+    <xsl:variable name="colId">
+        <xsl:value-of select="tokenize(data(/tei:TEI/tei:teiHeader/tei:fileDesc/tei:seriesStmt/tei:title/@ref), '/')[last()]"/>
+    </xsl:variable>
+    <xsl:variable name="colTitle">
+        <xsl:value-of select="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:seriesStmt/tei:title/text()"/>
+    </xsl:variable>
 
     <xsl:template match="/">
         <xsl:variable name="doc_title">
             <xsl:value-of select=".//tei:title[@type='main'][1]/text()"/>
         </xsl:variable>
-        <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
+        
         <html>
             <head>
                 <xsl:call-template name="html_head">
@@ -44,6 +50,13 @@
             <body class="page">
                 <div class="hfeed site" id="page">
                     <xsl:call-template name="nav_bar"/>
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="toc.html">Akten</a></li>
+                            <li class="breadcrumb-item"><a><xsl:attribute name="href"><xsl:value-of select="concat($colId, '.html')"/></xsl:attribute><xsl:value-of select="$colTitle"/></a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><xsl:value-of select="$doc_title"/></li>
+                        </ol>
+                    </nav>
                     
                     <div class="container-fluid">                        
                         <div class="wp-transcript">
@@ -99,17 +112,9 @@
                                 </div>
                                 <div id="text-resize" class="col-md-6 col-lg-6 col-sm-12 text yes-index">
                                     <div id="section">
-                                        <xsl:for-each select="//tei:body">
+                                        
                                             <div class="card-body">
-                                                <xsl:for-each-group select="*" group-starting-with="tei:pb">
-                                                    <xsl:for-each select="current-group()[self::tei:p|self::tei:lg|self::tei:pb]">
-                                                        <xsl:if test="name() = 'pb'">
-                                                            <span class="anchor-pb"></span>
-                                                            <span class="pb" source="{@facs}"><xsl:value-of select="@n"/></span>
-                                                        </xsl:if>
-                                                        <p><xsl:apply-templates/></p>
-                                                    </xsl:for-each>
-                                                </xsl:for-each-group>
+                                                <xsl:apply-templates select="//tei:body"></xsl:apply-templates>
                                             </div>
                                             <xsl:if test="//tei:note[@type='footnote']">
                                                 <div class="card-footer">
@@ -131,7 +136,7 @@
                                                     </ul>
                                                 </div>
                                             </xsl:if>
-                                        </xsl:for-each>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -168,5 +173,19 @@
                 </a>
             </xsl:when>
         </xsl:choose>
+    </xsl:template>
+    <xsl:template match="tei:pb">
+        <xsl:variable name="pbId">
+            <xsl:value-of select="replace(data(@facs), '#', '')"/>
+        </xsl:variable>
+        <xsl:variable name="surfaceNode" as="node()">
+            <xsl:value-of select="//tei:graphic[@xml:id=$pbId]"/>
+        </xsl:variable>
+        <xsl:variable name="facsUrl">
+            <xsl:value-of select="data(//tei:surface[@xml:id=$pbId]/tei:graphic/@url)"/>
+        </xsl:variable>
+        
+        <span class="anchor-pb"></span>
+        <span class="pb" source="{$facsUrl}"><xsl:value-of select="./@n"/></span>
     </xsl:template>
 </xsl:stylesheet>

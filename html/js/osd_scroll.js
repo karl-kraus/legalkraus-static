@@ -20,7 +20,7 @@ height is always the screen height minus some offset
 ##################################################################
 */
 if (!wrapper.classList.contains("fade")) {
-    container.style.height = `${String(height / 2)}px`;
+    container.style.height = `${String(height / 1)}px`;
     // set osd wrapper container width
     var container = document.getElementById("section");
     if (container !== null) {
@@ -29,14 +29,14 @@ if (!wrapper.classList.contains("fade")) {
     var container = document.getElementById("viewer");
     container.style.width = `${String(width - 25)}px`;
 } else {
-    container.style.height = `${String(height / 2)}px`;
+    container.style.height = `${String(height / 1)}px`;
     // set osd wrapper container width
     var container = document.getElementById("section");
     if (container !== null) {
         var width = container.clientWidth;
     }
     var container = document.getElementById("viewer");
-    container.style.width = `${String(width / 2)}px`;
+    container.style.width = `${String(width / 0.7)}px`;
 }
 
 /*
@@ -63,7 +63,7 @@ var viewer = OpenSeadragon({
     id: 'container_facs_1',
     prefixUrl: 'https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/images/',
     sequenceMode: true,
-    showNavigator: true,
+    showNavigator: false,
     tileSources: tileSources
 });
 /*
