@@ -34,7 +34,7 @@ for x in tqdm(cases):
         rel_ent["id"] = rel.attrib["sameAs"][1:]
         rel_ent["role_url"] = rel.attrib["role"]
         rel_ent["role"] = rel.xpath("./tei:note/text()", namespaces=nsmap)[0]
-        rel_ent["name_and_role"] = f'{rel_ent["title"]} ({rel_ent["role"]})'
+        rel_ent["name_and_role"] = f'{rel_ent["title"]} | {rel_ent["role"]}'
         case["related_persons"].append(rel_ent)
     for y in docs:
         try:
@@ -49,6 +49,7 @@ for x in tqdm(cases):
         item["case"] = case
         item["title"] = soc.any_xpath(".//tei:titleStmt/tei:title[1]/text()")[0]
         item["full_text"] = " ".join(" ".join(body.itertext()).split())
+        item["materials"] = soc.any_xpath(".//tei:objectType/text()")
 
         item["places"] = []
         for entity_node in soc.any_xpath(".//tei:listPlace/tei:place"):
@@ -132,6 +133,7 @@ current_schema = {
             "optional": True,
             "facet": True,
         },
+        {"name": "materials", "type": "string[]", "facet": True, "optional": True},
         {"name": "persons", "type": "object[]", "facet": True, "optional": True},
         {"name": "places", "type": "object[]", "facet": True, "optional": True},
         {"name": "orgs", "type": "object[]", "facet": True, "optional": True},
