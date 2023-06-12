@@ -23,15 +23,16 @@ current_schema = {
         {"name": "rec_id", "type": "string"},
         {"name": "title", "type": "string"},
         {"name": "full_text", "type": "string"},
+        {"name": "case", "type": "object", "facet": True},
         {
             "name": "year",
             "type": "int32",
             "optional": True,
             "facet": True,
         },
-        {"name": "persons", "type": "string[]", "facet": True, "optional": True},
-        {"name": "places", "type": "string[]", "facet": True, "optional": True},
-        {"name": "orgs", "type": "string[]", "facet": True, "optional": True},
+        {"name": "persons", "type": "object[]", "facet": True, "optional": True},
+        {"name": "places", "type": "object[]", "facet": True, "optional": True},
+        {"name": "orgs", "type": "object[]", "facet": True, "optional": True},
     ],
 }
 
@@ -73,7 +74,9 @@ for x in tqdm(files, total=len(files)):
         record = {}
         record["id"] = os.path.split(x)[-1].replace(".xml", f".html?tab={str(pages)}")
         cfts_record["id"] = record["id"]
-        cfts_record["resolver"] = f"https://github.com/karl-kraus/legalkraus-static/{record['id']}"
+        cfts_record[
+            "resolver"
+        ] = f"https://github.com/karl-kraus/legalkraus-static/{record['id']}"
         record["rec_id"] = os.path.split(x)[-1]
         cfts_record["rec_id"] = record["rec_id"]
         r_title = " ".join(
@@ -137,9 +140,7 @@ for x in tqdm(files, total=len(files)):
                 cfts_record["full_text"] = record["full_text"]
                 cfts_records.append(cfts_record)
 
-make_index = client.collections[
-    "Rechtsakten Karl Kraus"
-].documents.import_(records)
+make_index = client.collections["Rechtsakten Karl Kraus"].documents.import_(records)
 print(make_index)
 print("done with indexing Rechtsakten Karl Kraus")
 
