@@ -36,19 +36,20 @@ search.addWidgets([
   instantsearch.widgets.hits({
     container: "#hits",
     templates: {
-      empty: "Keine Resultate für <q>{{ query }}</q>",
-      item: `
-              <h4><a href="{{ rec_id }}">{{#helpers.snippet}}{ "attribute": "title", "highlightedTagName": "mark" }{{/helpers.snippet}}</a></h4>
-              <h5>{{ case.title }}</h5>
-              <p style="overflow:hidden;max-height:210px;">{{#helpers.snippet}}{ "attribute": "full_text", "highlightedTagName": "mark" }{{/helpers.snippet}}</p>
-              <h5><span class="badge badge-primary">{{ project }}</span></h5>
-              <div>
-                  <div>
-                      <span class="badge bg-secondary">{{ year }}</span>
-                  </div>
-              </div>
-          `,
-    },
+        empty: "Keine Resultate für <q>{{ query }}</q>",
+        item(hit, { html, components }) {
+          return html`
+            <h2>${components.Highlight({ hit, attribute: 'title' })}</h2>
+            <p>${hit._snippetResult.full_text.matchedWords.length > 0 ? components.Snippet({ hit, attribute: 'full_text' }) : '' }</p>
+            <h3>Personen</h3>
+            ${hit.persons.map((item) => html`<a href='${item.id}'><span class="badge rounded-pill m-1 bg-warning">${item.title}</span></a>`)}
+            <h3>Orte</h3>
+            <ul>
+            ${hit.places.map((item) => html`<li><a href='${item.id}'>${item.title}</a></li>`)}
+            </ul>            
+          `;
+        },
+      },
   }),
 
   instantsearch.widgets.pagination({
