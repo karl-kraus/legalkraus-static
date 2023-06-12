@@ -37,48 +37,82 @@ for x in tqdm(cases[:3]):
         item["case"] = case
         item["title"] = soc.any_xpath(".//tei:titleStmt/tei:title[1]/text()")[0]
         item["full_text"] = " ".join(" ".join(body.itertext()).split())
+
         item["places"] = []
-        for place in soc.any_xpath('.//tei:listPlace/tei:place'):
-            pl = {}
-            pl["id"] = place.attrib["{http://www.w3.org/XML/1998/namespace}id"]
-            pl["title"] = place.xpath('./tei:placeName[1]/text()', namespaces=nsmap)[0]
-            item["places"].append(pl)
+        for entity_node in soc.any_xpath('.//tei:listPlace/tei:place'):
+            entity = {}
+            entity["id"] = entity_node.attrib["{http://www.w3.org/XML/1998/namespace}id"]
+            entity["title"] = entity_node.xpath('./tei:placeName[1]/text()', namespaces=nsmap)[0]
+            try:
+                entity["geonames"] = entity_node.xpath('.//tei:idno[@subtype="geonames"][1]/text()', namespaces=nsmap)[0]
+            except IndexError:
+                pass
+            try:
+                entity["gnd"] = entity_node.xpath('.//tei:idno[@subtype="gnd"][1]/text()', namespaces=nsmap)[0]
+            except IndexError:
+                pass
+            item["places"].append(entity)
+
+        item["persons"] = []
+        for entity_node in soc.any_xpath('.//tei:listPerson/tei:person'):
+            entity = {}
+            entity["id"] = entity_node.attrib["{http://www.w3.org/XML/1998/namespace}id"]
+            entity_title = entity_node.xpath('./tei:persName[1]', namespaces=nsmap)[0]
+            entity["title"] = " ".join(" ".join(entity_title.itertext()).split())
+            try:
+                entity["geonames"] = entity_node.xpath('.//tei:idno[@subtype="geonames"][1]/text()', namespaces=nsmap)[0]
+            except IndexError:
+                pass
+            try:
+                entity["gnd"] = entity_node.xpath('.//tei:idno[@subtype="gnd"][1]/text()', namespaces=nsmap)[0]
+            except IndexError:
+                pass
+            item["persons"].append(entity)
+
+        item["works"] = []
+        item["fackel"] = []
+        for entity_node in soc.any_xpath('.//tei:back/tei:listBibl/tei:bibl'):
+            entity = {}
+            entity["id"] = entity_node.attrib["{http://www.w3.org/XML/1998/namespace}id"]
+            entity["title"] = entity_node.xpath('./tei:title[1]/text()', namespaces=nsmap)[0]
+            try:
+                work_type = entity_node.attrib["type"]
+                item["fackel"].append(entity)
+            except KeyError:
+                item["works"].append(entity)
+        records.append(item)
+
+try:
+    client.collections[schema_name].delete()
+except ObjectNotFound:
+    pass
+
+current_schema = {
+    "name": schema_name,
+    "enable_nested_fields": True,
+    "fields": [
+        {"name": "id", "type": "string"},
+        {"name": "rec_id", "type": "string"},
+        {"name": "title", "type": "string"},
+        {"name": "full_text", "type": "string"},
+        {"name": "case", "type": "object", "facet": True},
+        {
+            "name": "year",
+            "type": "int32",
+            "optional": True,
+            "facet": True,
+        },
+        {"name": "persons", "type": "object[]", "facet": True, "optional": True},
+        {"name": "places", "type": "object[]", "facet": True, "optional": True},
+        {"name": "orgs", "type": "object[]", "facet": True, "optional": True},
+        {"name": "works", "type": "object[]", "facet": True, "optional": True},
+        {"name": "fackel", "type": "object[]", "facet": True, "optional": True},
+    ],
+}
+
+client.collections.create(current_schema)
 
 
-print(item)
-
-
-# try:
-#     client.collections[schema_name].delete()
-# except ObjectNotFound:
-#     pass
-
-# current_schema = {
-#     "name": schema_name,
-#     "enable_nested_fields": True,
-#     "fields": [
-#         {"name": "id", "type": "string"},
-#         {"name": "rec_id", "type": "string"},
-#         {"name": "title", "type": "string"},
-#         {"name": "full_text", "type": "string"},
-#         {"name": "case", "type": "object", "facet": True},
-#         {
-#             "name": "year",
-#             "type": "int32",
-#             "optional": True,
-#             "facet": True,
-#         },
-#         {"name": "persons", "type": "object[]", "facet": True, "optional": True},
-#         {"name": "places", "type": "object[]", "facet": True, "optional": True},
-#         {"name": "orgs", "type": "object[]", "facet": True, "optional": True},
-#     ],
-# }
-
-# client.collections.create(current_schema)
-
-
-# records = []
-
-# make_index = client.collections[schema_name].documents.import_(records)
-# print(make_index)
-# print(f"done with indexing {schema_name}")
+make_index = client.collections[schema_name].documents.import_(records)
+print(make_index)
+print(f"done with indexing {schema_name}")
