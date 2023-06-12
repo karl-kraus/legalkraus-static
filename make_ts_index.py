@@ -1,149 +1,84 @@
 import glob
 import os
-
 from typesense.api_call import ObjectNotFound
 from acdh_cfts_pyutils import TYPESENSE_CLIENT as client
-from acdh_cfts_pyutils import CFTS_COLLECTION
 from acdh_tei_pyutils.tei import TeiReader
 from tqdm import tqdm
 
 
-files = glob.glob("./data/editions/*/*.xml")
+schema_name = "legalkraus"
 
 
-try:
-    client.collections["Rechtsakten Karl Kraus"].delete()
-except ObjectNotFound:
-    pass
-
-current_schema = {
-    "name": "Rechtsakten Karl Kraus",
-    "fields": [
-        {"name": "id", "type": "string"},
-        {"name": "rec_id", "type": "string"},
-        {"name": "title", "type": "string"},
-        {"name": "full_text", "type": "string"},
-        {"name": "case", "type": "object", "facet": True},
-        {
-            "name": "year",
-            "type": "int32",
-            "optional": True,
-            "facet": True,
-        },
-        {"name": "persons", "type": "object[]", "facet": True, "optional": True},
-        {"name": "places", "type": "object[]", "facet": True, "optional": True},
-        {"name": "orgs", "type": "object[]", "facet": True, "optional": True},
-    ],
-}
-
-client.collections.create(current_schema)
-
-
-def get_entities(ent_type, ent_node, ent_name):
-    entities = []
-    e_path = f'.//tei:rs[@type="{ent_type}"]/@ref'
-    for p in body:
-        ent = p.xpath(e_path, namespaces={"tei": "http://www.tei-c.org/ns/1.0"})
-        ref = [ref.replace("#", "") for e in ent if len(ent) > 0 for ref in e.split()]
-        for r in ref:
-            p_path = f'.//tei:{ent_node}[@xml:id="{r}"]//tei:{ent_name}[1]'
-            en = doc.any_xpath(p_path)
-            if en:
-                entity = " ".join(" ".join(en[0].xpath(".//text()")).split())
-                if len(entity) != 0:
-                    entities.append(entity)
-                else:
-                    with open("log-entities.txt", "a") as f:
-                        f.write(f"{r} in {record['id']}\n")
-    return [ent for ent in sorted(set(entities))]
-
+cases = sorted(glob.glob("./data/cases_tei/C_*.xml"))
+editions_dir = "./data/editions"
 
 records = []
-cfts_records = []
-for x in tqdm(files, total=len(files)):
-    doc = TeiReader(xml=x, xsl="./xslt/preprocess_typesense.xsl")
-    facs = doc.any_xpath(".//tei:body/tei:div/tei:pb/@facs")
-    pages = 0
-    for v in facs:
-        p_group = f".//tei:body/tei:div/tei:p[preceding-sibling::tei:pb[1]/@facs='{v}']|.//tei:body/tei:div/tei:lg[preceding-sibling::tei:pb[1]/@facs='{v}']"
-        body = doc.any_xpath(p_group)
-        pages += 1
-        cfts_record = {
-            "project": "Rechtsakten Karl Kraus",
-        }
-        record = {}
-        record["id"] = os.path.split(x)[-1].replace(".xml", f".html?tab={str(pages)}")
-        cfts_record["id"] = record["id"]
-        cfts_record[
-            "resolver"
-        ] = f"https://github.com/karl-kraus/legalkraus-static/{record['id']}"
-        record["rec_id"] = os.path.split(x)[-1]
-        cfts_record["rec_id"] = record["rec_id"]
-        r_title = " ".join(
-            " ".join(
-                doc.any_xpath('.//tei:titleStmt/tei:title[@level="a"]/text()')
-            ).split()
-        )
-        record["title"] = f"{r_title} Page {str(pages)}"
-        cfts_record["title"] = record["title"]
+for x in tqdm(cases[:3]):
+    case_id = os.path.split(x)[-1]
+    doc = TeiReader(x)
+    nsmap = doc.nsmap
+    case = {}
+    case["title"] = doc.any_xpath(".//tei:title[1]/text()")[0]
+    case["id"] = case_id.replace(".xml", "")
+    case["resolver"] = case_id.replace(".xml", ".html")
+    docs = doc.any_xpath(".//tei:sourceDesc/tei:list/tei:item/tei:ref/text()")
+    case["nr_of_docs"] = len(docs)
+    case["abstract"] = " ".join(doc.any_xpath(".//tei:abstract//text()"))
+    for y in docs[:2]:
         try:
-            date_str = doc.any_xpath("//tei:origin/tei:origDate/@notBefore")[0]
-        except IndexError:
-            date_str = doc.any_xpath("//tei:origin/tei:origDate/text()")[0]
-            data_str = date_str.split("--")[0]
-            if len(date_str) > 3:
-                date_str = date_str
-            else:
-                date_str = "1959"
+            soc = TeiReader(os.path.join(editions_dir, y))
+        except Exception as e:
+            print(y, e)
+            continue
+        body = soc.any_xpath('.//tei:body')[0]
+        item = {}
+        item["id"] = y.replace(".xml", "")
+        item["rec_id"] = y.replace(".xml", ".html")
+        item["case"] = case
+        item["title"] = soc.any_xpath(".//tei:titleStmt/tei:title[1]/text()")[0]
+        item["full_text"] = " ".join(" ".join(body.itertext()).split())
+        item["places"] = []
+        for place in soc.any_xpath('.//tei:listPlace/tei:place'):
+            pl = {}
+            pl["id"] = place.attrib["{http://www.w3.org/XML/1998/namespace}id"]
+            pl["title"] = place.xpath('./tei:placeName[1]/text()', namespaces=nsmap)[0]
+            item["places"].append(pl)
 
-        try:
-            record["year"] = int(date_str[:4])
-            cfts_record["year"] = int(date_str[:4])
-        except ValueError:
-            pass
 
-        if len(body) > 0:
-            # get unique persons per page
-            ent_type = "person"
-            ent_name = "persName"
-            record["persons"] = get_entities(
-                ent_type=ent_type, ent_node=ent_type, ent_name=ent_name
-            )
-            cfts_record["persons"] = record["persons"]
-            # get unique places per page
-            ent_type = "place"
-            ent_name = "placeName"
-            record["places"] = get_entities(
-                ent_type=ent_type, ent_node=ent_type, ent_name=ent_name
-            )
-            cfts_record["places"] = record["places"]
-            # get unique orgs per page
-            ent_type = "org"
-            ent_name = "orgName"
-            record["orgs"] = get_entities(
-                ent_type=ent_type, ent_node=ent_type, ent_name=ent_name
-            )
-            cfts_record["orgs"] = record["orgs"]
-            # get unique bibls per page
-            ent_type = "lit_work"
-            ent_name = "title"
-            ent_node = "bibl"
-            record["works"] = get_entities(
-                ent_type=ent_type, ent_node=ent_node, ent_name=ent_name
-            )
-            cfts_record["works"] = record["works"]
-            record["full_text"] = "\n".join(
-                " ".join("".join(p.itertext()).split()) for p in body
-            )
-            if len(record["full_text"]) > 0:
-                records.append(record)
-                cfts_record["full_text"] = record["full_text"]
-                cfts_records.append(cfts_record)
+print(item)
 
-make_index = client.collections["Rechtsakten Karl Kraus"].documents.import_(records)
-print(make_index)
-print("done with indexing Rechtsakten Karl Kraus")
 
-make_index = CFTS_COLLECTION.documents.import_(cfts_records, {"action": "upsert"})
-print(make_index)
-print("done with cfts-index Rechtsakten Karl Kraus")
+# try:
+#     client.collections[schema_name].delete()
+# except ObjectNotFound:
+#     pass
+
+# current_schema = {
+#     "name": schema_name,
+#     "enable_nested_fields": True,
+#     "fields": [
+#         {"name": "id", "type": "string"},
+#         {"name": "rec_id", "type": "string"},
+#         {"name": "title", "type": "string"},
+#         {"name": "full_text", "type": "string"},
+#         {"name": "case", "type": "object", "facet": True},
+#         {
+#             "name": "year",
+#             "type": "int32",
+#             "optional": True,
+#             "facet": True,
+#         },
+#         {"name": "persons", "type": "object[]", "facet": True, "optional": True},
+#         {"name": "places", "type": "object[]", "facet": True, "optional": True},
+#         {"name": "orgs", "type": "object[]", "facet": True, "optional": True},
+#     ],
+# }
+
+# client.collections.create(current_schema)
+
+
+# records = []
+
+# make_index = client.collections[schema_name].documents.import_(records)
+# print(make_index)
+# print(f"done with indexing {schema_name}")
