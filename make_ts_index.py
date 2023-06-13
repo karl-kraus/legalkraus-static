@@ -46,6 +46,7 @@ for x in tqdm(cases):
         item = {}
         item["id"] = y.replace(".xml", "")
         item["rec_id"] = y.replace(".xml", ".html")
+        item["case_id"] = case_id.replace(".xml", ".html")
         item["case"] = case
         item["title"] = soc.any_xpath(".//tei:titleStmt/tei:title[1]/text()")[0]
         item["full_text"] = " ".join(" ".join(body.itertext()).split())
@@ -123,10 +124,11 @@ current_schema = {
     "enable_nested_fields": True,
     "fields": [
         {"name": "id", "type": "string"},
-        {"name": "rec_id", "type": "string"},
+        {"name": "rec_id", "type": "string", "sort": True},
         {"name": "title", "type": "string"},
         {"name": "full_text", "type": "string"},
-        {"name": "case", "type": "object", "facet": True},
+        {"name": "case", "type": "object", "facet": True },
+        {"name": "case_id", "type": "string", "facet": False, "sort": True},
         {
             "name": "year",
             "type": "int32",
