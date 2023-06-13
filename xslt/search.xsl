@@ -31,23 +31,29 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div id="stats-container"></div>
-                                        <h4>Volltextsuche</h4>
+                                        <h2>Volltextsuche</h2>
                                         <div id="searchbox"></div>
                                         <div id="current-refinements"></div>
                                         <div id="clear-refinements"></div>
-                                        <h4>Akten</h4>
+                                        <hr />
+                                        <h2>Akten</h2>
+                                        <h4>Aktentitel</h4>
                                         <div id="refinement-list-case"/>
+                                        <h4>Kläger, Beklagte, Anwälte und Richter</h4>
+                                        <div id="refinement-list-related-persons"/>
                                         <h4>Schlagworte</h4>
                                         <div id="refinement-list-keywords"></div>
-                                        <h4>Materialart</h4>
-                                        <div id="refinement-list-materials"></div>
+                                        <!--<h4>Anzahl der Dokumente</h4>
+                                        <div id="refinement-list-related-docs"></div>-->
                                         <hr />
+                                        <h2>Dokumente</h2>
+                                        <h3>Personen, Orte und Institutionen</h3>
                                         <h4>Personen</h4>
                                         <div id="refinement-list-persons"></div>
-                                        
-                                        
-                                        
-                                        
+                                        <h4>Orte</h4>
+                                        <div id="refinement-list-places"></div>
+                                        <h4>Materialart</h4>
+                                        <div id="refinement-list-materials"></div>
                                     </div>
                                     <div class="col-md-8">
                                         <div id="sort-by"></div>

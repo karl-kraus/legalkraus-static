@@ -78,6 +78,23 @@ search.addWidgets([
     }),
 
     instantsearch.widgets.refinementList({
+        container: "#refinement-list-related-persons",
+        attribute: "case.related_persons.name_and_role",
+        searchable: true,
+        searchablePlaceholder: "Suchen",
+        cssClasses: {
+            searchableInput: "form-control form-control-sm m-2 border-light-2",
+            searchableSubmit: "d-none",
+            searchableReset: "d-none",
+            showMore: "btn btn-secondary btn-sm align-content-center",
+            list: "list-unstyled",
+            count: "badge m-2 badge-secondary hideme ",
+            label: "d-flex align-items-center text-capitalize",
+            checkbox: "m-2",
+        },
+    }),
+
+    instantsearch.widgets.refinementList({
         container: "#refinement-list-keywords",
         attribute: "case.keywords",
         searchable: true,
@@ -97,6 +114,19 @@ search.addWidgets([
     instantsearch.widgets.refinementList({
         container: "#refinement-list-persons",
         attribute: "persons.title",
+        searchable: true,
+        cssClasses: {
+            showMore: "btn btn-secondary btn-sm align-content-center",
+            list: "list-unstyled",
+            count: "badge m-2 badge-secondary hideme",
+            label: "d-flex align-items-center",
+            checkbox: "m-2",
+        },
+    }),
+
+    instantsearch.widgets.refinementList({
+        container: "#refinement-list-places",
+        attribute: "places.title",
         searchable: true,
         cssClasses: {
             showMore: "btn btn-secondary btn-sm align-content-center",
@@ -187,12 +217,10 @@ search.addWidgets([
     }),
 
     instantsearch.widgets.configure({
-        hitsPerPage: 10,
+        hitsPerPage: 20,
         attributesToSnippet: ["full_text"],
     }),
 
 ]);
 
 search.start();
-
-//'doc_internal_orderval: 1'  
