@@ -96,7 +96,15 @@ for x in tqdm(cases):
             except IndexError:
                 pass
             item["persons"].append(entity)
-
+        try:
+            year = soc.any_xpath("//tei:creation/tei:date/text()")[0]
+        except IndexError:
+            year = ""
+        if len(year) >= 4:
+            try:
+                item["year"] = int(year.strip()[-4:])
+            except ValueError:
+                pass
         item["works"] = []
         item["fackel"] = []
         for entity_node in soc.any_xpath(".//tei:back/tei:listBibl/tei:bibl"):

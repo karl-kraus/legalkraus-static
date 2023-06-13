@@ -164,19 +164,33 @@ search.addWidgets([
         },
     }),
 
-    //   instantsearch.widgets.rangeInput({
-    //     container: "#refinement-range-year",
-    //     attribute: "creation_year",
-    //     templates: {
-    //       separatorText: "to",
-    //       submitText: "Suchen",
-    //     },
-    //     cssClasses: {
-    //       form: "form-inline",
-    //       input: "form-control",
-    //       submit: "btn",
-    //     },
-    //   }),
+      instantsearch.widgets.rangeInput({
+        container: "#refinement-range-year",
+        attribute: "year",
+        templates: {
+          separatorText: "bis",
+          submitText: "Suchen",
+        },
+        cssClasses: {
+          form: "form-inline",
+          input: "form-control",
+          submit: "btn",
+        },
+      }),
+    
+      instantsearch.widgets.rangeInput({
+        container: "#refinement-range-rel-docs",
+        attribute: "case.nr_of_docs",
+        templates: {
+          separatorText: "bis",
+          submitText: "Suchen",
+        },
+        cssClasses: {
+          form: "form-inline",
+          input: "form-control",
+          submit: "btn",
+        },
+      }),
 
     instantsearch.widgets.pagination({
         container: "#pagination",

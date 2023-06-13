@@ -43,10 +43,12 @@
                                         <div id="refinement-list-related-persons"/>
                                         <h4>Schlagworte</h4>
                                         <div id="refinement-list-keywords"></div>
-                                        <!--<h4>Anzahl der Dokumente</h4>
-                                        <div id="refinement-list-related-docs"></div>-->
-                                        <hr />
+                                        <h4>Anzahl der Dokumente</h4>
+                                        <div id="refinement-range-rel-docs"></div>
+                                        <hr class="mb-2"/>
                                         <h2>Dokumente</h2>
+                                        <h2>Enstehungsjahr</h2>
+                                        <div id="refinement-range-year"/>
                                         <h3>Personen, Orte und Institutionen</h3>
                                         <h4>Personen</h4>
                                         <div id="refinement-list-persons"></div>
