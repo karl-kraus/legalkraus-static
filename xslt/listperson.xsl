@@ -12,7 +12,7 @@
     <xsl:import href="./partials/person.xsl"/>
     <xsl:template match="/">
         <xsl:variable name="doc_title">
-            <xsl:value-of select=".//tei:title[@type='main'][1]/text()"/>
+            <xsl:value-of select="'Personenregister'"/>
         </xsl:variable>
         <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
         <html>
@@ -35,8 +35,10 @@
                                 <table class="table table-striped display" id="tocTable" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Nachname</th>
-                                            <th scope="col">Vorname</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Profession</th>
+                                            <th scope="col">geboren</th>
+                                            <th scope="col">gestorben</th>
                                             <th scope="col">ID</th>
                                         </tr>
                                     </thead>
@@ -47,10 +49,25 @@
                                             </xsl:variable>
                                             <tr>
                                                 <td>
-                                                    <xsl:value-of select=".//tei:surname/text()"/>
+                                                    <xsl:choose>
+                                                        <xsl:when test="./tei:persName/tei:forename">
+                                                            <xsl:value-of select=".//tei:surname/text()"/>,  <xsl:value-of select=".//tei:forename/text()"/>
+                                                        </xsl:when>
+                                                        <xsl:otherwise>
+                                                            <xsl:value-of select=".//tei:surname/text()"/>
+                                                        </xsl:otherwise>
+                                                    </xsl:choose>
+                                                </td>
+                                                <td>
+                                                    <xsl:for-each select=".//tei:occupation">
+                                                        <span class="badge rounded-pill m-1 bg-info"><xsl:value-of select="./text()"/></span>
+                                                    </xsl:for-each>
                                                 </td>
                                                 <td>                                        
-                                                    <xsl:value-of select=".//tei:forename/text()"/>
+                                                    <xsl:value-of select="./tei:birth/tei:date/text()"/>
+                                                </td>
+                                                <td>                                        
+                                                    <xsl:value-of select="./tei:death/tei:date/text()"/>
                                                 </td>
                                                 <td>
                                                     <a>
