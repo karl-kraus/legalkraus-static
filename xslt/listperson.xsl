@@ -95,9 +95,9 @@
                 </div>
             </body>
         </html>
-        <!--<xsl:for-each select=".//tei:person[@xml:id]">
+        <xsl:for-each select=".//tei:person[@xml:id]">
             <xsl:variable name="filename" select="concat(./@xml:id, '.html')"/>
-            <xsl:variable name="name" select="normalize-space(string-join(./tei:persName//text()))"></xsl:variable>
+            <xsl:variable name="name" select="normalize-space(string-join(./tei:persName[1]//text()))"></xsl:variable>
             <xsl:result-document href="{$filename}">
                 <html xmlns="http://www.w3.org/1999/xhtml">
                     <xsl:call-template name="html_head">
@@ -127,7 +127,7 @@
                 </html>
             </xsl:result-document>
             
-        </xsl:for-each>-->
+        </xsl:for-each>
     </xsl:template>
     
 </xsl:stylesheet>
