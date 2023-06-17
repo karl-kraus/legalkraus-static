@@ -89,7 +89,7 @@
                         <ul>
                             <xsl:for-each select=".//tei:event[@type='mentioned']">
                                 <li>
-                                    <a href="{replace(./tei:linkGrp/tei:link/@target, '.xml', '.html')}">
+                                    <a href="{replace(tokenize(./tei:linkGrp/tei:link/@target, '/')[last()], '.xml', '.html')}">
                                         <xsl:value-of select="./tei:p/tei:title"/>
                                     </a>
                                 </li>

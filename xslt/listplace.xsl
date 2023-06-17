@@ -12,7 +12,7 @@
     <xsl:import href="./partials/place.xsl"/>
     <xsl:template match="/">
         <xsl:variable name="doc_title">
-            <xsl:value-of select=".//tei:title[@type='main'][1]/text()"/>
+            <xsl:value-of select="'Ortsregister'"/>
         </xsl:variable>
         <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
         <html>
@@ -25,6 +25,12 @@
             <body class="page">
                 <div class="hfeed site" id="page">
                     <xsl:call-template name="nav_bar"/>
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><xsl:value-of select="$doc_title"/></li>
+                        </ol>
+                    </nav>
                     
                     <div class="container-fluid">                        
                         <div class="card">
@@ -36,29 +42,29 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Ortsname</th>
-                                            <th scope="col">Lat/Lng</th>
-                                            <th scope="col">ID</th>
+                                            <th scope="col">gelegen in</th>
+                                            <th scope="col">Typ</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <xsl:for-each select=".//tei:place">
+                                        <xsl:for-each select=".//tei:place[@xml:id]">
                                             <xsl:variable name="id">
                                                 <xsl:value-of select="data(@xml:id)"/>
                                             </xsl:variable>
                                             <tr>
                                                 <td>
-                                                    <xsl:value-of select=".//tei:placeName[1]/text()"/>
-                                                </td>
-                                                <td>
-                                                    <xsl:value-of select=".//tei:geo[1]/text()"/>
-                                                </td>
-                                                <td>
                                                     <a>
                                                         <xsl:attribute name="href">
                                                             <xsl:value-of select="concat($id, '.html')"/>
                                                         </xsl:attribute>
-                                                        <xsl:value-of select="$id"/>
-                                                    </a> 
+                                                    <xsl:value-of select="./tei:placeName[1]/text()"/>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <xsl:value-of select="./tei:location[@type='located_in_place']/tei:placeName"/>
+                                                </td>
+                                                <td>
+                                                    <xsl:value-of select="./tei:desc[@type='entity_type']/text()"/>
                                                 </td>
                                             </tr>
                                         </xsl:for-each>
