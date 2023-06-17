@@ -36,10 +36,9 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Name</th>
-                                            <th scope="col">Profession</th>
                                             <th scope="col">geboren</th>
                                             <th scope="col">gestorben</th>
-                                            <th scope="col">ID</th>
+                                            <th scope="col">Profession</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -49,6 +48,10 @@
                                             </xsl:variable>
                                             <tr>
                                                 <td>
+                                                    <a>
+                                                        <xsl:attribute name="href">
+                                                            <xsl:value-of select="concat($id, '.html')"/>
+                                                        </xsl:attribute>
                                                     <xsl:choose>
                                                         <xsl:when test="./tei:persName/tei:forename">
                                                             <xsl:value-of select=".//tei:surname/text()"/>,  <xsl:value-of select=".//tei:forename/text()"/>
@@ -57,25 +60,22 @@
                                                             <xsl:value-of select=".//tei:surname/text()"/>
                                                         </xsl:otherwise>
                                                     </xsl:choose>
-                                                </td>
-                                                <td>
-                                                    <xsl:for-each select=".//tei:occupation">
-                                                        <span class="badge rounded-pill m-1 bg-info"><xsl:value-of select="./text()"/></span>
-                                                    </xsl:for-each>
+                                                    </a>
                                                 </td>
                                                 <td>                                        
-                                                    <xsl:value-of select="./tei:birth/tei:date/text()"/>
+                                                    <xsl:value-of select="./tei:birth/tei:date/text()"/><xsl:if test="./tei:birth//tei:placeName">, <a>
+                                                        <xsl:attribute name="href"><xsl:value-of select="concat(data(./tei:birth/tei:settlement[1]/@key[1]), '.html')"/></xsl:attribute><xsl:value-of select="./tei:birth//tei:placeName[1]/text()"/></a></xsl:if>
                                                 </td>
                                                 <td>                                        
-                                                    <xsl:value-of select="./tei:death/tei:date/text()"/>
+                                                    <xsl:value-of select="./tei:death/tei:date/text()"/><xsl:if test="./tei:death//tei:placeName">, <a>
+                                                        <xsl:attribute name="href"><xsl:value-of select="concat(data(./tei:death/tei:settlement[1]/@key[1]), '.html')"/></xsl:attribute><xsl:value-of select="./tei:death//tei:placeName[1]/text()"/></a></xsl:if>
                                                 </td>
                                                 <td>
-                                                    <a>
-                                                        <xsl:attribute name="href">
-                                                            <xsl:value-of select="concat($id, '.html')"/>
-                                                        </xsl:attribute>
-                                                        <xsl:value-of select="$id"/>
-                                                    </a> 
+                                                    <ul class="list-unstyled">
+                                                        <xsl:for-each select=".//tei:occupation">
+                                                            <li><xsl:value-of select="./text()"/></li>
+                                                        </xsl:for-each>
+                                                    </ul>
                                                 </td>
                                             </tr>
                                         </xsl:for-each>
@@ -95,7 +95,7 @@
                 </div>
             </body>
         </html>
-        <xsl:for-each select=".//tei:person[@xml:id]">
+        <!--<xsl:for-each select=".//tei:person[@xml:id]">
             <xsl:variable name="filename" select="concat(./@xml:id, '.html')"/>
             <xsl:variable name="name" select="normalize-space(string-join(./tei:persName//text()))"></xsl:variable>
             <xsl:result-document href="{$filename}">
@@ -127,7 +127,7 @@
                 </html>
             </xsl:result-document>
             
-        </xsl:for-each>
+        </xsl:for-each>-->
     </xsl:template>
     
 </xsl:stylesheet>
