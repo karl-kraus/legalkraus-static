@@ -12,7 +12,7 @@
     <xsl:import href="./partials/bibl.xsl"/>
     <xsl:template match="/">
         <xsl:variable name="doc_title">
-            <xsl:value-of select=".//tei:title[@type='main'][1]/text()"/>
+            <xsl:value-of select="'Werkregister'"/>
         </xsl:variable>
         <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
         <html>
@@ -42,19 +42,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <xsl:for-each select=".//tei:bibl">
+                                        <xsl:for-each select=".//tei:bibl[@xml:id]">
                                             <xsl:variable name="id">
                                                 <xsl:value-of select="data(@xml:id)"/>
                                             </xsl:variable>
                                             <tr>
                                                 <td>
-                                                    <xsl:value-of select=".//tei:title[1]/text()"/>
+                                                    <xsl:value-of select="./tei:title[@type='main']/text()"/>
                                                 </td>
                                                 <td>
-                                                    <xsl:value-of select=".//tei:author[1]/text()"/>
+                                                    <xsl:value-of select="./tei:author[1]/text()"/>
                                                 </td>
                                                 <td>
-                                                    <xsl:value-of select=".//tei:date[1]/text()"/>
+                                                    <xsl:value-of select="./tei:date[1]/text()"/>
                                                 </td>
                                                 <td>
                                                     <a>
@@ -82,7 +82,7 @@
                 </div>
             </body>
         </html>
-        <xsl:for-each select=".//tei:bibl">
+        <xsl:for-each select=".//tei:bibl[@xml:id]">
             <xsl:variable name="filename" select="concat(./@xml:id, '.html')"/>
             <xsl:variable name="name" select="./tei:title[1]/text()"></xsl:variable>
             <xsl:result-document href="{$filename}">
@@ -94,6 +94,13 @@
                     <body class="page">
                         <div class="hfeed site" id="page">
                             <xsl:call-template name="nav_bar"/>
+                            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                    <li class="breadcrumb-item" aria-current="page"><a href="listbibl.html"><xsl:value-of select="$doc_title"/></a></li>
+                                    <li class="breadcrumb-item active" aria-current="page"><xsl:value-of select="$name"/></li>
+                                </ol>
+                            </nav>
                             
                             <div class="container-fluid">
                                 <div class="card">
