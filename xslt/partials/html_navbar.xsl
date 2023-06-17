@@ -65,6 +65,9 @@
                                         <a class="dropdown-item" href="listorg.html"  data-i18n="navbar__orgs" ></a>
                                     </li>
                                     <li>
+                                        <a class="dropdown-item" href="listlegal.html"  data-i18n="navbar__legal" ></a>
+                                    </li>
+                                    <li>
                                         <a class="dropdown-item" href="listbibl.html"  data-i18n="navbar__works" ></a>
                                     </li>
                                 </ul>

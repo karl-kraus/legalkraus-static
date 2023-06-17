@@ -9,10 +9,10 @@
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="./partials/html_footer.xsl"/>
-    <xsl:import href="./partials/place.xsl"/>
+    <xsl:import href="./partials/bibl.xsl"/>
     <xsl:template match="/">
         <xsl:variable name="doc_title">
-            <xsl:value-of select="'Ortsregister'"/>
+            <xsl:value-of select="'Juristische Texte'"/>
         </xsl:variable>
         <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
         <html>
@@ -41,30 +41,35 @@
                                 <table class="table table-striped display" id="tocTable" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Ortsname</th>
-                                            <th scope="col">gelegen in</th>
-                                            <th scope="col">Typ</th>
+                                            <th scope="col">Titel</th>
+                                            <th scope="col">Gesetz</th>
+                                            <th scope="col">Datum</th>
+                                            <th scope="col">erwähnt in</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <xsl:for-each select=".//tei:place[@xml:id]">
+                                        <xsl:for-each select=".//tei:bibl">
                                             <xsl:variable name="id">
                                                 <xsl:value-of select="data(@xml:id)"/>
                                             </xsl:variable>
                                             <tr>
                                                 <td>
-                                                    <a>
-                                                        <xsl:attribute name="href">
-                                                            <xsl:value-of select="concat($id, '.html')"/>
-                                                        </xsl:attribute>
-                                                    <xsl:value-of select="./tei:placeName[1]/text()"/>
+                                                    <a href="{@corresp}">
+                                                    <xsl:value-of select=".//tei:title[1]/text()"/>
                                                     </a>
                                                 </td>
+                                                <td><xsl:value-of select="./tei:title[@level='s']"/></td>
                                                 <td>
-                                                    <xsl:value-of select="./tei:location[@type='located_in_place']/tei:placeName"/>
+                                                    <xsl:value-of select=".//tei:date[1]/text()"/>
                                                 </td>
                                                 <td>
-                                                    <xsl:value-of select="./tei:desc[@type='entity_type']/text()"/>
+                                                    <ul>
+                                                        <xsl:for-each select=".//tei:ref">
+                                                            <li>
+                                                                <a href="{replace(./@target, '.xml', '.html')}"><xsl:value-of select="./text()"/></a>
+                                                            </li>
+                                                        </xsl:for-each>
+                                                    </ul>
                                                 </td>
                                             </tr>
                                         </xsl:for-each>
@@ -84,9 +89,9 @@
                 </div>
             </body>
         </html>
-        <xsl:for-each select=".//tei:place">
+        <!--<xsl:for-each select=".//tei:bibl">
             <xsl:variable name="filename" select="concat(./@xml:id, '.html')"/>
-            <xsl:variable name="name" select="./tei:placeName[1]/text()"></xsl:variable>
+            <xsl:variable name="name" select="./tei:title[1]/text()"></xsl:variable>
             <xsl:result-document href="{$filename}">
                 <html xmlns="http://www.w3.org/1999/xhtml">
                     <xsl:call-template name="html_head">
@@ -96,10 +101,10 @@
                     <body class="page">
                         <div class="hfeed site" id="page">
                             <xsl:call-template name="nav_bar"/>
-                            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
+                            <nav style="-\-bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                    <li class="breadcrumb-item" aria-current="page"><a href="listplace.html"><xsl:value-of select="$doc_title"/></a></li>
+                                    <li class="breadcrumb-item" aria-current="page"><a href="listorg.html"><xsl:value-of select="$doc_title"/></a></li>
                                     <li class="breadcrumb-item active" aria-current="page"><xsl:value-of select="$name"/></li>
                                 </ol>
                             </nav>
@@ -112,7 +117,7 @@
                                         </h1>
                                     </div>
                                     <div class="card-body">
-                                        <xsl:call-template name="place_detail"/>  
+                                        <xsl:call-template name="bibl_detail"/>  
                                     </div>
                                 </div>
                             </div>
@@ -123,7 +128,7 @@
                 </html>
             </xsl:result-document>
             
-        </xsl:for-each>
+        </xsl:for-each>-->
     </xsl:template>
     
 </xsl:stylesheet>

@@ -46,7 +46,9 @@
     <xslt in="./data/imprint.xml" out="${target}/imprint.html" style="./xslt/imprint.xsl">
         <factory name="net.sf.saxon.TransformerFactoryImpl"/>
         <classpath location="${basedir}/saxon/saxon9he.jar"/>
-    </xslt>
+    </xslt> -->
+    
+    <!-- Register -->
     <xslt in="./data/indices/listperson.xml" out="${target}/listperson.html" style="./xslt/listperson.xsl">
         <factory name="net.sf.saxon.TransformerFactoryImpl"/>
         <classpath location="${basedir}/saxon/saxon9he.jar"/>
@@ -59,6 +61,11 @@
         <factory name="net.sf.saxon.TransformerFactoryImpl"/>
         <classpath location="${basedir}/saxon/saxon9he.jar"/>
     </xslt>
+    <xslt in="./data/indices/listlegal.xml" out="${target}/listlegal.html" style="./xslt/listlegal.xsl">
+        <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+        <classpath location="${basedir}/saxon/saxon9he.jar"/>
+    </xslt>
+    <!--
     <xslt in="./data/indices/listbibl.xml" out="${target}/listbibl.html" style="./xslt/listbibl.xsl">
         <factory name="net.sf.saxon.TransformerFactoryImpl"/>
         <classpath location="${basedir}/saxon/saxon9he.jar"/>
