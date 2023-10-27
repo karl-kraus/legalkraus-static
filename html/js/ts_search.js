@@ -1,13 +1,13 @@
 var project_collection_name = "legalkraus"
 const typesenseInstantsearchAdapter = new TypesenseInstantSearchAdapter({
     server: {
-        apiKey: "KJBQiMxhSviZKAKTWi9tNLdZ5pQjZpsa",
+        apiKey: "JoxsjV6xnD2pfqWeumEF4gY3oMnoHyg1",
         nodes: [
             {
-                host: "localhost",
-                port: "8108",
-                protocol: "http",
-            },
+                host: "typesense.acdh-dev.oeaw.ac.at",
+                port: "443",
+                protocol: "https",
+              },
         ],
     },
     additionalSearchParameters: {
