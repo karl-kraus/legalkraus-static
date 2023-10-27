@@ -1,0 +1,523 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:base="https://id.acdh.oeaw.ac.at/legalkraus" xml:id="C_000136.xml" prev="https://id.acdh.oeaw.ac.at/legalkraus/C_000135.xml" next="https://id.acdh.oeaw.ac.at/legalkraus/C_000137.xml">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Akte 136 Karl Kraus ca. Volksbühne Berlin</title>
+         </titleStmt>
+         <publicationStmt>
+            <publisher/>
+            <availability>
+               <licence target="http://creativecommons.org/licenses/by/4.0">Creative Commons Namensnennung 4.0 International Lizenz</licence>
+            </availability>
+            <idno type="URL" subtype="legalkraus">https://id.acdh.oeaw.ac.at/legalkraus/C_000136.xml</idno>
+            <idno type="URL" subtype="krausonline">http://www.kraus.wienbibliothek.at/node/1453</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <list type="objects">
+               <head>Zugehörige Objekte</head>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-001-000.xml">D_000136-001-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-002-000.xml">D_000136-002-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-003-000.xml">D_000136-003-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-004-000.xml">D_000136-004-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-005-000.xml">D_000136-005-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-006-000.xml">D_000136-006-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-007-000.xml">D_000136-007-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-008-000.xml">D_000136-008-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-009-000.xml">D_000136-009-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-010-000.xml">D_000136-010-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-011-000.xml">D_000136-011-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-012-000.xml">D_000136-012-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-013-000.xml">D_000136-013-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-014-000.xml">D_000136-014-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-015-000.xml">D_000136-015-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-016-000.xml">D_000136-016-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-017-000.xml">D_000136-017-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-018-000.xml">D_000136-018-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-019-000.xml">D_000136-019-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-020-000.xml">D_000136-020-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-021-000.xml">D_000136-021-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-022-000.xml">D_000136-022-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-023-000.xml">D_000136-023-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-024-000.xml">D_000136-024-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-025-000.xml">D_000136-025-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-026-000.xml">D_000136-026-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-027-000.xml">D_000136-027-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-028-000.xml">D_000136-028-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-029-000.xml">D_000136-029-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-030-000.xml">D_000136-030-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-031-000.xml">D_000136-031-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-032-000.xml">D_000136-032-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-033-000.xml">D_000136-033-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-033-001.xml">D_000136-033-001.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-034-000.xml">D_000136-034-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-035-000.xml">D_000136-035-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-036-000.xml">D_000136-036-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-037-000.xml">D_000136-037-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-038-000.xml">D_000136-038-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-039-000.xml">D_000136-039-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-040-000.xml">D_000136-040-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-041-000.xml">D_000136-041-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-042-000.xml">D_000136-042-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-043-000.xml">D_000136-043-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-044-000.xml">D_000136-044-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-045-000.xml">D_000136-045-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-046-000.xml">D_000136-046-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-047-000.xml">D_000136-047-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-048-000.xml">D_000136-048-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-049-000.xml">D_000136-049-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-050-000.xml">D_000136-050-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-051-000.xml">D_000136-051-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-052-000.xml">D_000136-052-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-053-000.xml">D_000136-053-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-054-000.xml">D_000136-054-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-055-000.xml">D_000136-055-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-056-000.xml">D_000136-056-000.xml</ref>
+               </item>
+               <item>
+                  <ref target="https://id.acdh.oeaw.ac.at/legalkraus/D_000136-056-001.xml">D_000136-056-001.xml</ref>
+               </item>
+            </list>
+            <listEvent>
+               <event xml:id="E_000136">
+                  <desc>Karl Kraus ca. Volksbühne Berlin</desc>
+               </event>
+            </listEvent>
+         </sourceDesc>
+      </fileDesc><profileDesc><abstract><p>Die Berliner Volksbühne brachte Kraus’ Die Unüberwindlichen in einer Matinee, die sehr erfolgreich lief, setzte dann aber das Stück plötzlich ab, ohne es, wie geplant, als Abendvorstellung zu übernehmen.
+ Kraus und Samek klagten durch Laserstein sowohl diese Nichtübernahme als auch unerlaubte Striche ein. Es konnte rasch sichtbar gemacht werden, dass es politische Interventionen seitens der österreichischen Gesandtschaft gegeben hatte, das Stück so plötzlich abzusetzen. Laserstein gewann den Prozess. Die Volksbühne versuchte eine Berufung, die mit einem Vergleich endete – die Volksbühne zahlte die Konventionalstrafe und übernahm das Stück in den Abendspielplan.</p></abstract><textClass>
+         <keywords>
+            <term>Zivilrecht</term>
+            <term>Streitige Zivilrechtssache</term>
+            <term>Vertragsbruch</term>
+            <term>Vergleich (Ausgang)</term>
+            <term>Karl Kraus</term>
+            <term>Theater</term>
+         </keywords>
+         <classCode scheme="https://vocabs.acdh.oeaw.ac.at/legalkraus/v1.0/R.F.ZIV">R.F.ZIV</classCode>
+         <classCode scheme="https://vocabs.acdh.oeaw.ac.at/legalkraus/v1.0/C.Z.STR">C.Z.STR</classCode>
+         <classCode scheme="https://vocabs.acdh.oeaw.ac.at/legalkraus/v1.0/T.F.VBR">T.F.VBR</classCode>
+         <classCode scheme="https://vocabs.acdh.oeaw.ac.at/legalkraus/v1.0/E.F.VGL">E.F.VGL</classCode>
+         <classCode scheme="https://vocabs.acdh.oeaw.ac.at/legalkraus/v1.0/S.F.KRA">S.F.KRA</classCode>
+         <classCode scheme="https://vocabs.acdh.oeaw.ac.at/legalkraus/v1.0/K.K.THE">K.K.THE</classCode>
+      </textClass>
+      <particDesc>
+         <listPerson>
+            <person role="https://vocabs.acdh.oeaw.ac.at/legalkraus/v1.0/B.P.ANK" sameAs="#pmb11988">
+               <persName>Karl Kraus</persName>
+               <note type="keyword">Anklagender / Anklagende</note>
+            </person>
+            <person role="https://vocabs.acdh.oeaw.ac.at/legalkraus/v1.0/B.P.AKV" sameAs="#pmb38969">
+               <persName>Botho Laserstein</persName>
+               <note type="keyword">Vertreter (Ankläger / Anklägerin)</note>
+            </person>
+            <person role="https://vocabs.acdh.oeaw.ac.at/legalkraus/v1.0/B.P.AGV" sameAs="#pmb36360">
+               <persName>Walter Abelsdorff</persName>
+               <note type="keyword">Vertreter (Angeklagter / Angeklagte)</note>
+            </person>
+            <person role="https://vocabs.acdh.oeaw.ac.at/legalkraus/v1.0/B.P.RIC" sameAs="#pmb62997">
+               <persName>? Weigert</persName>
+               <note type="keyword">Richter</note>
+            </person>
+            <person role="https://vocabs.acdh.oeaw.ac.at/legalkraus/v1.0/B.P.AGV" sameAs="#pmb51592">
+               <persName>Otto Joseph</persName>
+               <note type="keyword">Vertreter (Angeklagter / Angeklagte)</note>
+            </person>
+         </listPerson>
+      <listOrg>
+         <org role="https://vocabs.acdh.oeaw.ac.at/legalkraus/v1.0/B.I.GER" sameAs="#pmb36832">
+            <orgName>Landgericht I Berlin</orgName>
+            <note type="keyword">Gerichtliche Institution</note>
+         </org>
+         <org role="https://vocabs.acdh.oeaw.ac.at/legalkraus/v1.0/B.I.GER" sameAs="#pmb36815">
+            <orgName>Kammergericht Berlin</orgName>
+            <note type="keyword">Gerichtliche Institution</note>
+         </org>
+      </listOrg>
+      </particDesc>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when-iso="2020-04-07T10:13:05.324Z" resp="#IB">created by API</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <p/>
+      </body>
+   <back><listPerson><person xml:id="pmb62997">
+  <persName>
+      <forename>?</forename>
+      <surname>Weigert</surname>
+  </persName>
+  <sex value="male"/>
+  <occupation key="160">Richter/Richterin</occupation>
+  <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/62997/</idno>
+  <idno type="URL" subtype="legalkraus">https://kraus.wienbibliothek.at/register/personen/pmb62997</idno>
+<affiliation>
+    <term key="1182">arbeitet für</term>
+    <orgName key="pmb36832">Landgericht I Berlin</orgName>
+    <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/apis/api2/entity/36832/</idno>
+    <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/36832</idno>
+    <idno type="URL" subtype="legalkraus">https://kraus.wienbibliothek.at/register/institutionen/pmb36832</idno>
+</affiliation>
+<affiliation>
+    <term key="1182">arbeitet für</term>
+    <orgName key="pmb62987">21. Zivilkammer für Urheberrecht (Landgericht I Berlin)</orgName>
+    <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/62987/</idno>
+    <idno type="URL" subtype="legalkraus">https://kraus.wienbibliothek.at/register/institutionen/pmb62987</idno>
+</affiliation>
+<listBibl>
+    <bibl type="collections" n="5">legalkraus</bibl>
+</listBibl>
+</person><person xml:id="pmb36360">
+  <persName>
+      <forename>Walter</forename>
+      <surname>Abelsdorff</surname>
+  </persName>
+  <birth>
+    <date when-iso="1898-02-07">7.2.1898</date>
+      <settlement key="pmb168">
+        <placeName type="pref">Berlin</placeName>
+        <location><geo>52.52437 13.41053</geo></location>
+      </settlement>
+  </birth>  
+  <death>
+    <date when-iso="1952-01-01">1952</date>
+      <settlement key="pmb224">
+        <placeName type="pref">London</placeName>
+        <location><geo>51.50853 -0.12574</geo></location>
+      </settlement>
+  </death>
+  <sex value="male"/>
+  <occupation key="106">Rechtsanwalt/Rechtsanwältin</occupation>
+  <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/apis/api2/entity/36360/</idno>
+  <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/36360</idno>
+  <idno type="URL" subtype="legalkraus">https://kraus.wienbibliothek.at/register/personen/pmb36360</idno>
+<listBibl>
+    <bibl type="collections" n="3">Manuell angelegt</bibl>
+    <bibl type="collections" n="5">legalkraus</bibl>
+</listBibl>
+</person><person xml:id="pmb38969">
+  <persName>
+      <forename>Botho</forename>
+      <surname>Laserstein</surname>
+  </persName>
+  <birth>
+    <date when-iso="1901-07-31">31.07.1901</date>
+      <settlement key="pmb49582">
+        <placeName type="pref">Chemnitz</placeName>
+        <location><geo>50.8357 12.92922</geo></location>
+      </settlement>
+  </birth>  
+  <death>
+    <date when-iso="1955-03-09">09.03.1955</date>
+      <settlement key="pmb863">
+        <placeName type="pref">Düsseldorf</placeName>
+        <location><geo>51.22172 6.77616</geo></location>
+      </settlement>
+  </death>
+  <sex value="male"/>
+  <occupation key="106">Rechtsanwalt/Rechtsanwältin</occupation>
+  <occupation key="160">Richter/Richterin</occupation>
+  <occupation key="237">Publizist/Publizistin</occupation>
+  <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/apis/api2/entity/38969/</idno>
+  <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/38969</idno>
+  <idno type="URL" subtype="legalkraus">https://kraus.wienbibliothek.at/register/personen/pmb38969</idno>
+  <idno type="URL" subtype="fackel">https://fackel.oeaw.ac.at/?p=fackelp39427</idno>
+  <idno type="URL" subtype="gnd">https://d-nb.info/gnd/119035197</idno>
+  <idno type="URL" subtype="wikidata">https://www.wikidata.org/wiki/Q894727</idno>
+<affiliation>
+    <term key="1409">besitzt</term>
+    <orgName key="pmb37352">Die jüdische Gemeinde</orgName>
+    <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/apis/api2/entity/37352/</idno>
+    <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/37352</idno>
+    <idno type="URL" subtype="legalkraus">https://kraus.wienbibliothek.at/register/institutionen/pmb37352</idno>
+</affiliation>
+<listBibl>
+    <bibl type="collections" n="5">legalkraus</bibl>
+    <bibl type="collections" n="12">Fackel</bibl>
+</listBibl>
+</person><person xml:id="pmb11988">
+  <persName>
+      <forename>Karl</forename>
+      <surname>Kraus</surname>
+  </persName>
+  <persName type="person_pseudonym">Berdach J.</persName>
+  <birth>
+    <date when-iso="1874-04-28">28.04.1874</date>
+      <settlement key="pmb41660">
+        <placeName type="pref">Jičín</placeName>
+        <location><geo>50.43723 15.35162</geo></location>
+      </settlement>
+  </birth>  
+  <death>
+    <date when-iso="1936-06-12">12.06.1936</date>
+      <settlement key="pmb50">
+        <placeName type="pref">Wien</placeName>
+        <location><geo>48.2066 16.37341</geo></location>
+      </settlement>
+  </death>
+  <sex value="male"/>
+  <occupation key="90">Schriftsteller/Schriftstellerin</occupation>
+  <occupation key="237">Publizist/Publizistin</occupation>
+  <idno type="URL" subtype="schnitzler-tagebuch">https://schnitzler-tagebuch.acdh.oeaw.ac.at/entity/person_17108</idno>
+  <idno type="URL" subtype="gnd">https://d-nb.info/gnd/118566288</idno>
+  <idno type="URL" subtype="schnitzler-bahr">https://schnitzler-bahr.acdh.oeaw.ac.at/pmb11988.html</idno>
+  <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/11988</idno>
+  <idno type="URL" subtype="schnitzler-briefe">https://schnitzler-briefe.acdh.oeaw.ac.at/pages/hits.html?searchkey=pmb11988</idno>
+  <idno type="URL" subtype="legalkraus">https://kraus.wienbibliothek.at/register/personen/pmb11988</idno>
+  <idno type="URL" subtype="fackel">https://fackel.oeaw.ac.at/?p=fackelp47565</idno>
+  <idno type="URL" subtype="doiorg101553">https://doi.org/10.1553/0x00282496</idno>
+  <idno type="URL" subtype="wikidata">https://www.wikidata.org/wiki/Q44328</idno>
+<affiliation>
+    <term key="1182">arbeitet für</term>
+    <orgName key="pmb29308">Die Fackel</orgName>
+    <idno type="URL" subtype="schnitzler-bahr">https://schnitzler-bahr.acdh.oeaw.ac.at/pmb29308.html</idno>
+    <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/29308</idno>
+    <idno type="URL" subtype="schnitzler-briefe">https://schnitzler-briefe.acdh.oeaw.ac.at/pages/hits.html?searchkey=pmb29308</idno>
+    <idno type="URL" subtype="legalkraus">https://kraus.wienbibliothek.at/register/institutionen/pmb29308</idno>
+    <idno type="URL" subtype="wikidata">https://www.wikidata.org/wiki/Q354576</idno>
+</affiliation>
+<affiliation>
+    <term key="1153">in Bezug zu</term>
+    <orgName key="pmb50728">Buchhandlung Richard Lányi</orgName>
+    <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/50728/</idno>
+    <idno type="URL" subtype="legalkraus">https://kraus.wienbibliothek.at/register/institutionen/pmb50728</idno>
+</affiliation>
+<affiliation>
+    <term key="1409">besitzt</term>
+    <orgName key="pmb43724">Verlag Die Fackel (Wien)</orgName>
+    <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/apis/api2/entity/43724/</idno>
+    <idno type="URL" subtype="gnd">https://d-nb.info/gnd/16063972-4</idno>
+    <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/43724</idno>
+    <idno type="URL" subtype="legalkraus">https://kraus.wienbibliothek.at/register/institutionen/pmb43724</idno>
+</affiliation>
+<affiliation>
+    <term key="1153">in Bezug zu</term>
+    <orgName key="pmb36757">Amtsgericht Hamburg</orgName>
+    <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/apis/api2/entity/36757/</idno>
+    <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/36757</idno>
+    <idno type="URL" subtype="legalkraus">https://kraus.wienbibliothek.at/register/institutionen/pmb36757</idno>
+    <idno type="URL" subtype="gnd">https://d-nb.info/gnd/2077565-9</idno>
+    <idno type="URL" subtype="wikidata">https://www.wikidata.org/wiki/Q480732</idno>
+</affiliation>
+<affiliation>
+    <term key="1153">in Bezug zu</term>
+    <orgName key="pmb36828">Landgericht Hamburg</orgName>
+    <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/apis/api2/entity/36828/</idno>
+    <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/36828</idno>
+    <idno type="URL" subtype="legalkraus">https://kraus.wienbibliothek.at/register/institutionen/pmb36828</idno>
+    <idno type="URL" subtype="wikidata">https://www.wikidata.org/wiki/Q1429221</idno>
+</affiliation>
+<affiliation>
+    <term key="1153">in Bezug zu</term>
+    <orgName key="pmb60573">Karl Kraus-Gesellschaft</orgName>
+    <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/60573/</idno>
+    <idno type="URL" subtype="legalkraus">https://kraus.wienbibliothek.at/register/institutionen/pmb60573</idno>
+</affiliation>
+<affiliation>
+    <term key="1153">in Bezug zu</term>
+    <orgName key="pmb37159">Jahoda &amp; Siegel (Druckerei)</orgName>
+    <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/apis/api2/entity/37159/</idno>
+    <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/37159</idno>
+    <idno type="URL" subtype="legalkraus">https://kraus.wienbibliothek.at/register/institutionen/pmb37159</idno>
+</affiliation>
+<affiliation>
+    <term key="1153">in Bezug zu</term>
+    <orgName key="pmb87755">Max Goldschmidt (Büro für Zeitungsausschnitte)</orgName>
+    <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/87755/</idno>
+    <idno type="URL" subtype="legalkraus">https://kraus.wienbibliothek.at/register/institutionen/pmb87755</idno>
+</affiliation>
+<listBibl>
+    <bibl type="collections" n="3">Manuell angelegt</bibl>
+    <bibl type="collections" n="5">legalkraus</bibl>
+    <bibl type="collections" n="11">ÖBL nach 1850 geboren</bibl>
+    <bibl type="collections" n="12">Fackel</bibl>
+</listBibl>
+</person><person xml:id="pmb51592">
+  <persName>
+      <forename>Otto</forename>
+      <surname>Joseph</surname>
+  </persName>
+  <sex value="male"/>
+  <occupation key="106">Rechtsanwalt/Rechtsanwältin</occupation>
+  <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/51592/</idno>
+  <idno type="URL" subtype="legalkraus">https://kraus.wienbibliothek.at/register/personen/pmb51592</idno>
+<listBibl>
+    <bibl type="collections" n="5">legalkraus</bibl>
+</listBibl>
+</person></listPerson><listOrg><org xml:id="pmb36815">
+  <orgName>Kammergericht Berlin</orgName>
+  <desc type="entity_type">Gericht</desc>
+  <desc type="entity_type_id">1037</desc>
+<location type="located_in_place">
+  <placeName key="pmb12562">Schöneberg</placeName>
+  <geo>52.483333 13.366667</geo>
+  <note type="IDNO" subtype="pmb">http://pmb.acdh.oeaw.ac.at/apis/api2/entity/7654/</note>
+  <note type="IDNO" subtype="pmb">http://pmb.acdh.oeaw.ac.at/apis/api2/entity/12562/</note>
+  <note type="IDNO" subtype="pmb">https://pmb.acdh.oeaw.ac.at/apis/api2/entity/36816/</note>
+  <note type="IDNO" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/7654</note>
+  <note type="IDNO" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/12562</note>
+  <note type="IDNO" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/36816</note>
+  <note type="IDNO" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/64568/</note>
+  <note type="IDNO" subtype="geonames">https://sws.geonames.org/2836788/</note>
+  <note type="IDNO" subtype="legalkraus">https://kraus.wienbibliothek.at/register/orte/pmb12562</note>
+  <note type="IDNO" subtype="wikidata">https://www.wikidata.org/wiki/Q313189</note>
+</location>
+  <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/apis/api2/entity/36815/</idno>
+  <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/36815</idno>
+  <idno type="URL" subtype="legalkraus">https://kraus.wienbibliothek.at/register/institutionen/pmb36815</idno>
+  <idno type="URL" subtype="wikidata">https://www.wikidata.org/wiki/Q59165607</idno>
+<listBibl>
+    <bibl type="collections" n="5">legalkraus</bibl>
+</listBibl>
+</org><org xml:id="pmb36832">
+  <orgName>Landgericht I Berlin</orgName>
+  <desc type="entity_type">Gericht</desc>
+  <desc type="entity_type_id">1037</desc>
+<location type="located_in_place">
+  <placeName key="pmb36737">Mitte</placeName>
+  <geo>52.516669 13.366669</geo>
+  <note type="IDNO" subtype="gnd">https://d-nb.info/gnd/4248938-6</note>
+  <note type="IDNO" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/36737</note>
+  <note type="IDNO" subtype="legalkraus">https://kraus.wienbibliothek.at/register/orte/pmb36737</note>
+  <note type="IDNO" subtype="wikidata">https://www.wikidata.org/wiki/Q163966</note>
+</location>
+<location type="located_in_place">
+  <placeName key="pmb62994">Grunerstraße</placeName>
+  <geo>52.5198281 13.413936</geo>
+  <note type="IDNO" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/62994/</note>
+  <note type="IDNO" subtype="legalkraus">https://kraus.wienbibliothek.at/register/orte/pmb62994</note>
+</location>
+<location type="located_in_place">
+  <placeName key="pmb168">Berlin</placeName>
+  <geo>52.52437 13.41053</geo>
+  <note type="IDNO" subtype="geonames">http://sws.geonames.org/2950159/</note>
+  <note type="IDNO" subtype="schnitzler-bahr">https://schnitzler-bahr.acdh.oeaw.ac.at/pmb168.html</note>
+  <note type="IDNO" subtype="gnd">https://d-nb.info/gnd/4005728-8</note>
+  <note type="IDNO" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/168</note>
+  <note type="IDNO" subtype="schnitzler-briefe">https://schnitzler-briefe.acdh.oeaw.ac.at/pages/hits.html?searchkey=pmb168</note>
+  <note type="IDNO" subtype="legalkraus">https://kraus.wienbibliothek.at/register/orte/pmb168</note>
+  <note type="IDNO" subtype="schnitzler-tagebuch">https://schnitzler-tagebuch.acdh.oeaw.ac.at/pmb168.html</note>
+  <note type="IDNO" subtype="wikidata">https://www.wikidata.org/entity/Q64</note>
+</location>
+  <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/apis/api2/entity/36832/</idno>
+  <idno type="URL" subtype="pmb">https://pmb.acdh.oeaw.ac.at/entity/36832</idno>
+  <idno type="URL" subtype="legalkraus">https://kraus.wienbibliothek.at/register/institutionen/pmb36832</idno>
+<listBibl>
+    <bibl type="collections" n="5">legalkraus</bibl>
+</listBibl>
+</org></listOrg></back></text>
+</TEI>

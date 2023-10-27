@@ -1,0 +1,18 @@
+{
+    "navbar__project": "Projekt",
+    "navbar__about": "Projektinformation",
+    "navbar__richtlinien": "Editionsrichtlinien",
+    "navbar__team": "Projektteam",
+    "navbar__publication": "Publikationen",
+    "navbar__hints": "Benutzungshinweise",
+    "navbar__toc": "Akten & Dokumente",
+    "navbar__cases": "Akten",
+    "navbar__files": "Dokumente",
+    "navbar__register": "Register",
+    "navbar__persons": "Personen",
+    "navbar__places": "Orte",
+    "navbar__orgs": "Organisationen",
+    "navbar__works": "Werke",
+    "navbar__legal": "Juristische Texte",
+    "navbar__search": "Suche"
+}
