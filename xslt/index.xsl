@@ -22,14 +22,14 @@
                     <xsl:with-param name="html_title" select="$doc_title"></xsl:with-param>
                 </xsl:call-template>
             </head>
-            <body class="page" style="background-color:#f1f1f1;">
+            <body class="page">
                 <div class="hfeed site" id="page">
                     <xsl:call-template name="nav_bar" />
 
-                    <div class="container">
-                        <div id="carouselExampleControls" class="carousel slide"
+                    <div class="container carousel-wrapper p-0">
+                        <div id="carouselExampleControls border-0" class="carousel slide"
                             data-bs-ride="carousel">
-                            <div class="carousel-inner">
+                            <div class="carousel-inner w-75 mx-auto">
                                 <div class="carousel-item active">
                                     <img src="images/slider1.jpg" class="d-block w-100" alt="..." />
                                 </div>
@@ -51,34 +51,43 @@
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
+                        <div class="pt-3 pb-5 pr-2 primary-dark carousel-wrapper-bottom"/>
                     </div>
                     <div class="container">
-                        <h1>Mögliche Einstiege</h1>
+                        <h1 class="pt-5 pb-1">Mögliche Einstiege</h1>
                         <div class="row">
-                            <div class="card" style="width: 18rem;">
-                                <img src="images/sozialdemokratie.png" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                    <p class="card-text"><a href="editionsrichtlinien.html">Editionsrichtlinien</a></p>
+                          <div class="card-group justify-content-between">
+                            <div class="card rounded-0 border-0 shadow-none intro-card">
+                                <div class="card-body p-0">
+                                  <p class="card-title b"><a href="oskar-samek.html" class="stretched-link" alt="...">Oskar Samek</a></p>
                                 </div>
+                                <img src="images/samek.png"  alt="..." />
                             </div>
-                            <div class="card" style="width: 18rem;">
-                                <img src="images/fallstatistik.png" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                    <p class="card-text">Fallstatistik</p>
+                            <div class="card rounded-0 border-0 shadow-none intro-card">
+                                <div class="card-body p-0">
+                                  <p class="card-title b"><a href="" class="stretched-link" alt="...">Fallstatistik</a></p>
                                 </div>
-                            </div>
-                            <div class="card" style="width: 18rem;">
-                                <a href="beitraege.html"><img src="images/beitraege.png" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                    <p class="card-text">Beiträge</p>
-                                </div></a>
-                            </div>
-                            <div class="card" style="width: 18rem;">
-                                <img src="images/verlage.png" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                    <p class="card-text"><a href="cases.html">Akten</a></p>
+                                <img src="images/fallstatistik.png" alt="..." />
+                              </div>
+                            <div class="card rounded-0 border-0 shadow-none intro-card">
+                               <div class="card-body p-0">
+                                  <p class="card-title b"><a href="beitraege.html" class="stretched-link" alt="...">Beiträge</a></p>
                                 </div>
+                                <img src="images/beitraege.png"  alt="..." />
                             </div>
+                            <div class="card rounded-0 border-0 shadow-none intro-card">
+                                <div class="card-body p-0">
+                                    <p class="card-title b"><a href="" class="stretched-link" alt="...">Verlage</a></p>
+                                </div>
+                                <img src="images/verlage.png" alt="..." /> 
+                            </div>
+                            <div class="card rounded-0 border-0 shadow-none intro-card">
+                                <div class="card-body p-0">
+                                    <p class="card-title b"><a href="" class="stretched-link" alt="...">Sozialdemokratie</a></p>
+                                </div>
+                                <img src="images/sozialdemokratie.png" alt="..." />
+                            </div>
+                          </div>  
                         </div>
                         <hr class="horizontal  mt-5 mb-3 "/>
                         <div>
