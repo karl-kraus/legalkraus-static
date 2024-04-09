@@ -36,6 +36,11 @@
     font-family: var(--open-sans-regular);
 }
 
+/*** headings ***/
+
+h1 {
+  font-size:1.5rem;
+}
 
 *,
 :after,
@@ -349,12 +354,6 @@ p {
     display: block;
 }
 
-.slide {
-    border-color: #C85545;
-    border-width: thick;
-    border-style: solid;
-}
-
 .carousel-indicators {
     cursor: pointer;
 }
@@ -525,4 +524,32 @@ low resolution
 
 .b {
     font-weight: 600;
+}
+
+/*** landing page ***/
+
+.carousel-wrapper {
+  background-color: var(--primary-red);
+}
+
+.carousel-wrapper-bottom {
+  background: var(--primary-red-dark);
+  width: 40.3% !important;
+}
+
+.intro-card img {
+  border: solid var(--primary-red) .8rem;
+}
+
+.intro-card {
+  flex: none !important;
+  width:8rem;
+  margin:0;
+}
+
+@media (max-width: 575px) {
+  .intro-card {
+      width: 10rem;
+      margin:auto;
+  }
 }
