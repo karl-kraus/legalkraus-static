@@ -53,6 +53,17 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown disabled">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Visualisierungen</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="#">Fallstatistik</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Zeitstrahl</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown disabled">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  data-i18n="navbar__register" ></a>
                                 <ul class="dropdown-menu">
                                     <li>
@@ -69,6 +80,20 @@
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="listbibl.html"  data-i18n="navbar__works" ></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown disabled">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Handapparat</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="boehm.html">Hermann Böhm: „Karl Kraus contra …“</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="beitraege.html">Beiträge</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="oskar-samek.html">Oskar Samek</a>
                                     </li>
                                 </ul>
                             </li>
