@@ -39,7 +39,7 @@
                         </h1>
                         <ul>
                             <li><a href="sozialdemokratie-collections.html">Sozialdemokratie</a></li>
-                            <li><a href="christlich-sozial-collections.html">Christlichsozial</a></li>
+                            <li><a href="christlich-sozial-collections.html">Christlich-sozial</a></li>
                             <li><a href="nationalsozialismus-collections.html">Nationalsozialismus</a></li>
                         </ul>
                     </div>

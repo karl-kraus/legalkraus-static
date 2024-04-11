@@ -40,7 +40,7 @@
                         <ul>
                             <li><a href="fackel-collections.html">Die Fackel</a></li>
                             <li><a href="theater-collections.html">Theater</a></li>
-                            <li><a href="verlage-collections.html">Verlage</a></li>
+                            <li><a href="verlage-collections.html">Verlagswesen</a></li>
                             <li><a href="medienhistorisches-collections.html">Medienhistorisches</a></li>
                             <li><a href="berichtigung-collections.html">Berichtigung (Ausgang)</a></li>
                             <li>Die großen Polemiken
