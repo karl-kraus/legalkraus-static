@@ -89,9 +89,5 @@
             }
             window.addEventListener('load', addDarkmodeWidget);
         </script>
-        
-        
-        <script src="js/i18n.js"></script>
-
     </xsl:template>
 </xsl:stylesheet>

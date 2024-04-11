@@ -20,35 +20,50 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  data-i18n="navbar__project" ></a>
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Projekt</a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a class="dropdown-item" href="about.html"  data-i18n="navbar__about" ></a>
+                                        <a class="dropdown-item" href="about.html">Projektinformation</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="editionsrichtlinien.html"  data-i18n="navbar__richtlinien"></a>
+                                        <a class="dropdown-item" href="editionsrichtlinien.html">Editionsrichtlinien</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="team.html"  data-i18n="navbar__team" ></a>
+                                        <a class="dropdown-item" href="team.html">Projektteam</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="publikationen.html"  data-i18n="navbar__publication" ></a>
+                                        <a class="dropdown-item" href="publikationen.html">Publikationen</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="hinweise.html"  data-i18n="navbar__hints" ></a>
+                                        <a class="dropdown-item" href="hinweise.html">Benutzungshinweise</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider" />
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="https://github.com/karl-kraus/legalkraus-static">Code Repo zur Applikation</a>
                                     </li>
                                    
                                 </ul>
                             </li>
                             
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  data-i18n="navbar__toc" ></a>
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Akten-Edition</a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a class="dropdown-item" href="cases.html"  data-i18n="navbar__cases"></a>
+                                        <a class="dropdown-item" href="kultur.html">Kultur</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="toc.html"  data-i18n="navbar__files"></a>
+                                        <a class="dropdown-item" href="politik.html">Politik</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item disabled" href="recht.html">Recht</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="cases.html">Alle Akten</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="toc.html">Alle Dokumente</a>
                                     </li>
                                 </ul>
                             </li>
@@ -64,22 +79,25 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown disabled">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  data-i18n="navbar__register" ></a>
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Register</a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a class="dropdown-item" href="listperson.html"  data-i18n="navbar__persons"  ></a>
+                                        <a class="dropdown-item" href="listperson.html">Personen</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="listplace.html"  data-i18n="navbar__places" ></a>
+                                        <a class="dropdown-item" href="listplace.html">Orte</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="listorg.html"  data-i18n="navbar__orgs" ></a>
+                                        <a class="dropdown-item" href="listorg.html">Institutionen</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="listlegal.html"  data-i18n="navbar__legal" ></a>
+                                        <a class="dropdown-item" href="listlegal.html">Werke</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="listbibl.html"  data-i18n="navbar__works" ></a>
+                                        <a class="dropdown-item" href="listbibl.html">Juristische Texte</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item disabled" href="#">Fackel</a>
                                     </li>
                                 </ul>
                             </li>
@@ -99,9 +117,8 @@
                             </li>
                             
                             <li class="nav-item">
-                                <a title="Suche" class="nav-link" href="search.html"  data-i18n="navbar__search" ></a>
+                                <a title="Suche" class="nav-link" href="search.html">Suche</a>
                             </li>
-                            <select name="language" id="languageSwitcher"></select>
                         </ul>
                     </div>
                 </div>

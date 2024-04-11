@@ -29,8 +29,6 @@ jobs:
       run: ./fetch_data.sh
     - name: Build Search Index
       run: python make_ts_index.py
-    - name: update translations
-      run: python make_translations.py
     - name: update favicons
       run: python update_favicons.py
     - name: Build
