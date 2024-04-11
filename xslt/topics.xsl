@@ -44,9 +44,81 @@
                         <div>
                             <xsl:apply-templates select=".//tei:body"></xsl:apply-templates>
                         </div>
+                        <div>
+                            <div class="card-body">
+                                <table class="table table-striped display" id="tocTable" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Aktennummer</th>
+                                            <th scope="col">Titel</th>
+                                            <th scope="col">Anzahl Dokumente</th>
+                                            <th scope="col">Rechtsbereich</th>
+                                            <th scope="col">Klagende Partei</th>
+                                            <th scope="col">Angeklagte Partei</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <xsl:for-each select="collection('../data/cases_tei?select=*.xml')//tei:TEI">
+                                            <xsl:sort select="data(@xml:id)"></xsl:sort>
+                                            <xsl:variable name="full_path">
+                                                <xsl:value-of select="document-uri(/)"/>
+                                            </xsl:variable>
+                                            <xsl:variable name="fileName">
+                                                <xsl:value-of select=".//tei:title[1]/text()"/>
+                                            </xsl:variable>
+                                            <xsl:variable name="fileNr">
+                                                <xsl:value-of select="tokenize($fileName)[2]"/>
+                                            </xsl:variable>
+                                            
+                                            <xsl:if test=".//tei:keywords/tei:term[./text()=$doc_title]">
+                                                <tr>
+                                                    <td>                                        
+                                                        <xsl:value-of select="$fileNr"/>
+                                                    </td>
+                                                    <td>
+                                                        <a>
+                                                            <xsl:attribute name="href">                                                
+                                                                <xsl:value-of select="replace(tokenize($full_path, '/')[last()], '.xml', '.html')"/>
+                                                            </xsl:attribute>
+                                                            <xsl:value-of select="$fileName"/>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <xsl:value-of select="count(//tei:sourceDesc/tei:list/tei:item)"/>
+                                                    </td>
+                                                    <td>
+                                                        <xsl:for-each select="//tei:textClass/tei:keywords/tei:term/text()">
+                                                            <span class="badge bg-secondary"><xsl:value-of select="."/></span>
+                                                        </xsl:for-each>
+                                                    </td>
+                                                    <td>
+                                                        <xsl:for-each select="//tei:particDesc/tei:listPerson/tei:person[ends-with(data(@role), 'ANK') or ends-with(data(@role), 'AKV')]">
+                                                            <span class="badge rounded-pill m-1 bg-danger"><xsl:value-of select="./tei:persName/text()"/></span>
+                                                        </xsl:for-each>
+                                                    </td>
+                                                    <td>
+                                                        <xsl:for-each select="//tei:particDesc/tei:listPerson/tei:person[ends-with(data(@role), 'ANG') or ends-with(data(@role), 'ANV')]">
+                                                            <span class="badge rounded-pill m-1 bg-warning"><xsl:value-of select="./tei:persName/text()"/></span>
+                                                        </xsl:for-each>
+                                                    </td>
+                                                </tr>
+                                            </xsl:if>
+                                            
+                                        </xsl:for-each>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                         
                     </div>
                     <xsl:call-template name="html_footer"/>
+                    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.11.0/b-2.0.0/b-html5-2.0.0/cr-1.5.4/r-2.2.9/sp-1.4.0/datatables.min.js"></script>
+                    <script type="text/javascript" src="js/dt.js"></script>
+                    <script>
+                        $(document).ready(function () {
+                        createDataTable('tocTable');
+                        });
+                    </script>
                 </div>
             </body>
         </html>
