@@ -33,8 +33,8 @@
                     </nav>
                     
                     <div class="container-fluid">                        
-                        <div class="card">
-                            <div class="card-header">
+                        <div class="card rounded-0">
+                            <div class="card-header rounded-0 bg-darker-gray">
                                 <h1><xsl:value-of select="$doc_title"/></h1>
                             </div>
                             <div class="card-body">                                

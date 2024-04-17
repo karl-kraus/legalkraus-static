@@ -2,6 +2,7 @@
 *.html
 !search.html
 /saxon
+/scss/bootstrap
 data/imprint.xml
 /static-search
 html/static-search

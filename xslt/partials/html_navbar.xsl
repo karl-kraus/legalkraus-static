@@ -7,13 +7,11 @@
     <xsl:template match="/" name="nav_bar">
         <div class="wrapper-fluid wrapper-navbar sticky-top hide-reading" id="wrapper-navbar">
             <a class="skip-link screen-reader-text sr-only" href="#content">Skip to content</a>
-            <nav class="navbar navbar-expand-lg">
+            <nav class="navbar navbar-expand-lg bg-white border-bottom border-primary border-3">
                 <div class="container-fluid">
-                    <div class="nav-title">
                     <a href="index.html" class="navbar-brand custom-logo-link" rel="home" itemprop="url">
-                        <p>RECHTSAKTEN <br></br>Karl Kraus</p>
+                        <p class="mb-0 border-top border-primary border-8 lh-1">RECHTSAKTEN <br></br>Karl Kraus</p>
                     </a>
-                    </div>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>

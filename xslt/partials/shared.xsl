@@ -14,10 +14,10 @@
         <xsl:value-of select="concat(name($currentNode), '__', $nodeCurrNr)"/>
     </xsl:function>
     
-    <xsl:template match="tei:pb">
+    <!--<xsl:template match="tei:pb">
         <span class="anchor-pb"></span>
-        <span class="pb" source="{@facs}"><xsl:value-of select="./@n"/></span>
-    </xsl:template>
+        <span class="pb" source="{@facs}"><br/></span>
+    </xsl:template>-->
     <xsl:template match="tei:unclear">
         <abbr title="unclear"><xsl:apply-templates/></abbr>
     </xsl:template>
@@ -25,13 +25,29 @@
         <cite><xsl:apply-templates/></cite>
     </xsl:template>
     <xsl:template match="tei:quote">
-        <xsl:apply-templates/>
+        <xsl:choose>
+          <xsl:when test="count(tokenize(@source, ' ')) > 1">
+            <span class="quotes {substring-after(@rendition, '#')}" id="{@xml:id}">
+                <xsl:apply-templates/>
+                <xsl:for-each select="tokenize(@ref, ' ')">
+                    <sup class="entity" data-bs-toggle="modal" data-bs-target="{.}">
+                        <xsl:value-of select="position()"/>
+                    </sup>
+                    <xsl:if test="position() != last()">
+                        <sup class="entity">/</sup>
+                    </xsl:if>
+                </xsl:for-each>
+            </span>
+          </xsl:when>
+          <xsl:otherwise>
+              <span class="quotes entity {substring-after(@rendition, '#')}" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@source}">
+                <xsl:apply-templates/>
+              </span>
+          </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:date">
         <span class="date"><xsl:apply-templates/></span>
-    </xsl:template>
-    <xsl:template match="tei:lb">
-        <br/>
     </xsl:template>
 
     <xsl:template match="tei:note">
@@ -155,6 +171,19 @@
                             </xsl:for-each>
                         </span>
                     </xsl:when>
+                    <xsl:when test="@type='institution'">
+                        <span class="institutions {substring-after(@rendition, '#')}" id="{@xml:id}">
+                            <xsl:apply-templates/>
+                            <xsl:for-each select="tokenize(@ref, ' ')">
+                                <sup class="entity" data-bs-toggle="modal" data-bs-target="{.}">
+                                    <xsl:value-of select="position()"/>
+                                </sup>
+                                <xsl:if test="position() != last()">
+                                    <sup class="entity">/</sup>
+                                </xsl:if>
+                            </xsl:for-each>
+                        </span>
+                    </xsl:when>
                     <xsl:when test="@type='place'">
                         <span class="places {substring-after(@rendition, '#')}" id="{@xml:id}">
                             <xsl:apply-templates/>
@@ -168,8 +197,8 @@
                             </xsl:for-each>
                         </span>
                     </xsl:when>
-                    <xsl:when test="@type='bibl'">
-                        <span class="works {substring-after(@rendition, '#')}" id="{@xml:id}">
+                    <xsl:when test="@type='law'">
+                        <span class="legaltexts {substring-after(@rendition, '#')}" id="{@xml:id}">
                             <xsl:apply-templates/>
                             <xsl:for-each select="tokenize(@ref, ' ')">
                                 <sup class="entity" data-bs-toggle="modal" data-bs-target="{.}">
@@ -181,8 +210,8 @@
                             </xsl:for-each>
                         </span>
                     </xsl:when>
-                    <xsl:when test="@type='org'">
-                        <span class="orgs {substring-after(@rendition, '#')}" id="{@xml:id}">
+                    <xsl:when test="@type='work'">
+                        <span class="works {substring-after(@rendition, '#')}" id="{@xml:id}">
                             <xsl:apply-templates/>
                             <xsl:for-each select="tokenize(@ref, ' ')">
                                 <sup class="entity" data-bs-toggle="modal" data-bs-target="{.}">
@@ -203,18 +232,23 @@
                             <xsl:apply-templates/>
                         </span>
                     </xsl:when>
+                    <xsl:when test="@type='institution'">
+                        <span class="institutions entity {substring-after(@rendition, '#')}" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@ref}">
+                            <xsl:apply-templates/>
+                        </span>
+                    </xsl:when>
                     <xsl:when test="@type='place'">
                         <span class="places entity {substring-after(@rendition, '#')}" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@ref}">
                             <xsl:apply-templates/>
                         </span>
                     </xsl:when>
-                    <xsl:when test="@type='bibl'">
-                        <span class="works entity {substring-after(@rendition, '#')}" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@ref}">
+                     <xsl:when test="@type='law'">
+                        <span class="legaltexts entity {substring-after(@rendition, '#')}" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@ref}">
                             <xsl:apply-templates/>
                         </span>
                     </xsl:when>
-                    <xsl:when test="@type='org'">
-                        <span class="orgs entity {substring-after(@rendition, '#')}" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@ref}">
+                    <xsl:when test="@type='work'">
+                        <span class="works entity {substring-after(@rendition, '#')}" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@ref}">
                             <xsl:apply-templates/>
                         </span>
                     </xsl:when>
