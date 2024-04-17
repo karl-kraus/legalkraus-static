@@ -21,7 +21,7 @@ $utilities: map-merge(
     (
       values: map-merge(
         map-get(map-get($utilities, "font-size"), "values"),
-        ("7": 0.8rem),
+        ("7": 0.8rem, "8": 0.84rem),
       ),
     ),
   ),
