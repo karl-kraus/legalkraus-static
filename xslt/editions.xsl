@@ -102,7 +102,7 @@
                                             </div>
                                         </div>
                                         <div class="row py-3">
-                                            <div class="col-12">
+                                            <div class="col-12" id="reader" data-page="1">
                                                 <div
                                                   class="d-flex justify-content-center align-items-center gap-3 mb-3">
                                                   <div>
@@ -114,7 +114,7 @@
                                                   <div class="ms-2">
                                                   <span>
                                                   <span>
-                                                  <button id="prevPage" onclick="selectPage('prev')" class="me-1 bg-white border-0">
+                                                  <button id="prevPage" onclick="Pager.selectPage('prev')" class="me-1 bg-white border-0">
                                                   <i class="fas fa-arrow-left fa-lg"
                                                   title="go to previous page"/>
                                                   </button></span>
@@ -124,7 +124,7 @@
                                                   select="count(//tei:pb) > 1 or (not(//tei:pb) and count(//tei:graphic[@source = 'wienbibliothek']) > 1)"
                                                   />
                                                   </xsl:variable>
-                                                  <select id="page-selector" onchange="selectPage()"
+                                                  <select id="page-selector" onchange="Pager.selectPage()"
                                                   class="form-select form-select-sm w-auto ml-2 d-inline"
                                                   aria-label="page selector">
                                                   <xsl:if test="$select_enabled = false()">
@@ -155,7 +155,7 @@
                                                                     else
                                                                         count(//tei:graphic[@source = 'wienbibliothek'])"
                                                   />
-                                                  <button id="nextPage" onclick="selectPage('next')" class="ms-1 bg-white border-0">
+                                                  <button id="nextPage" onclick="Pager.selectPage('next')" class="ms-1 bg-white border-0">
                                                   <i class="fas fa-arrow-right fa-lg"
                                                   title="go to next page"/>
                                                   </button>
