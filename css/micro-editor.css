@@ -1,8 +1,14 @@
+/*** colors ***/
+/*** typography ***/
+/*** links ***/
+/*** navbar ***/
+/*** breadcrumbs ***/
+/*** pagination ***/
+/*** utilities ***/
 /* ############################
  * ############################
  * EDITIONS view properties 
  * ###########################*/
-
 .fade {
   display: none;
 }
@@ -47,9 +53,6 @@
   transition: 0.4s;
 }
 
-input:checked + .i-slider {
-}
-
 input:focus + .i-slider {
   box-shadow: 0 0 1px #f1f1f1;
 }
@@ -75,7 +78,7 @@ input:checked + .i-slider:before {
   color: #444;
   display: block;
   width: 50px;
-  margin-left:3em;
+  margin-left: 3em;
 }
 
 .bi-pencil-square {
@@ -86,9 +89,6 @@ input:checked + .i-slider:before {
   text-decoration: line-through;
 }
 
-.whitespace {
-}
-
 .underline {
   text-decoration: underline;
 }
@@ -97,36 +97,32 @@ input:checked + .i-slider:before {
   font-style: italic;
 }
 
-.red {
-  background-color: #ffe6e6;
+.annot_person {
+  background-color: rgb(249, 121, 121);
 }
 
-.blue {
-  background-color: #e1d4ff;
+.annot_institution {
+  background-color: rgb(232, 236, 129);
 }
 
-.white {
-  background-color: #ffffff;
+.annot_place {
+  background-color: rgb(150, 251, 228);
 }
 
-.grey {
-  background-color: #f1f1f1;
+.annot_work {
+  background-color: rgb(156, 171, 255);
 }
 
-.green {
-  background-color: #c9ffcf;
+.annot_law {
+  background-color: rgb(216, 216, 216);
 }
 
-.yellow {
-  background-color: #FBFF9F;
-}
-
-.lila {
-  background-color: #EF9FFF;
+.annot_quote {
+  background-color: rgb(108, 233, 127);
 }
 
 .badge-item {
-  border-radius: 0.25rem;
+  border-radius: 0;
 }
 
 .badge-link {
@@ -154,10 +150,10 @@ input:checked + .i-slider:before {
 }
 
 /* font styles and sizes */
-
 .times-new-roman {
   font-family: "Times New Roman", serif !important;
 }
+
 .courier-new {
   font-family: "Courier New", monospace !important;
 }
@@ -183,7 +179,6 @@ input:checked + .i-slider:before {
 }
 
 /* Fullsize mode */
-
 .nav-link {
   background-color: transparent !important;
 }
@@ -203,3 +198,72 @@ input:checked + .i-slider:before {
 .nav-link.btn-backlink {
   background-color: transparent !important;
 }
+
+/* edition specifics classes */
+.note-hand {
+  font-weight: 600;
+  font-style: italic;
+}
+
+.hi-underlined {
+  text-decoration: underline;
+}
+
+.hi-hand-underlined {
+  text-decoration: underline;
+  text-decoration-thickness: 0.2rem;
+}
+
+.hi-spaced {
+  letter-spacing: 0.2rem;
+}
+
+.add {
+  font-weight: 600;
+}
+
+.add-hand {
+  font-weight: 700;
+}
+
+.subst {
+  font-size: 0;
+}
+
+.subst span {
+  font-size: 1rem;
+}
+
+.del {
+  text-decoration: line-through;
+}
+
+.del-hand {
+  text-decoration: line-through;
+  text-decoration-thickness: 0.2rem;
+}
+
+.marginalie-text {
+  font-weight: 600;
+}
+
+br {
+  height: 0;
+}
+
+span.lb::after {
+  content: "\a";
+  white-space: pre;
+}
+
+.rdg {
+  background: rgb(223, 211, 195);
+}
+
+.marginalie-text.marginRight, .rdg {
+  padding-top: 0.2rem;
+  position: absolute;
+  font-size: 80%;
+}
+
+/*# sourceMappingURL=micro-editor.css.map */

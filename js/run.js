@@ -21,7 +21,7 @@ var editor = new LoadEditor({
         },
         {
           opt: "prs",
-          color: "blue",
+          color: "annot_person",
           title: "Persons",
           html_class: "persons",
           css_class: "pers",
@@ -36,8 +36,24 @@ var editor = new LoadEditor({
           },
         },
         {
+          opt: "inst",
+          color: "annot_institution",
+          title: "Institutions",
+          html_class: "institutions",
+          css_class: "inst",
+          hide: {
+            hidden: false,
+            class: "institutions .entity",
+          },
+          chg_citation: "citation-url",
+          features: {
+            all: false,
+            class: "features-1",
+          },
+        },
+        {
           opt: "plc",
-          color: "green",
+          color: "annot_place",
           title: "Places",
           html_class: "places",
           css_class: "plc",
@@ -52,14 +68,14 @@ var editor = new LoadEditor({
           },
         },
         {
-          opt: "org",
-          color: "yellow",
-          title: "Organizations",
-          html_class: "orgs",
-          css_class: "org",
+          opt: "ltxts",
+          color: "annot_law",
+          title: "Legal Texts",
+          html_class: "legaltexts",
+          css_class: "bg-laws",
           hide: {
             hidden: false,
-            class: "orgs .entity",
+            class: "legaltexts .entity",
           },
           chg_citation: "citation-url",
           features: {
@@ -69,7 +85,7 @@ var editor = new LoadEditor({
         },
         {
           opt: "wrk",
-          color: "lila",
+          color: "annot_work",
           title: "Works",
           html_class: "works",
           css_class: "wrk",
@@ -77,6 +93,22 @@ var editor = new LoadEditor({
           hide: {
             hidden: false,
             class: "wrk .entity",
+          },
+          features: {
+            all: false,
+            class: "features-1",
+          },
+        },
+        {
+          opt: "quts",
+          color: "annot_quotes",
+          title: "Quotes",
+          html_class: "quotes",
+          css_class: "itxts",
+          chg_citation: "citation-url",
+          hide: {
+            hidden: false,
+            class: "quotes .entity",
           },
           features: {
             all: false,
