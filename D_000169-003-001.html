@@ -112,11 +112,11 @@
                            </div>
                         </div>
                         <div class="row py-3">
-                           <div class="col-12">
+                           <div class="col-12" id="reader" data-page="1">
                               <div class="d-flex justify-content-center align-items-center gap-3 mb-3">
                                  <div><a href="D_000169-003-001.xml"><i class="fas fa-download fa-lg" title="show TEI source"></i></a></div>
-                                 <div class="ms-2"><span><span><button id="prevPage" onclick="selectPage('prev')" class="me-1 bg-white border-0"><i class="fas fa-arrow-left fa-lg" title="go to previous page"></i></button></span>Seite <select id="page-selector" onchange="selectPage()" class="form-select form-select-sm w-auto ml-2 d-inline" aria-label="page selector" disabled="">
-                                          <option value="https://www.digital.wienbibliothek.at/wbrobv02/i3f/v21/2543252/full/full/0/default.jpg">1</option></select> von 1<button id="nextPage" onclick="selectPage('next')" class="ms-1 bg-white border-0"><i class="fas fa-arrow-right fa-lg" title="go to next page"></i></button></span></div>
+                                 <div class="ms-2"><span><span><button id="prevPage" onclick="Pager.selectPage('prev')" class="me-1 bg-white border-0"><i class="fas fa-arrow-left fa-lg" title="go to previous page"></i></button></span>Seite <select id="page-selector" onchange="Pager.selectPage()" class="form-select form-select-sm w-auto ml-2 d-inline" aria-label="page selector" disabled="">
+                                          <option value="https://www.digital.wienbibliothek.at/wbrobv02/i3f/v21/2543252/full/full/0/default.jpg">1</option></select> von 1<button id="nextPage" onclick="Pager.selectPage('next')" class="ms-1 bg-white border-0"><i class="fas fa-arrow-right fa-lg" title="go to next page"></i></button></span></div>
                                  <div id="editor-widget">
                                     <div id="aot-navBarNavDropdown"><a title="Annotationen" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" role="button" class="annotation-widget-button justify-content-center align-items-center d-inline-flex rounded-circle link-light"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
                                              <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"></path>
