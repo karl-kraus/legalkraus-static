@@ -8,12 +8,13 @@
 @import "variables.scss";
 
 @import "bootstrap/bootstrap-scss-5.3.3/_variables.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_mixins.scss";
 @import "bootstrap/bootstrap-scss-5.3.3/_maps.scss";
-@import "bootstrap/bootstrap-scss-5.3.3/_utilities.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/utilities";
 
 @import "utilities.scss";
 
-@import "bootstrap/bootstrap-scss-5.3.3/_mixins.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/utilities/api";
 @import "bootstrap/bootstrap-scss-5.3.3/_root.scss";
 
 @import "bootstrap/bootstrap-scss-5.3.3/_transitions.scss";
