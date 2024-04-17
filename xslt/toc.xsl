@@ -21,10 +21,15 @@
             <body class="page">
                 <div class="hfeed site" id="page">
                     <xsl:call-template name="nav_bar"/>
-                    
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><xsl:value-of select="$doc_title"/></li>
+                        </ol>
+                    </nav>
                     <div class="container-fluid">
-                        <div class="card">
-                            <div class="card-header">
+                        <div class="card rounded-0">
+                            <div class="card-header rounded-0 bg-darker-gray">
                                 <h1 class="text-center">Dokumentenübersicht</h1>
                             </div>
                             <div class="card-body">
@@ -73,22 +78,22 @@
                                                 </td>
                                                 <td>
                                                     <xsl:for-each select="/tei:TEI/tei:text/tei:back/tei:listPerson/tei:person/tei:persName[1]">
-                                                        <span class="badge rounded-pill m-1 bg-success"><xsl:value-of select="normalize-space(string-join(.//text()))"/></span>
+                                                        <span class="badge rounded-pill m-1 bg-aquamarin"><xsl:value-of select="normalize-space(string-join(.//text()))"/></span>
                                                     </xsl:for-each>
                                                 </td>
                                                 <td>
                                                     <xsl:for-each select="/tei:TEI/tei:text/tei:back/tei:listPlace/tei:place/tei:placeName[1]">
-                                                        <span class="badge rounded-pill m-1 bg-dark"><xsl:value-of select="normalize-space(string-join(.//text()))"/></span>
+                                                        <span class="badge rounded-pill m-1 bg-dark-violett"><xsl:value-of select="normalize-space(string-join(.//text()))"/></span>
                                                     </xsl:for-each>
                                                 </td>
                                                 <td>
                                                     <xsl:for-each select="/tei:TEI/tei:teiHeader/tei:profileDesc/tei:textClass/tei:keywords/tei:term">
-                                                        <span class="badge rounded-pill m-1 bg-info"><xsl:value-of select="./text()"/></span>
+                                                        <span class="badge rounded-pill m-1 bg-darker-blue"><xsl:value-of select="./text()"/></span>
                                                     </xsl:for-each>
                                                 </td>
                                                 <td>
                                                     <xsl:for-each select="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:physDesc/tei:ab/tei:objectType">
-                                                        <span class="badge rounded-pill m-1 bg-warning"><xsl:value-of select="./text()"/></span>
+                                                        <span class="badge rounded-pill m-1 bg-darker-red"><xsl:value-of select="./text()"/></span>
                                                     </xsl:for-each>
                                                 </td>  
                                             </tr>

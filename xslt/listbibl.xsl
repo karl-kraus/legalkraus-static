@@ -25,10 +25,15 @@
             <body class="page">
                 <div class="hfeed site" id="page">
                     <xsl:call-template name="nav_bar"/>
-                    
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><xsl:value-of select="$doc_title"/></li>
+                        </ol>
+                    </nav>
                     <div class="container-fluid">                        
-                        <div class="card">
-                            <div class="card-header">
+                        <div class="card rounded-0">
+                            <div class="card-header rounded-0 bg-darker-gray">
                                 <h1><xsl:value-of select="$doc_title"/></h1>
                             </div>
                             <div class="card-body">                                
