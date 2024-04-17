@@ -44,8 +44,8 @@
                                 </xsl:for-each>
                             </div>
                             <div class="col-md-5 ">
-                                <div class="hellgrau p-5">
-                                    <p>
+                                <div class="bg-cite-card-gray p-4 fs-8">
+                                    <p class="fw-bold">
                                         Karl Kraus: Rechtsakten der Kanzlei Oskar Samek. Wissenschaftliche
                                         Edition
                                     </p>
