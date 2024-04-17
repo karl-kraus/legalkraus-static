@@ -1,0 +1,66 @@
+/*** fonts ***/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,700;1,700&display=swap');
+
+@import "bootstrap/bootstrap-scss-5.3.3/_functions.scss";
+
+@import "variables.scss";
+
+@import "bootstrap/bootstrap-scss-5.3.3/_variables.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_maps.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_utilities.scss";
+
+@import "utilities.scss";
+
+@import "bootstrap/bootstrap-scss-5.3.3/_mixins.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_root.scss";
+
+@import "bootstrap/bootstrap-scss-5.3.3/_transitions.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_nav.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_navbar.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_badge.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_breadcrumb.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_button-group.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_buttons.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_carousel.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_close.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_card.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_containers.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_dropdown.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_forms.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_grid.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_modal.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_reboot.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_pagination.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/_type.scss";
+
+@import "bootstrap/bootstrap-scss-5.3.3/bootstrap-grid.scss";
+@import "bootstrap/bootstrap-scss-5.3.3/bootstrap-utilities.scss";
+
+
+/*** links ***/
+.link-primary:hover {
+  color: $dark-red !important;
+}
+
+/*** landing page ***/
+.carousel::before {
+  top: 0;
+  right: 0;
+  content: "";
+  background-color: $dark-red;
+  position: absolute;
+  width: 20rem;
+  height: 5rem;
+}
+
+.carousel-wrapper-bottom {
+  width: 40.3% !important;
+}
+
+/*** case overview ***/
+.case-card {
+    width: 30rem;
+    height: 25rem;
+}

@@ -1,0 +1,67 @@
+/*** colors ***/
+$light-red: rgba(200, 85, 69, 1);
+$dark-red: rgba(167, 61, 46, 1);
+$white-gray: rgba(248, 249, 250, 1);
+$lighter-gray: rgba(240,240,240,1);
+$light-gray: rgba(221, 219, 216, 1);
+$darker-gray: rgba(224, 222, 213, 1);
+$dark-gray: rgba(198, 194, 188, 1);
+$annot_person: rgba(249, 121, 121, 1);
+$annot_institution: rgba(232, 236, 129, 1); 
+$annot_place: rgba(150, 251, 228, 1);
+$annot_work: rgba(156, 171, 255, 1);
+$annot_law:rgba(216, 216, 216, 1);
+$annot_quote:rgba(108, 233, 127, 1);
+$rdg-bg: rgba(223, 211, 195, 1);
+
+
+$link-shade-percentage: 0%;
+
+
+$theme-colors: (
+  "primary": $light-red,
+  "secondary": $dark-red,
+  "white-gray": $white-gray,
+  "lighter-gray": $lighter-gray,
+  "light-gray": $light-gray,
+  "darker-gray": $darker-gray, 
+  "dark-gray": $dark-gray,
+  "light-blue": #7cb5ec,
+);
+
+/*** typography ***/
+$h1-font-size: 1.5rem;
+$font-weight-bolder: 600;
+
+/*** links ***/
+$link-color: rgba(0,0,0,1);
+$link-hover-color: $dark-red;
+$link-decoration: none;
+$link-opacity:1;
+
+/*** navbar ***/
+$navbar-padding-y: 0.1rem;
+$navbar-light-color:rgba(0,0,0,1);
+$nav-link-font-weight: $font-weight-bolder;
+
+/*** breadcrumbs ***/
+$breadcrumb-divider-color: $light-red;
+
+
+/*** pagination ***/
+$pagination-active-bg: $darker-gray;
+$pagination-active-border-color: $darker-gray;
+$pagination-border-width: 0;
+$Gerichtsparteienpagination-focus-box-shadow: 0;
+
+/*** utilities ***/
+$border-widths: (
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px,
+  6: 6px,
+  7: 7px,
+  8: 8px,
+);
