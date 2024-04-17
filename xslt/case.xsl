@@ -12,7 +12,7 @@
     <xsl:import href="partials/tei-facsimile.xsl"/>
     <xsl:template match="/">
         <xsl:variable name="doc_title">
-            <xsl:value-of select=".//tei:title[1]/text()"/>
+            <xsl:value-of select="head(.//tei:title)/text()"/>
         </xsl:variable>
         <xsl:variable name="caseId">
             <xsl:value-of select="replace(replace(data(/tei:TEI/@xml:id), 'C_', 'D_'), '.xml', '-')"/>
@@ -49,17 +49,17 @@
                             <div class="col-6 text-center">
                                 <h3>Kläger</h3>
                             <xsl:for-each select="//tei:particDesc/tei:listPerson/tei:person[ends-with(data(@role), 'ANK') or ends-with(data(@role), 'AKV')]">
-                                <span class="badge rounded-pill bg-danger"><xsl:value-of select="./tei:persName/text()"/></span>
+                                <span class="badge rounded-pill bg-dark-gray"><xsl:value-of select="./tei:persName/text()"/></span>
                             </xsl:for-each>
                             </div>
                             <div class="col-6 text-center">
                                 <h3 >Beklagte</h3>
                                 <xsl:for-each select="//tei:particDesc/tei:listPerson/tei:person[ends-with(data(@role), 'ANG') or ends-with(data(@role), 'ANV')]">
-                                    <span class="badge rounded-pill bg-warning"><xsl:value-of select="./tei:persName/text()"/></span>
+                                    <span class="badge rounded-pill bg-light-blue"><xsl:value-of select="./tei:persName/text()"/></span>
                                 </xsl:for-each>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mt-3">
                             <xsl:for-each select="collection(concat('../data/editions?select=', $caseId, '*.xml'))//tei:TEI">
                                 <xsl:sort select="document-uri(/)"></xsl:sort>
                                 <xsl:variable name="fullPath">
@@ -77,14 +77,14 @@
 
                                 
                                
-                                <div class="card mb-2" style="max-width: 450px;">
-                                    <div class="row g-0">
-                                        <div class="col-md-5 ">
-                                            <img class="img-fluid rounded" loading="lazy" alt="kein Bild" >
+                                <div class="card case-card mb-2 shadow-0 bg-lighter-gray mx-auto">
+                                    <div class="row g-0 h-100">
+                                        <div class="col-md-5 align-self-center">
+                                            <img class="img-fluid rounded-0 mw-100" loading="lazy" alt="kein Bild" >
                                                 <xsl:attribute name="src"><xsl:value-of select="$facsUrl"/></xsl:attribute>
                                             </img>
                                         </div>
-                                        <div class="col-md-7">
+                                        <div class="col-md-7 align-self-center h-100 overflow-auto">
                                             <div class="card-body">
                                                 <h5 class="card-title">
                                                     <a href="{$fullPath}">
