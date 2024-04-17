@@ -26,9 +26,9 @@
                 <div class="hfeed site" id="page">
                     <xsl:call-template name="nav_bar" />
 
-                    <div class="container carousel-wrapper p-0">
-                        <div id="carouselExampleControls border-0" class="carousel slide"
-                            data-bs-ride="carousel">
+                    <div class="container carousel-wrapper bg-primary p-0">
+                        <div id="carousel" class="carousel slide"
+                           data-bs-ride="carousel">
                             <div class="carousel-inner w-75 mx-auto">
                                 <div class="carousel-item active">
                                     <img src="images/slider1.jpg" class="d-block w-100" alt="..." />
@@ -41,69 +41,79 @@
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button"
-                                data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                data-bs-target="#carousel" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
                             <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                data-bs-target="#carousel" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <div class="pt-3 pb-5 pr-2 primary-dark carousel-wrapper-bottom"/>
+                        <div class="pt-3 pb-5 pr-2 bg-secondary carousel-wrapper-bottom"/>
                     </div>
                     <div class="container">
                         <h1 class="pt-5 pb-1">Mögliche Einstiege</h1>
-                        <div class="row">
-                          <div class="card-group justify-content-between">
-                            <div class="card rounded-0 border-0 shadow-none intro-card">
-                                <div class="card-body p-0">
-                                  <p class="card-title b"><a href="oskar-samek.html" class="stretched-link" alt="...">Oskar Samek</a></p>
-                                </div>
-                                <img src="images/samek.png"  alt="..." />
-                            </div>
-                            <div class="card rounded-0 border-0 shadow-none intro-card">
-                                <div class="card-body p-0">
-                                  <p class="card-title b"><a href="" class="stretched-link" alt="...">Fallstatistik</a></p>
-                                </div>
-                                <img src="images/fallstatistik.png" alt="..." />
+                        <div class="row row-cols-1 row-cols-md-5 justify-content-between border-bottom border-primary border-8 pb-5">
+                          <!--<div class="card-group justify-content-between">-->
+                            <div class="col-md-auto justify-content-center d-flex">
+                              <div class="card rounded-0 border-0 d-block w-8r">
+                                  <div class="card-body p-0">
+                                    <p class="card-title fw-bolder"><a href="oskar-samek.html" class="stretched-link" alt="...">Oskar Samek</a></p>
+                                  </div>
+                                  <img src="images/samek.png"  alt="..." class="border border-primary border-8 mw-100"/>
                               </div>
-                            <div class="card rounded-0 border-0 shadow-none intro-card">
-                               <div class="card-body p-0">
-                                  <p class="card-title b"><a href="beitraege.html" class="stretched-link" alt="...">Beiträge</a></p>
-                                </div>
-                                <img src="images/beitraege.png"  alt="..." />
                             </div>
-                            <div class="card rounded-0 border-0 shadow-none intro-card">
+                            <div class="col-md-auto justify-content-center d-flex">
+                              <div class="card rounded-0 border-0  d-block w-8r">
                                 <div class="card-body p-0">
-                                    <p class="card-title b"><a href="" class="stretched-link" alt="...">Verlage</a></p>
+                                  <p class="card-title fw-bolder"><a href="" class="stretched-link" alt="...">Fallstatistik</a></p>
                                 </div>
-                                <img src="images/verlage.png" alt="..." /> 
+                                <img src="images/fallstatistik.png" alt="..." class="border border-primary border-8 mw-100"/>
+                              </div>
                             </div>
-                            <div class="card rounded-0 border-0 shadow-none intro-card">
+                            <div class="col-md-auto justify-content-center d-flex">
+                              <div class="card rounded-0 border-0 d-block w-8r">
                                 <div class="card-body p-0">
-                                    <p class="card-title b"><a href="" class="stretched-link" alt="...">Sozialdemokratie</a></p>
-                                </div>
-                                <img src="images/sozialdemokratie.png" alt="..." />
+                                    <p class="card-title fw-bolder"><a href="beitraege.html" class="stretched-link" alt="...">Beiträge</a></p>
+                                  </div>
+                                  <img src="images/beitraege.png"  alt="..." class="border border-primary border-8 mw-100"/>
+                              </div>
                             </div>
-                          </div>  
+                            <div class="col-md-auto justify-content-center d-flex">
+                              <div class="card rounded-0 border-0 d-block w-8r">
+                                  <div class="card-body p-0">
+                                      <p class="card-title fw-bolder"><a href="" class="stretched-link" alt="...">Verlage</a></p>
+                                  </div>
+                                  <img src="images/verlage.png" alt="..." class="border border-primary border-8 mw-100" /> 
+                              </div>
+                            </div>
+                            <div class="col-md-auto justify-content-center d-flex">
+                              <div class="card rounded-0 border-0 d-block w-8r">
+                                  <div class="card-body p-0">
+                                      <p class="card-title fw-bolder"><a href="" class="stretched-link" alt="...">Sozialdemokratie</a></p>
+                                  </div>
+                                  <img src="images/sozialdemokratie.png" alt="..." class="border border-primary border-8 mw-100"/>
+                              </div>
+                            </div>
+                          <!--</div>-->  
                         </div>
-                        <hr class="horizontal  mt-5 mb-3 "/>
+                        <!--<hr class="horizontal mt-5 mb-3 border-primary border-5 opacity-0"/>-->
                         <div>
                             <div class="mt-3 text-left">
-                                <p class="semibold"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="var(--primary-red)"
-                                    class="bi bi-arrow-right"
+                                <p><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="var(--bs-primary)"
+                                    class="bi bi-arrow-right me-2"
                                     viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
                                         d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                                </svg><span class="align-bottom">700 Vorlesungen von Karl Kraus</span></p>
-                                <p class="w-75 small"><i>Rechtsakten Karl Kraus</i> baut auf <i>Karl Kraus Online</i>, einem Kooperationsprojekt der Wienbibliothek im Rathaus mit dem ehemaligen Ludwig Boltzmann Institut für Geschichte und Theorie der Biografie (2005–2018), auf. Der Rechtsaktenbestand wurde zu der hier vorliegenden Edition aufbereitet und überschrieb somit die ältere Fassung. Die 700 Vorlesungen hingegen liegen noch in der alten Version vor und sind hier zu finden:</p>
-                                <p><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="var(--primary-red)" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                </svg><span class="align-text-top fw-bolder">700 Vorlesungen von Karl Kraus</span></p>
+                                <p class="w-75 fs-7"><i>Rechtsakten Karl Kraus</i> baut auf <i>Karl Kraus Online</i>, einem Kooperationsprojekt der Wienbibliothek im Rathaus mit dem ehemaligen Ludwig Boltzmann Institut für Geschichte und Theorie der Biografie (2005–2018), auf. Der Rechtsaktenbestand wurde zu der hier vorliegenden Edition aufbereitet und überschrieb somit die ältere Fassung. Die 700 Vorlesungen hingegen liegen noch in der alten Version vor und sind hier zu finden:</p>
+                                <p><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="var(--bs-primary)" class="bi bi-box-arrow-right me-1" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                                     <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
                                 </svg>
-                                    <a class="url" href="https://www.kraus-vorleser.wienbibliothek.at/der-vorleser" target="_blank">
+                                    <a class="url link-primary link-opacity-100 link-opacity-100-hover" href="https://www.kraus-vorleser.wienbibliothek.at/der-vorleser" target="_blank">
                                         https://www.kraus.wienbibliothek.at/der-vorleser
                                     </a></p>
                             </div>
