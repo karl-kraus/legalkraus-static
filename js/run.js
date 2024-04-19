@@ -101,7 +101,7 @@ var editor = new LoadEditor({
         },
         {
           opt: "quts",
-          color: "annot_quotes",
+          color: "annot_quote",
           title: "Quotes",
           html_class: "quotes",
           css_class: "itxts",

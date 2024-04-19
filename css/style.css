@@ -546,7 +546,11 @@
 }
 
 .w-8r {
-  width: 8rem !important;
+  width: 8.5rem !important;
+}
+
+.w-fit-content {
+  width: fit-content !important;
 }
 
 .mw-100 {
