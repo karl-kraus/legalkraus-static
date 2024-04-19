@@ -213,7 +213,7 @@
                                                   <xsl:apply-templates select="current()"/>
                                                   <xsl:variable name="nextPb"
                                                   select="current()/following::tei:pb[1]"/>
-                                                  <div class="{if (count(preceding::tei:pb) = 0) then 'd-block' else 'd-none'}" id="page_{count(preceding::tei:pb) + 1}">
+                                                  <div class="{if (count(preceding::tei:pb) = 0) then 'd-block' else 'd-none'} position-relative" id="page_{count(preceding::tei:pb) + 1}">
                                                   <xsl:choose>
                                                   <xsl:when test="$nextPb">
                                                   <xsl:apply-templates
@@ -340,16 +340,20 @@
     </xsl:template>
     <!-- copied from old legalkraus app - adapted -->
     <xsl:template match="tei:note[@hand]">
-        <span class="note {@hand} {@rend} {@type}">
+        <span class="note-hand {@rend} {@type}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
-
-    <!--<xsl:template match="tei:note[@type = 'marginal']">
+<xsl:template match="tei:note[@type = 'intertext' and starts-with(@source, 'https://fackel')]">
+        <span class="fackel-ref entity">
+            <xsl:apply-templates/>
+        </span>
+    </xsl:template>
+    <xsl:template match="tei:note[@type = 'marginal']">
         <span class="marginalie-text {@rend}">
             <xsl:apply-templates/>
         </span>
-    </xsl:template>-->
+    </xsl:template>
 
     <xsl:template match="tei:hi[@rend = 'underlined'][not(@hand)]">
         <span class="hi-underlined">

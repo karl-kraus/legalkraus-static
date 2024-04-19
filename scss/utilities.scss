@@ -6,7 +6,7 @@ $utilities: map-merge(
       (
         values: map-merge(
           map-get(map-get($utilities, "width"), "values"),
-          (8r: 8rem),
+          (8r: 8.5rem,"fit-content":fit-content),
         ),
       ),
     ),
