@@ -57,40 +57,40 @@
                         <h1 class="pt-5 pb-1">Mögliche Einstiege</h1>
                         <div class="row row-cols-1 row-cols-md-5 justify-content-between border-bottom border-primary border-8 pb-5">
                           <!--<div class="card-group justify-content-between">-->
-                            <div class="col-md-auto justify-content-center d-flex">
-                              <div class="card rounded-0 border-0 d-block w-8r">
+                            <div class="col-md-auto justify-content-center d-flex px-md-0">
+                              <div class="card rounded-0 border-0 d-block w-8r pt-3">
                                   <div class="card-body p-0">
                                     <p class="card-title fw-bolder"><a href="oskar-samek.html" class="stretched-link" alt="...">Oskar Samek</a></p>
                                   </div>
                                   <img src="images/samek.png"  alt="..." class="border border-primary border-8 mw-100"/>
                               </div>
                             </div>
-                            <div class="col-md-auto justify-content-center d-flex">
-                              <div class="card rounded-0 border-0  d-block w-8r">
+                            <div class="col-md-auto justify-content-center d-flex px-md-0">
+                              <div class="card rounded-0 border-0  d-block w-8r pt-3">
                                 <div class="card-body p-0">
                                   <p class="card-title fw-bolder"><a href="" class="stretched-link" alt="...">Fallstatistik</a></p>
                                 </div>
                                 <img src="images/fallstatistik.png" alt="..." class="border border-primary border-8 mw-100"/>
                               </div>
                             </div>
-                            <div class="col-md-auto justify-content-center d-flex">
-                              <div class="card rounded-0 border-0 d-block w-8r">
+                            <div class="col-md-auto justify-content-center d-flex px-md-0">
+                              <div class="card rounded-0 border-0 d-block w-8r pt-3">
                                 <div class="card-body p-0">
                                     <p class="card-title fw-bolder"><a href="beitraege.html" class="stretched-link" alt="...">Beiträge</a></p>
                                   </div>
                                   <img src="images/beitraege.png"  alt="..." class="border border-primary border-8 mw-100"/>
                               </div>
                             </div>
-                            <div class="col-md-auto justify-content-center d-flex">
-                              <div class="card rounded-0 border-0 d-block w-8r">
+                            <div class="col-md-auto justify-content-center d-flex px-md-0">
+                              <div class="card rounded-0 border-0 d-block w-8r pt-3">
                                   <div class="card-body p-0">
                                       <p class="card-title fw-bolder"><a href="" class="stretched-link" alt="...">Verlage</a></p>
                                   </div>
                                   <img src="images/verlage.png" alt="..." class="border border-primary border-8 mw-100" /> 
                               </div>
                             </div>
-                            <div class="col-md-auto justify-content-center d-flex">
-                              <div class="card rounded-0 border-0 d-block w-8r">
+                            <div class="col-md-auto justify-content-center d-flex px-md-0">
+                              <div class="card rounded-0 border-0 d-block w-8r pt-3">
                                   <div class="card-body p-0">
                                       <p class="card-title fw-bolder"><a href="" class="stretched-link" alt="...">Sozialdemokratie</a></p>
                                   </div>

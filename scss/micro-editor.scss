@@ -272,3 +272,21 @@ span.lb::after {
   position: absolute;
   font-size: 80%;
 }
+
+.marginalie-text.marginLeft, .rdg.marginLeft {
+  padding-top: .2rem;
+  padding-right: 2px;
+  text-align: right;
+  position: absolute;
+  font-size: 80%;
+  left: -1rem;
+  width: auto;
+}
+
+.marginalie-text.marginLeft {
+  border-right: 1.8px solid black;
+}
+
+.fackel-ref, .fackel-ref > p {
+  background-color: $fackel-red;
+}
