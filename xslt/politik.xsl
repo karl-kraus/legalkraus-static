@@ -34,13 +34,13 @@
                     
                     <div class="container">
                         
-                        <h1>
+                        <h1 class="text-center">
                             <xsl:value-of select="$doc_title"/>
                         </h1>
-                        <ul>
-                            <li><a href="sozialdemokratie-collections.html">Sozialdemokratie</a></li>
-                            <li><a href="christlich-sozial-collections.html">Christlich-sozial</a></li>
-                            <li><a href="nationalsozialismus-collections.html">Nationalsozialismus</a></li>
+                        <ul class="list-unstyled w-75 mx-auto mb-5">
+                            <li class="pt-3"><a class="btn btn-primary text-white d-block" href="sozialdemokratie-collections.html">Sozialdemokratie</a></li>
+                            <li class="pt-3"><a class="btn btn-primary text-white d-block" href="christlich-sozial-collections.html">Christlich-sozial</a></li>
+                            <li class="pt-3"><a class="btn btn-primary text-white d-block" href="nationalsozialismus-collections.html">Nationalsozialismus</a></li>
                         </ul>
                     </div>
                     <xsl:call-template name="html_footer"/>
