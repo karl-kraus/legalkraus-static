@@ -292,6 +292,17 @@
                         <xsl:with-param name="include_jquery" select="false()"/>                   
                     </xsl:call-template>
                 </div>
+                <div class="modal" id="nicht_erfasst" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content rounded-0">
+                            <div class="modal-header rounded-0 bg-darker-gray">
+                                <h5 class="modal-title">Nicht erfasst</h5>
+                                <button type="button" class="btn-close"
+                                    aria-label="Close" data-bs-dismiss="modal"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <script src="https://unpkg.com/de-micro-editor@0.2.6/dist/de-editor.min.js"/>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"/>
                 <script type="text/javascript" src="js/osd_select.js"/>
