@@ -58,7 +58,7 @@
             <body class="page">
                 <div class="hfeed site" id="page">
                     <xsl:call-template name="nav_bar"/>
-                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3 pb-0">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
                                 <a href="toc.html">Akten</a>
