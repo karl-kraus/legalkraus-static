@@ -71,7 +71,7 @@
                                     <xsl:value-of select="$colTitle"/>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">
+                            <li class="breadcrumb-item active text-truncate" aria-current="page">
                                 <xsl:value-of select="$doc_title"/>
                             </li>
                         </ol>
