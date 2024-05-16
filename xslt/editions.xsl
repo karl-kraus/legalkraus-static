@@ -113,7 +113,7 @@
                                                   <div class="ms-2">
                                                   <span>
                                                   <span>
-                                                  <button id="prevPage" onclick="Pager.selectPage('prev')" class="me-1 bg-white border-0">
+                                                  <button id="prevPage" onclick="Pager.selectPage('prev')" class="me-1 bg-white border-0 align-middle">
                                                   <i class="fas fa-arrow-left fa-lg"
                                                   title="go to previous page"/>
                                                   </button></span>
@@ -154,7 +154,7 @@
                                                                     else
                                                                         count(//tei:graphic[@source = 'wienbibliothek'])"
                                                   />
-                                                  <button id="nextPage" onclick="Pager.selectPage('next')" class="ms-1 bg-white border-0">
+                                                  <button id="nextPage" onclick="Pager.selectPage('next')" class="ms-1 bg-white border-0 align-middle">
                                                   <i class="fas fa-arrow-right fa-lg"
                                                   title="go to next page"/>
                                                   </button>
