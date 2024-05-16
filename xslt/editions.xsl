@@ -81,7 +81,7 @@
                         <div class="wp-transcript">
                             <div class="card-header">
                                 <div class="row">
-                                    <div class="col-md-2 col-lg-2 col-sm-12">
+                                    <div class="col-md-2 d-none d-md-block">
                                         <xsl:if test="ends-with($prev, '.html')">
                                             <h1>
                                                 <a>
@@ -168,7 +168,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-2 col-lg-2 col-sm-12"
+                                    <div class="col-md-2 d-none d-md-block"
                                         style="text-align:right">
                                         <xsl:if test="ends-with($next, '.html')">
                                             <h1>
