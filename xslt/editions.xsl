@@ -53,6 +53,7 @@
             <head>
                 <xsl:call-template name="html_head">
                     <xsl:with-param name="html_title" select="$doc_title"/>
+                    <xsl:with-param name="include_datatableslib" select="false()"/>
                 </xsl:call-template>
             </head>
             <body class="page">
@@ -291,7 +292,9 @@
                             </xsl:for-each>
                         </div>
                     </div>
-                    <xsl:call-template name="html_footer"/>
+                    <xsl:call-template name="html_footer">
+                        <xsl:with-param name="include_jquery" select="false()"/>                   
+                    </xsl:call-template>
                 </div>
                 <script src="https://unpkg.com/de-micro-editor@0.2.6/dist/de-editor.min.js"/>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"/>
