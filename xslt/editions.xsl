@@ -49,7 +49,7 @@
             <xsl:value-of select="head(.//tei:title)/text()"/>
         </xsl:variable>
 
-        <html>
+        <html lang="de">
             <head>
                 <xsl:call-template name="html_head">
                     <xsl:with-param name="html_title" select="$doc_title"/>
