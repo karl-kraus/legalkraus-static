@@ -84,14 +84,12 @@
                                 <div class="row">
                                     <div class="col-md-2 d-none d-md-block">
                                         <xsl:if test="ends-with($prev, '.html')">
-                                            <h1>
                                                 <a>
                                                   <xsl:attribute name="href">
                                                   <xsl:value-of select="$prev"/>
                                                   </xsl:attribute>
                                                   <i class="fas fa-chevron-left" title="prev"/>
                                                 </a>
-                                            </h1>
                                         </xsl:if>
                                     </div>
                                     <div class="col-md-8 col-lg-8 col-sm-12">
@@ -172,14 +170,12 @@
                                     <div class="col-md-2 d-none d-md-block"
                                         style="text-align:right">
                                         <xsl:if test="ends-with($next, '.html')">
-                                            <h1>
                                                 <a>
                                                   <xsl:attribute name="href">
                                                   <xsl:value-of select="$next"/>
                                                   </xsl:attribute>
                                                   <i class="fas fa-chevron-right" title="next"/>
                                                 </a>
-                                            </h1>
                                         </xsl:if>
                                     </div>
                                 </div>
