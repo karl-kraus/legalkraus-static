@@ -29,7 +29,7 @@
           <xsl:when test="count(tokenize(@source, ' ')) > 1">
             <span class="quotes {substring-after(@rendition, '#')}" id="{@xml:id}">
                 <xsl:apply-templates/>
-                <xsl:for-each select="tokenize(@ref, ' ')">
+                <xsl:for-each select="tokenize(@source, ' ')">
                     <sup class="entity" data-bs-toggle="modal" data-bs-target="{.}">
                         <xsl:value-of select="position()"/>
                     </sup>
