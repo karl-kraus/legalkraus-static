@@ -201,7 +201,7 @@
                         <span class="legaltexts {substring-after(@rendition, '#')}" id="{@xml:id}">
                             <xsl:apply-templates/>
                             <xsl:for-each select="tokenize(@ref, ' ')">
-                                <sup class="entity" data-bs-toggle="modal" data-bs-target="{.}">
+                                <sup class="entity" data-bs-toggle="modal" data-bs-target="{replace(.,'/','#')}">
                                     <xsl:value-of select="position()"/>
                                 </sup>
                                 <xsl:if test="position() != last()">
