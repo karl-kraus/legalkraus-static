@@ -39,8 +39,35 @@
                 </xsl:for-each>
             </span>
           </xsl:when>
+          <xsl:when test="matches(@source,'#[0-9]+')">
+            <span class="quotes entity {substring-after(@rendition, '#')} cursor-pointer" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{'#pmb'||replace(@source,'#','')}">
+              <xsl:apply-templates/>
+            </span>
+          </xsl:when>
+          <xsl:when test="starts-with(@source,'https://fackel')">
+            <span class="quotes entity {substring-after(@rendition, '#')}" id="{@xml:id}">
+              <xsl:apply-templates/>
+               <a href="{@source}" target="_blank" class="align-text-bottom ps-1 link-ext d-none" rel="noopener noreferrer" title="go to {@source}">
+                <i class="fas fa-external-link-alt fa-sm"/>
+              </a>
+            </span>
+          </xsl:when>
+          <xsl:when test="starts-with(@source,'https://id.acdh.oeaw.ac.at/legalkraus')">
+            <xsl:variable name="doc_name" select="replace(tokenize(@source,'/')[last()],'.xml','')"/>
+            <span class="quotes entity {substring-after(@rendition, '#')}" id="{@xml:id}">
+                <xsl:apply-templates/>
+                <a href="{$doc_name||'.html'}" target="_blank" class="align-text-bottom ps-1 link-ext d-none" rel="noopener noreferrer" title="go to {@ref}">
+                  <i class="fas fa-external-link-alt fa-sm"/>
+                </a>
+            </span>
+          </xsl:when>
+          <xsl:when test="not(@source) or @source=''">
+            <span class="quotes entity {substring-after(@rendition, '#')} cursor-pointer" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="#nicht_erfasst">
+              <xsl:apply-templates/>
+            </span>
+          </xsl:when>
           <xsl:otherwise>
-              <span class="quotes entity {substring-after(@rendition, '#')}" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@source}">
+              <span class="quotes entity {substring-after(@rendition, '#')} cursor-pointer" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@source}">
                 <xsl:apply-templates/>
               </span>
           </xsl:otherwise>
