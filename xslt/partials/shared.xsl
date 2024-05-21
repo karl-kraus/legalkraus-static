@@ -186,7 +186,7 @@
             <xsl:when test="count(tokenize(@ref, ' ')) > 1">
                 <xsl:choose>
                     <xsl:when test="@type='person'">
-                        <span class="persons {substring-after(@rendition, '#')}" id="{@xml:id}">
+                        <span class="persons {substring-after(@rendition, '#')} cursor-pointer" id="{@xml:id}">
                             <xsl:apply-templates/>
                             <xsl:for-each select="tokenize(@ref, ' ')">
                                 <sup class="entity" data-bs-toggle="modal" data-bs-target="{.}">
@@ -238,7 +238,7 @@
                         </span>
                     </xsl:when>
                     <xsl:when test="@type='work'">
-                        <span class="works {substring-after(@rendition, '#')}" id="{@xml:id}">
+                        <span class="works {substring-after(@rendition, '#')} cursor-pointer" id="{@xml:id}">
                             <xsl:apply-templates/>
                             <xsl:for-each select="tokenize(@ref, ' ')">
                                 <sup class="entity" data-bs-toggle="modal" data-bs-target="{.}">
@@ -255,17 +255,17 @@
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="@type='person'">
-                        <span class="persons entity {substring-after(@rendition, '#')}" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@ref}">
+                        <span class="persons entity {substring-after(@rendition, '#')} cursor-pointer" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{if (not(@ref) or @ref='') then '#nicht_erfasst' else @ref}">
                             <xsl:apply-templates/>
                         </span>
                     </xsl:when>
                     <xsl:when test="@type='institution'">
-                        <span class="institutions entity {substring-after(@rendition, '#')}" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@ref}">
+                        <span class="institutions entity {substring-after(@rendition, '#')} cursor-pointer" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@ref}">
                             <xsl:apply-templates/>
                         </span>
                     </xsl:when>
                     <xsl:when test="@type='place'">
-                        <span class="places entity {substring-after(@rendition, '#')}" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@ref}">
+                        <span class="places entity {substring-after(@rendition, '#')} cursor-pointer" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@ref}">
                             <xsl:apply-templates/>
                         </span>
                     </xsl:when>
