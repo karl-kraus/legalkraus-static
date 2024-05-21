@@ -270,8 +270,11 @@
                         </span>
                     </xsl:when>
                      <xsl:when test="@type='law'">
-                        <span class="legaltexts entity {substring-after(@rendition, '#')}" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@ref}">
+                        <span class="legaltexts entity {substring-after(@rendition, '#')}" id="{@xml:id}">
                             <xsl:apply-templates/>
+                            <a href="{@ref}" target="_blank" class="align-text-bottom ps-1 link-ext d-none" rel="noopener noreferrer" title="go to {@ref}">
+                              <i class="fas fa-external-link-alt fa-sm"/>
+                            </a>
                         </span>
                     </xsl:when>
                     <xsl:when test="@type='work'">
