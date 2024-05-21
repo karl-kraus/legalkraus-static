@@ -258,12 +258,6 @@ br {
   height:0;
 }
 
-
-span.lb::after {
-  content:"\A";
-  white-space: pre;
-}
-
 .rdg {
   background: $rdg-bg;
 }
@@ -289,4 +283,18 @@ span.lb::after {
 
 .fackel-ref, .fackel-ref > p {
   background-color: $fackel-red;
+}
+span.lb::before {
+  content: attr(data-linenr);
+  display: block;
+  position:absolute;
+  left: -2rem;
+  width:2ch;
+  font-size:80%;
+  padding-top:0.21rem;
+}
+
+span.lb::after {
+  content: '\A';
+  display:block;
 }

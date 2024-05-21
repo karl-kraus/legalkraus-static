@@ -450,14 +450,20 @@
         </span>
     </xsl:template>
 
-    <xsl:template match="tei:lb[count(preceding::tei:lb) > 0][not(@break)]">
-        <xsl:variable name="curbr" select="."/>
-        <br/>
+    <xsl:template match="tei:lb[not(@break)]">
+        <span class="lb">
+            <xsl:if test="(count(preceding::tei:lb) + 1) mod 5 = 0">
+                <xsl:attribute name="data-linenr" select="count(preceding::tei:lb) + 1"/>
+            </xsl:if>
+        </span>
     </xsl:template>
 
     <xsl:template match="tei:lb[@break = 'no']">
-        <xsl:variable name="curbr" select="."/>
-        <span class="lb" ref="linebreak{generate-id()}">-</span>
+        <span class="lb">
+        <xsl:if test="(count(preceding::tei:lb) + 1) mod 5 = 0">
+                <xsl:attribute name="data-linenr" select="count(preceding::tei:lb) + 1"/>
+            </xsl:if>
+        -</span>
     </xsl:template>
     <xsl:template match="tei:rdg">
         <xsl:variable name="witid" select="substring-after(@wit, '#')"/>
