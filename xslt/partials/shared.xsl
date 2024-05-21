@@ -278,9 +278,35 @@
                         </span>
                     </xsl:when>
                     <xsl:when test="@type='work'">
-                        <span class="works entity {substring-after(@rendition, '#')}" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@ref}">
-                            <xsl:apply-templates/>
-                        </span>
+                      <xsl:choose>
+                        <xsl:when test="starts-with(@corresp,'https://fackel')">
+                          <span class="works entity {substring-after(@rendition, '#')}" id="{@xml:id}">
+                              <xsl:apply-templates/>
+                              <a href="{@corresp}" target="_blank" class="align-text-bottom ps-1 link-ext d-none" rel="noopener noreferrer" title="go to {@ref}">
+                                <i class="fas fa-external-link-alt fa-sm"/>
+                              </a>
+                          </span>
+                        </xsl:when>
+                        <xsl:when test="starts-with(@ref,'https://id.acdh.oeaw.ac.at/legalkraus')">
+                          <xsl:variable name="doc_name" select="replace(tokenize(@ref,'/')[last()],'.xml','')"/>
+                          <span class="works entity {substring-after(@rendition, '#')}" id="{@xml:id}">
+                              <xsl:apply-templates/>
+                              <a href="{$doc_name||'.html'}" target="_blank" class="align-text-bottom ps-1 link-ext d-none" rel="noopener noreferrer" title="go to {@ref}">
+                                <i class="fas fa-external-link-alt fa-sm"/>
+                              </a>
+                          </span>
+                        </xsl:when>
+                        <xsl:when test="(not(@ref) or @ref='') and (not(@corresp) or @corresp='')">
+                          <span class="works entity {substring-after(@rendition, '#')} cursor-pointer" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="#nicht_erfasst">
+                              <xsl:apply-templates/>
+                          </span>
+                        </xsl:when>
+                        <xsl:otherwise>
+                          <span class="works entity {substring-after(@rendition, '#')} cursor-pointer" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@ref}">
+                              <xsl:apply-templates/>
+                          </span>
+                        </xsl:otherwise>
+                      </xsl:choose>
                     </xsl:when>
                 </xsl:choose>
             </xsl:otherwise>
