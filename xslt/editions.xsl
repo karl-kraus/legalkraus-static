@@ -357,6 +357,9 @@
 <xsl:template match="tei:note[@type = 'intertext' and starts-with(@source, 'https://fackel')]">
         <span class="fackel-ref entity">
             <xsl:apply-templates/>
+            <a href="{@source}" target="_blank" rel="noopener noreferrer" title="go to {@source}">
+              <i class="fas fa-external-link-alt fa-sm"/>
+            </a>
         </span>
     </xsl:template>
     <xsl:template match="tei:note[@type = 'marginal']">
