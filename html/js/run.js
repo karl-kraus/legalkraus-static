@@ -5,7 +5,7 @@ var editor = new LoadEditor({
         {
           opt: "ef",
           opt_slider: "entities-features-slider",
-          title: "All",
+          title: "Alle Annotationen",
           color: "red",
           html_class: "undefined",
           css_class: "undefined",
@@ -22,7 +22,7 @@ var editor = new LoadEditor({
         {
           opt: "prs",
           color: "annot_person",
-          title: "Persons",
+          title: "Personen",
           html_class: "persons",
           css_class: "pers",
           hide: {
@@ -38,7 +38,7 @@ var editor = new LoadEditor({
         {
           opt: "inst",
           color: "annot_institution",
-          title: "Institutions",
+          title: "Institution",
           html_class: "institutions",
           css_class: "inst",
           hide: {
@@ -54,7 +54,7 @@ var editor = new LoadEditor({
         {
           opt: "plc",
           color: "annot_place",
-          title: "Places",
+          title: "Ort",
           html_class: "places",
           css_class: "plc",
           hide: {
@@ -70,7 +70,7 @@ var editor = new LoadEditor({
         {
           opt: "ltxts",
           color: "annot_law",
-          title: "Legal Texts",
+          title: "jur. Texte",
           html_class: "legaltexts",
           css_class: "bg-laws",
           hide: {
@@ -86,7 +86,7 @@ var editor = new LoadEditor({
         {
           opt: "wrk",
           color: "annot_work",
-          title: "Works",
+          title: "Werke",
           html_class: "works",
           css_class: "wrk",
           chg_citation: "citation-url",
@@ -102,7 +102,7 @@ var editor = new LoadEditor({
         {
           opt: "quts",
           color: "annot_quote",
-          title: "Quotes",
+          title: "Zitat",
           html_class: "quotes",
           css_class: "itxts",
           chg_citation: "citation-url",
