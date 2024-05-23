@@ -160,10 +160,13 @@
                                                   </button>
                                                   </span>
                                                   </div>
-                                                  <div id="editor-widget">
-                                                  <xsl:call-template name="annotation-options"/>
-                                                  </div>
                                                 </div>
+                                            </div>
+                                            <div class="col-md-12 d-none d-md-block">
+                                              <div class="d-flex justify-content-center gap-2">
+                                                <full-size opt="fls"></full-size>
+                                                <image-switch opt="es"></image-switch>
+                                              </div>
                                             </div>
                                         </div>
                                     </div>
@@ -186,20 +189,21 @@
                                 </div>
                             </div>
                             <div id="container-resize" class="row transcript active">
-                                <div id="img-resize" class="col-md-6 col-lg-6 col-sm-12 facsimiles">
-                                    <div class="bg-white-gray">
-                                      <div id="viewer" class="mw-100">
+                                <div id="img-resize" class="col-md-6 bg-white-gray facsimiles">
+                                    
+                                      <div id="viewer">
                                           <div id="container_facs_1">
                                               <!-- container and facs handling in js -->
                                           </div>
                                       </div>
-                                    </div>
                                 </div>
                                 <div id="text-resize"
                                     class="col-md-6 col-lg-6 col-sm-12 text yes-index">
-                                    <div id="section" class="p-5 bg-white-gray h-100">
-
-                                        <div>
+                                    <div id="section" class="bg-white-gray overflow-auto">
+                                      <div id="editor-widget">
+                                        <xsl:call-template name="annotation-options"/>
+                                      </div>
+                                      <div id="doc-wrapper" class="p-5 overflow-auto">
                                             <!--<xsl:apply-templates select="//tei:body"></xsl:apply-templates>-->
                                             <xsl:choose>
                                                 <xsl:when test="//tei:pb">
@@ -232,7 +236,6 @@
                                                   />
                                                 </xsl:otherwise>
                                             </xsl:choose>
-                                        </div>
                                         <xsl:if test="//tei:note[@type = 'footnote']">
                                             <div class="card-footer">
                                                 <a class="anchor" id="footnotes"/>
@@ -253,7 +256,7 @@
                                                 </ul>
                                             </div>
                                         </xsl:if>
-
+                                      </div>
                                     </div>
                                 </div>
                             </div>
