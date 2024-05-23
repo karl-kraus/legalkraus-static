@@ -78,7 +78,7 @@
                         </ol>
                     </nav>
 
-                    <div id="content" class="container-fluid p-3">
+                    <div id="content" class="container-fluid w-xl-90 p-3">
                         <div class="wp-transcript">
                             <div class="card-header">
                                 <div class="row">
