@@ -99,6 +99,10 @@ input:checked + .i-slider:before {
   font-style: italic;
 }
 
+.annot_all {
+  background-color: $annot_all;
+}
+
 .annot_person {
   background-color: $annot_person;
 }
@@ -205,6 +209,9 @@ input:checked + .i-slider:before {
 
 /* edition specifics classes */
 
+.doc-page {
+  min-width:max-content;
+}
 
 .note-hand {
   font-weight: 600;
@@ -258,12 +265,6 @@ br {
   height:0;
 }
 
-
-span.lb::after {
-  content:"\A";
-  white-space: pre;
-}
-
 .rdg {
   background: $rdg-bg;
 }
@@ -289,4 +290,25 @@ span.lb::after {
 
 .fackel-ref, .fackel-ref > p {
   background-color: $fackel-red;
+}
+
+.annot_law .link-ext,
+.annot_quote .link-ext,
+.annot_work .link-ext {
+  display:inline !important;
+}
+
+span.lb::before {
+  content: attr(data-linenr);
+  display: block;
+  position:absolute;
+  left: -2rem;
+  width:2ch;
+  font-size:80%;
+  padding-top:0.21rem;
+}
+
+span.lb::after {
+  content: '\A';
+  display:block;
 }

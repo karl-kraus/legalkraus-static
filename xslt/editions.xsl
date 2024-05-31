@@ -49,16 +49,17 @@
             <xsl:value-of select="head(.//tei:title)/text()"/>
         </xsl:variable>
 
-        <html>
+        <html lang="de">
             <head>
                 <xsl:call-template name="html_head">
                     <xsl:with-param name="html_title" select="$doc_title"/>
+                    <xsl:with-param name="include_datatableslib" select="false()"/>
                 </xsl:call-template>
             </head>
             <body class="page">
                 <div class="hfeed site" id="page">
                     <xsl:call-template name="nav_bar"/>
-                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3 pb-0">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
                                 <a href="toc.html">Akten</a>
@@ -71,26 +72,24 @@
                                     <xsl:value-of select="$colTitle"/>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">
+                            <li class="breadcrumb-item active text-truncate" aria-current="page">
                                 <xsl:value-of select="$doc_title"/>
                             </li>
                         </ol>
                     </nav>
 
-                    <div class="container-fluid p-3">
+                    <div id="content" class="container-fluid w-xl-90 p-3">
                         <div class="wp-transcript">
                             <div class="card-header">
                                 <div class="row">
-                                    <div class="col-md-2 col-lg-2 col-sm-12">
+                                    <div class="col-md-2 d-none d-md-block">
                                         <xsl:if test="ends-with($prev, '.html')">
-                                            <h1>
                                                 <a>
                                                   <xsl:attribute name="href">
                                                   <xsl:value-of select="$prev"/>
                                                   </xsl:attribute>
                                                   <i class="fas fa-chevron-left" title="prev"/>
                                                 </a>
-                                            </h1>
                                         </xsl:if>
                                     </div>
                                     <div class="col-md-8 col-lg-8 col-sm-12">
@@ -114,7 +113,7 @@
                                                   <div class="ms-2">
                                                   <span>
                                                   <span>
-                                                  <button id="prevPage" onclick="Pager.selectPage('prev')" class="me-1 bg-white border-0">
+                                                  <button id="prevPage" onclick="Pager.selectPage('prev')" class="me-1 bg-white border-0 align-middle">
                                                   <i class="fas fa-arrow-left fa-lg"
                                                   title="go to previous page"/>
                                                   </button></span>
@@ -155,30 +154,31 @@
                                                                     else
                                                                         count(//tei:graphic[@source = 'wienbibliothek'])"
                                                   />
-                                                  <button id="nextPage" onclick="Pager.selectPage('next')" class="ms-1 bg-white border-0">
+                                                  <button id="nextPage" onclick="Pager.selectPage('next')" class="ms-1 bg-white border-0 align-middle">
                                                   <i class="fas fa-arrow-right fa-lg"
                                                   title="go to next page"/>
                                                   </button>
                                                   </span>
                                                   </div>
-                                                  <div id="editor-widget">
-                                                  <xsl:call-template name="annotation-options"/>
-                                                  </div>
                                                 </div>
+                                            </div>
+                                            <div class="col-12">
+                                              <div class="d-flex justify-content-center gap-2">
+                                                <full-size opt="fls"></full-size>
+                                                <image-switch opt="es"></image-switch>
+                                              </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-2 col-lg-2 col-sm-12"
+                                    <div class="col-md-2 d-none d-md-block"
                                         style="text-align:right">
                                         <xsl:if test="ends-with($next, '.html')">
-                                            <h1>
                                                 <a>
                                                   <xsl:attribute name="href">
                                                   <xsl:value-of select="$next"/>
                                                   </xsl:attribute>
                                                   <i class="fas fa-chevron-right" title="next"/>
                                                 </a>
-                                            </h1>
                                         </xsl:if>
                                     </div>
                                 </div>
@@ -188,21 +188,22 @@
                                   </div>-->
                                 </div>
                             </div>
-                            <div id="container-resize" class="row transcript active">
-                                <div id="img-resize" class="col-md-6 col-lg-6 col-sm-12 facsimiles">
-                                    <div class="bg-white-gray">
-                                      <div id="viewer" class="mw-100">
-                                          <div id="container_facs_1">
+                            <div id="container-resize" class="row transcript active gy-2">
+                                <div id="img-resize" class="col-12 col-md-6 facsimiles">
+                                    
+                                      <div id="viewer" class=" bg-white-gray h-auto w-auto">
+                                          <div id="container_facs_1" class="p-md-5">
                                               <!-- container and facs handling in js -->
                                           </div>
                                       </div>
-                                    </div>
                                 </div>
                                 <div id="text-resize"
-                                    class="col-md-6 col-lg-6 col-sm-12 text yes-index">
-                                    <div id="section" class="p-5 bg-white-gray h-100">
-
-                                        <div>
+                                    class="col-12 col-md-6 text yes-index">
+                                    <div id="section" class="bg-white-gray d-flex flex-column position-relative p-md-5">
+                                      <div id="editor-widget">
+                                        <xsl:call-template name="annotation-options"/>
+                                      </div>
+                                      <div id="doc-wrapper" class="overflow-auto mw-100">
                                             <!--<xsl:apply-templates select="//tei:body"></xsl:apply-templates>-->
                                             <xsl:choose>
                                                 <xsl:when test="//tei:pb">
@@ -213,7 +214,7 @@
                                                   <xsl:apply-templates select="current()"/>
                                                   <xsl:variable name="nextPb"
                                                   select="current()/following::tei:pb[1]"/>
-                                                  <div class="{if (count(preceding::tei:pb) = 0) then 'd-block' else 'd-none'} position-relative" id="page_{count(preceding::tei:pb) + 1}">
+                                                  <div class="{if (count(preceding::tei:pb) = 0) then 'd-block' else 'd-none'} doc-page position-relative" id="page_{count(preceding::tei:pb) + 1}">
                                                   <xsl:choose>
                                                   <xsl:when test="$nextPb">
                                                   <xsl:apply-templates
@@ -235,7 +236,6 @@
                                                   />
                                                 </xsl:otherwise>
                                             </xsl:choose>
-                                        </div>
                                         <xsl:if test="//tei:note[@type = 'footnote']">
                                             <div class="card-footer">
                                                 <a class="anchor" id="footnotes"/>
@@ -256,7 +256,7 @@
                                                 </ul>
                                             </div>
                                         </xsl:if>
-
+                                      </div>
                                     </div>
                                 </div>
                             </div>
@@ -291,7 +291,20 @@
                             </xsl:for-each>
                         </div>
                     </div>
-                    <xsl:call-template name="html_footer"/>
+                    <xsl:call-template name="html_footer">
+                        <xsl:with-param name="include_jquery" select="false()"/>                   
+                    </xsl:call-template>
+                </div>
+                <div class="modal" id="nicht_erfasst" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content rounded-0">
+                            <div class="modal-header rounded-0 bg-darker-gray">
+                                <h5 class="modal-title">Nicht erfasst</h5>
+                                <button type="button" class="btn-close"
+                                    aria-label="Close" data-bs-dismiss="modal"/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <script src="https://unpkg.com/de-micro-editor@0.2.6/dist/de-editor.min.js"/>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"/>
@@ -347,6 +360,9 @@
 <xsl:template match="tei:note[@type = 'intertext' and starts-with(@source, 'https://fackel')]">
         <span class="fackel-ref entity">
             <xsl:apply-templates/>
+            <a href="{@source}" target="_blank" rel="noopener noreferrer" title="go to {@source}">
+              <i class="fas fa-external-link-alt fa-sm"/>
+            </a>
         </span>
     </xsl:template>
     <xsl:template match="tei:note[@type = 'marginal']">
@@ -437,14 +453,20 @@
         </span>
     </xsl:template>
 
-    <xsl:template match="tei:lb[count(preceding::tei:lb) > 0][not(@break)]">
-        <xsl:variable name="curbr" select="."/>
-        <br/>
+    <xsl:template match="tei:lb[not(@break)]">
+        <span class="lb">
+            <xsl:if test="(count(preceding::tei:lb) + 1) mod 5 = 0">
+                <xsl:attribute name="data-linenr" select="count(preceding::tei:lb) + 1"/>
+            </xsl:if>
+        </span>
     </xsl:template>
 
     <xsl:template match="tei:lb[@break = 'no']">
-        <xsl:variable name="curbr" select="."/>
-        <span class="lb" ref="linebreak{generate-id()}">-</span>
+        <span class="lb">
+        <xsl:if test="(count(preceding::tei:lb) + 1) mod 5 = 0">
+                <xsl:attribute name="data-linenr" select="count(preceding::tei:lb) + 1"/>
+            </xsl:if>
+        -</span>
     </xsl:template>
     <xsl:template match="tei:rdg">
         <xsl:variable name="witid" select="substring-after(@wit, '#')"/>

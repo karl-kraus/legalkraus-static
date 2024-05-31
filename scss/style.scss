@@ -1,7 +1,52 @@
 /*** fonts ***/
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;1,600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,700;1,700&display=swap');
+/* open-sans-regular - latin_latin-ext_symbols */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/open-sans-v40-latin_latin-ext_symbols-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* open-sans-italic - latin_latin-ext_symbols */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/open-sans-v40-latin_latin-ext_symbols-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* open-sans-600 - latin_latin-ext_symbols */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/open-sans-v40-latin_latin-ext_symbols-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* open-sans-600italic - latin_latin-ext_symbols */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: url('../fonts/open-sans-v40-latin_latin-ext_symbols-600italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* open-sans-700 - latin_latin-ext_symbols */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/open-sans-v40-latin_latin-ext_symbols-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* open-sans-700italic - latin_latin-ext_symbols */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: url('../fonts/open-sans-v40-latin_latin-ext_symbols-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
 
 @import "bootstrap/bootstrap-scss-5.3.3/_functions.scss";
 
@@ -64,4 +109,29 @@
 .case-card {
     width: 30rem;
     height: 25rem;
+}
+
+/*** editors menu ***/
+@include media-breakpoint-up(md)  {
+  #aot-navBarNavDropdown .dropdown-menu {
+    position:relative;
+    z-index:inherit;
+    display:block;
+    background-color: $white-gray !important;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .facsimiles.active {
+    display:block !important;
+    max-width:100% !important;
+  }
+  .text.active {
+    max-width:100% !important;
+  }
+
+}
+
+annotation-slider .slider-number::after {
+  display:none;
 }

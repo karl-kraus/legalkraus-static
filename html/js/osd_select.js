@@ -24,13 +24,17 @@ const Pager = (() => {
   */
   if (!wrapper.classList.contains("fade")) {
     container.style.height = `${String(height / 1)}px`;
+    var textContainer = document.getElementById("section");
+    if (textContainer) {
+      textContainer.style.height = container.style.height;
+    }
     // set osd wrapper container width
     var container = document.getElementById("section");
     if (container !== null) {
       var width = container.clientWidth;
     }
     var container = document.getElementById("viewer");
-    container.style.width = `${String(width - 25)}px`;
+    //container.style.width = `${String(width - 25)}px`;
   } else {
     container.style.height = `${String(height / 1)}px`;
     // set osd wrapper container width
@@ -39,7 +43,7 @@ const Pager = (() => {
       var width = container.clientWidth;
     }
     var container = document.getElementById("viewer");
-    container.style.width = `${String(width / 0.7)}px`;
+    // container.style.width = `${String(width / 0.7)}px`;
   }
 
   /*
@@ -49,11 +53,12 @@ const Pager = (() => {
   ##################################################################
   */
   var tileSources = [];
+  viewerWidth = document.getElementById("viewer").clientWidth
   if (document.getElementById("page-selector")) {
     [...document.getElementById("page-selector").options].map(o => {
       var imageURL = {
         type: 'image',
-        url: o.value
+        url: o.value.replace('full/full', `full/${viewerWidth},`)
       };
       tileSources.push(imageURL)
     })
@@ -88,23 +93,27 @@ const Pager = (() => {
   */
   var idx = 0;
   var prev_idx = -1;
-  
-  
+
+
   const config = { attributes: true };
 
-  let observer = new MutationObserver((mutations) => {  
-    mutations.forEach(mutation=> {
+  let observer = new MutationObserver((mutations) => {
+    mutations.forEach(mutation => {
       if (mutation.type === "attributes") {
         reader_page = reader.getAttribute("data-page")
-       if (viewer.currentPage !== reader_page - 1) {
-        viewer.goToPage(reader_page - 1)
-       }
-       if (pageSelector.selectedIndex !== reader_page -1) {
-        pageSelector.selectedIndex = reader_page - 1
-       }
+        if (viewer.currentPage !== reader_page - 1) {
+          viewer.goToPage(reader_page - 1)
+        }
+        if (pageSelector.selectedIndex !== reader_page - 1) {
+          pageSelector.selectedIndex = reader_page - 1
+        }
+        var textContainer = document.getElementById("section");
+        if (textContainer) {
+          textContainer.scrollTop = 0;
+        }
       }
     })
-  });  
+  });
 
   observer.observe(reader, config);
 
@@ -192,7 +201,7 @@ const Pager = (() => {
 
 
 
-  
+
 
 
   function togglePrevNextPaging() {
@@ -220,28 +229,28 @@ const Pager = (() => {
     selectPage(direction) {
       pageSelector = document.getElementById("page-selector");
       reader_page = parseInt(reader.getAttribute("data-page"));
-  
+
       if (direction == 'prev') {
         pageSelector.selectedIndex = pageSelector.selectedIndex - 1;
-          reader.setAttribute("data-page", reader_page - 1);
+        reader.setAttribute("data-page", reader_page - 1);
       }
-  
+
       if (direction == 'next') {
         pageSelector.selectedIndex = pageSelector.selectedIndex + 1;
         reader.setAttribute("data-page", reader_page + 1);
       }
-  
+
       if (!direction) {
         reader.setAttribute("data-page", pageSelector.selectedIndex + 1)
       }
-  
-      imageURL = pageSelector.value;
+
+      //imageURL = pageSelector.value;
       pageNr = pageSelector[pageSelector.selectedIndex].text;
-  
+
       togglePrevNextPaging();
-  
-  
-  
+
+
+
       [...document.querySelectorAll('[id^="page_"]')].forEach(el => {
         el.classList.remove("d-block");
         el.classList.add("d-none")

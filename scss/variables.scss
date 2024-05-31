@@ -9,6 +9,7 @@ $light-gray: rgba(221, 219, 216, 1);
 $darker-gray: rgba(224, 222, 213, 1);
 $cite-card-gray: rgba(238, 237, 235, 1);
 $dark-gray: rgba(198, 194, 188, 1);
+$annot_all: rgba(138, 128, 128, 1);
 $annot_person: rgba(249, 121, 121, 1);
 $annot_institution: rgba(232, 236, 129, 1); 
 $annot_place: rgba(150, 251, 228, 1);
@@ -44,6 +45,8 @@ $theme-colors: (
 $h1-font-size: 1.5rem;
 $h2-font-size: 1.3rem;
 $font-weight-bolder: 600;
+$font-family-base: 'Open sans';
+$line-height-base: 1.5;
 
 /*** links ***/
 $link-color: rgba(0,0,0,1);
