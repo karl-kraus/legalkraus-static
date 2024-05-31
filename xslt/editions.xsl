@@ -188,7 +188,7 @@
                                   </div>-->
                                 </div>
                             </div>
-                            <div id="container-resize" class="row transcript active">
+                            <div id="container-resize" class="row transcript active gy-2">
                                 <div id="img-resize" class="col-md-6 bg-white-gray facsimiles">
                                     
                                       <div id="viewer">
