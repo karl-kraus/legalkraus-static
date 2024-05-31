@@ -6,8 +6,9 @@ $utilities: map-merge(
       (
         values: map-merge(
           map-get(map-get($utilities, "width"), "values"),
-          (8r: 8.5rem,"fit-content":fit-content),
+          (90: 90%, 8r: 8.5rem,"fit-content":fit-content),
         ),
+        responsive: true,
       ),
     ),
   ),
@@ -26,4 +27,14 @@ $utilities: map-merge(
     ),
   ),
 )
+);
+/*https://5balloons.info/cursor-pointer-and-other-classes-for-bootstrap-5/*/
+$utilities: map-merge(
+  $utilities,
+  (
+    "cursor": (
+      property: cursor,
+      values: auto default pointer wait text move help not-allowed
+    ),
+  )
 );
