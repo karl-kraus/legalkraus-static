@@ -51,7 +51,7 @@
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <div class="pt-3 pb-5 pr-2 bg-secondary carousel-wrapper-bottom"/>
+                        <div class="pt-3 pb-1 pb-md-5 pr-2 bg-secondary carousel-wrapper-bottom"/>
                     </div>
                     <div class="container">
                         <h1 class="pt-5 pb-1">Mögliche Einstiege</h1>
