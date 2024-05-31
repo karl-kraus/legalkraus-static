@@ -1,8 +1,53 @@
 @charset "UTF-8";
 /*** fonts ***/
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;1,600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,700;1,700&display=swap");
+/* open-sans-regular - latin_latin-ext_symbols */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/open-sans-v40-latin_latin-ext_symbols-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* open-sans-italic - latin_latin-ext_symbols */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Open Sans";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/open-sans-v40-latin_latin-ext_symbols-italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* open-sans-600 - latin_latin-ext_symbols */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/open-sans-v40-latin_latin-ext_symbols-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* open-sans-600italic - latin_latin-ext_symbols */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Open Sans";
+  font-style: italic;
+  font-weight: 600;
+  src: url("../fonts/open-sans-v40-latin_latin-ext_symbols-600italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* open-sans-700 - latin_latin-ext_symbols */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/open-sans-v40-latin_latin-ext_symbols-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* open-sans-700italic - latin_latin-ext_symbols */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Open Sans";
+  font-style: italic;
+  font-weight: 700;
+  src: url("../fonts/open-sans-v40-latin_latin-ext_symbols-700italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
 /*** colors ***/
 /*** typography ***/
 /*** links ***/
@@ -10,6 +55,7 @@
 /*** breadcrumbs ***/
 /*** pagination ***/
 /*** utilities ***/
+/*https://5balloons.info/cursor-pointer-and-other-classes-for-bootstrap-5/*/
 .align-baseline {
   vertical-align: baseline !important;
 }
@@ -543,6 +589,10 @@
 
 .w-auto {
   width: auto !important;
+}
+
+.w-90 {
+  width: 90% !important;
 }
 
 .w-8r {
@@ -2130,6 +2180,38 @@
   z-index: 3 !important;
 }
 
+.cursor-auto {
+  cursor: auto !important;
+}
+
+.cursor-default {
+  cursor: default !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.cursor-wait {
+  cursor: wait !important;
+}
+
+.cursor-text {
+  cursor: text !important;
+}
+
+.cursor-move {
+  cursor: move !important;
+}
+
+.cursor-help {
+  cursor: help !important;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed !important;
+}
+
 @media (min-width: 576px) {
   .float-sm-start {
     float: left !important;
@@ -2187,6 +2269,30 @@
   }
   .d-sm-none {
     display: none !important;
+  }
+  .w-sm-25 {
+    width: 25% !important;
+  }
+  .w-sm-50 {
+    width: 50% !important;
+  }
+  .w-sm-75 {
+    width: 75% !important;
+  }
+  .w-sm-100 {
+    width: 100% !important;
+  }
+  .w-sm-auto {
+    width: auto !important;
+  }
+  .w-sm-90 {
+    width: 90% !important;
+  }
+  .w-sm-8r {
+    width: 8.5rem !important;
+  }
+  .w-sm-fit-content {
+    width: fit-content !important;
   }
   .flex-sm-fill {
     flex: 1 1 auto !important;
@@ -2738,6 +2844,30 @@
   .d-md-none {
     display: none !important;
   }
+  .w-md-25 {
+    width: 25% !important;
+  }
+  .w-md-50 {
+    width: 50% !important;
+  }
+  .w-md-75 {
+    width: 75% !important;
+  }
+  .w-md-100 {
+    width: 100% !important;
+  }
+  .w-md-auto {
+    width: auto !important;
+  }
+  .w-md-90 {
+    width: 90% !important;
+  }
+  .w-md-8r {
+    width: 8.5rem !important;
+  }
+  .w-md-fit-content {
+    width: fit-content !important;
+  }
   .flex-md-fill {
     flex: 1 1 auto !important;
   }
@@ -3287,6 +3417,30 @@
   }
   .d-lg-none {
     display: none !important;
+  }
+  .w-lg-25 {
+    width: 25% !important;
+  }
+  .w-lg-50 {
+    width: 50% !important;
+  }
+  .w-lg-75 {
+    width: 75% !important;
+  }
+  .w-lg-100 {
+    width: 100% !important;
+  }
+  .w-lg-auto {
+    width: auto !important;
+  }
+  .w-lg-90 {
+    width: 90% !important;
+  }
+  .w-lg-8r {
+    width: 8.5rem !important;
+  }
+  .w-lg-fit-content {
+    width: fit-content !important;
   }
   .flex-lg-fill {
     flex: 1 1 auto !important;
@@ -3838,6 +3992,30 @@
   .d-xl-none {
     display: none !important;
   }
+  .w-xl-25 {
+    width: 25% !important;
+  }
+  .w-xl-50 {
+    width: 50% !important;
+  }
+  .w-xl-75 {
+    width: 75% !important;
+  }
+  .w-xl-100 {
+    width: 100% !important;
+  }
+  .w-xl-auto {
+    width: auto !important;
+  }
+  .w-xl-90 {
+    width: 90% !important;
+  }
+  .w-xl-8r {
+    width: 8.5rem !important;
+  }
+  .w-xl-fit-content {
+    width: fit-content !important;
+  }
   .flex-xl-fill {
     flex: 1 1 auto !important;
   }
@@ -4387,6 +4565,30 @@
   }
   .d-xxl-none {
     display: none !important;
+  }
+  .w-xxl-25 {
+    width: 25% !important;
+  }
+  .w-xxl-50 {
+    width: 50% !important;
+  }
+  .w-xxl-75 {
+    width: 75% !important;
+  }
+  .w-xxl-100 {
+    width: 100% !important;
+  }
+  .w-xxl-auto {
+    width: auto !important;
+  }
+  .w-xxl-90 {
+    width: 90% !important;
+  }
+  .w-xxl-8r {
+    width: 8.5rem !important;
+  }
+  .w-xxl-fit-content {
+    width: fit-content !important;
   }
   .flex-xxl-fill {
     flex: 1 1 auto !important;
@@ -5009,7 +5211,7 @@
   --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --bs-body-font-family: var(--bs-font-sans-serif);
+  --bs-body-font-family: "Open sans";
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
@@ -14167,7 +14369,7 @@ progress {
   --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --bs-body-font-family: var(--bs-font-sans-serif);
+  --bs-body-font-family: "Open sans";
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
@@ -19604,6 +19806,28 @@ progress {
 .case-card {
   width: 30rem;
   height: 25rem;
+}
+
+/*** editors menu ***/
+@media (min-width: 768px) {
+  #aot-navBarNavDropdown .dropdown-menu {
+    position: relative;
+    z-index: inherit;
+    display: block;
+    background-color: rgb(248, 249, 250) !important;
+  }
+}
+@media (max-width: 575.98px) {
+  .facsimiles.active {
+    display: block !important;
+    max-width: 100% !important;
+  }
+  .text.active {
+    max-width: 100% !important;
+  }
+}
+annotation-slider .slider-number::after {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */
