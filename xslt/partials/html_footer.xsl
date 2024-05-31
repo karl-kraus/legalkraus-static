@@ -51,25 +51,25 @@
             </div>
             <div class="row bg-light-gray gx-0">
                 <div class="col-xs-12 col-md-2 py-3">
-                    <img src="images/acdh-ch-logo96.png" width="auto" height="70px"
+                    <img src="images/acdh-ch-logo96.png" loading="lazy" width="auto" height="70px"
                         alt="acdh-logo" />
                 </div>
                 <div class="col-xs-12 col-md-4 py-3">
-                    <img src="images/stadtwien.svg" width="auto" height="70px"
+                    <img src="images/stadtwien.svg" loading="lazy" width="auto" height="70px"
                         alt="Stadtwien Logo" />
                 </div>
                 <div class="col-xs-12 col-md-3 py-3">
-                    <img src="images/boltzmann.svg" width="auto" height="70px"
+                    <img src="images/boltzmann.svg" loading="lazy" width="auto" height="70px"
                         alt="Boltzmann" />
                 </div>
                 <div class="col-xs-12 col-md-3 py-3">
-                    <img src="images/fwf.png" width="auto" height="70px"
+                    <img src="images/fwf.png" loading="lazy" width="auto" height="70px"
                         alt="acdh-logo" />
                 </div>
             </div>
         </footer>
         
-        <xsl:if test="include_jquery">
+        <xsl:if test="$include_jquery">
           <script
               src="https://code.jquery.com/jquery-3.6.3.min.js"
               integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
