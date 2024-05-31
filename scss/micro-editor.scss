@@ -99,6 +99,10 @@ input:checked + .i-slider:before {
   font-style: italic;
 }
 
+.annot_all {
+  background-color: $annot_all;
+}
+
 .annot_person {
   background-color: $annot_person;
 }
