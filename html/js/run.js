@@ -6,7 +6,7 @@ var editor = new LoadEditor({
           opt: "ef",
           opt_slider: "entities-features-slider",
           title: "Alle Annotationen",
-          color: "red",
+          color: "annot_all",
           html_class: "undefined",
           css_class: "undefined",
           chg_citation: "citation-url",
