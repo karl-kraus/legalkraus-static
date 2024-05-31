@@ -189,21 +189,21 @@
                                 </div>
                             </div>
                             <div id="container-resize" class="row transcript active gy-2">
-                                <div id="img-resize" class="col-md-6 bg-white-gray facsimiles">
+                                <div id="img-resize" class="col-12 col-md-6 facsimiles">
                                     
-                                      <div id="viewer">
-                                          <div id="container_facs_1">
+                                      <div id="viewer" class=" bg-white-gray h-auto w-auto">
+                                          <div id="container_facs_1" class="p-md-5">
                                               <!-- container and facs handling in js -->
                                           </div>
                                       </div>
                                 </div>
                                 <div id="text-resize"
-                                    class="col-md-6 col-lg-6 col-sm-12 text yes-index">
-                                    <div id="section" class="bg-white-gray overflow-auto">
+                                    class="col-12 col-md-6 text yes-index">
+                                    <div id="section" class="bg-white-gray d-flex flex-column position-relative p-md-5">
                                       <div id="editor-widget">
                                         <xsl:call-template name="annotation-options"/>
                                       </div>
-                                      <div id="doc-wrapper" class="p-5 overflow-auto">
+                                      <div id="doc-wrapper" class="overflow-auto mw-100">
                                             <!--<xsl:apply-templates select="//tei:body"></xsl:apply-templates>-->
                                             <xsl:choose>
                                                 <xsl:when test="//tei:pb">
@@ -214,7 +214,7 @@
                                                   <xsl:apply-templates select="current()"/>
                                                   <xsl:variable name="nextPb"
                                                   select="current()/following::tei:pb[1]"/>
-                                                  <div class="{if (count(preceding::tei:pb) = 0) then 'd-block' else 'd-none'} position-relative" id="page_{count(preceding::tei:pb) + 1}">
+                                                  <div class="{if (count(preceding::tei:pb) = 0) then 'd-block' else 'd-none'} doc-page position-relative" id="page_{count(preceding::tei:pb) + 1}">
                                                   <xsl:choose>
                                                   <xsl:when test="$nextPb">
                                                   <xsl:apply-templates
