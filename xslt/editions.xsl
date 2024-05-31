@@ -162,7 +162,7 @@
                                                   </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 d-none d-md-block">
+                                            <div class="col-12">
                                               <div class="d-flex justify-content-center gap-2">
                                                 <full-size opt="fls"></full-size>
                                                 <image-switch opt="es"></image-switch>
