@@ -209,6 +209,9 @@ input:checked + .i-slider:before {
 
 /* edition specifics classes */
 
+.doc-page {
+  min-width:max-content;
+}
 
 .note-hand {
   font-weight: 600;
@@ -288,6 +291,13 @@ br {
 .fackel-ref, .fackel-ref > p {
   background-color: $fackel-red;
 }
+
+.annot_law .link-ext,
+.annot_quote .link-ext,
+.annot_work .link-ext {
+  display:inline !important;
+}
+
 span.lb::before {
   content: attr(data-linenr);
   display: block;
