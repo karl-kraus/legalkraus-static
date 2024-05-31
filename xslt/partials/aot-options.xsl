@@ -14,22 +14,22 @@
     <xsl:template name="annotation-options">
         <div id="aot-navBarNavDropdown">
             <!-- Your menu goes here -->
-            <a title="Annotationen" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" role="button" class="d-md-none annotation-widget-button justify-content-center align-items-center d-inline-flex rounded-circle link-light align-middle">
+            <a title="Annotationen" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" role="button" class="d-md-none p-2 float-end annotation-widget-button justify-content-center align-items-center d-inline-flex rounded-circle link-light align-middle">
                <i class="fas fa-cog fa-lg" title="editor settings"/>
             </a>
-            <div class="dropdown-menu rounded-0 inline-menu-md border-0 bg-secondary">            
-              <ul>
-                  <li class="dropdown-item d-md-none">
+            <div class="dropdown-menu rounded-0 inline-menu-md border-0 bg-darker-gray">            
+              <ul class="list-unstyled">
+                  <li class="d-md-none">
                       <full-size opt="fls"></full-size>
                   </li>
-                  <li class="dropdown-item d-md-none">
+                  <li class="d-md-none">
                       <image-switch opt="es"></image-switch>
-                  </li>
-                  <li class="dropdown-item d-md-inline">
-                      <annotation-slider opt="ef"></annotation-slider>
                   </li>
               </ul>
               <ul class="row list-unstyled mx-auto">
+                  <li class="col-12">
+                      <annotation-slider opt="ef"  class="d-flex justify-content-between"></annotation-slider>
+                  </li>
                   <li class="col-12 col-md-6 col-lg-4">
                       <annotation-slider opt="prs" class="d-flex justify-content-between"></annotation-slider>
                   </li>
