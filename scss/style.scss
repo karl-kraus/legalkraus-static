@@ -110,6 +110,28 @@
     width: 30rem;
     height: 25rem;
 }
+
+/*** editors menu ***/
+@include media-breakpoint-up(md)  {
+  #aot-navBarNavDropdown .dropdown-menu {
+    position:relative;
+    z-index:inherit;
+    display:block;
+    background-color: $white-gray !important;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .facsimiles.active {
+    display:block !important;
+    max-width:100% !important;
+  }
+  .text.active {
+    max-width:100% !important;
+  }
+
+}
+
 annotation-slider .slider-number::after {
   display:none;
 }
