@@ -25,7 +25,7 @@
                     <xsl:with-param name="html_title"
                         select="'Karl Kraus Rechtsakten - Fallstatistik'"/>
                 </xsl:call-template>
-                <script src="js/lib/highcharts.js"/>
+                <script src="js/vendor/highcharts.js"/>
             </head>
             <body class="page">
                 <div class="hfeed site" id="page">

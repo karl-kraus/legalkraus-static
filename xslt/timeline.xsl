@@ -61,8 +61,8 @@
                         <xsl:with-param name="include_jquery" select="false()"/>                   
                     </xsl:call-template>
                 </div>
-                <script src="js/lib/highcharts.js"/>
-                <script src="js/lib/gantt.js"/>
+                <script src="js/vendor/highcharts.js"/>
+                <script src="js/vendor/gantt.js"/>
                 <script src="js/timeline.js"/>
                
             </body>
