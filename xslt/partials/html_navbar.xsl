@@ -69,10 +69,10 @@
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Visualisierungen</a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a class="dropdown-item" href="#">Fallstatistik</a>
+                                        <a class="dropdown-item" href="fallstatistik.html">Fallstatistik</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">Zeitstrahl</a>
+                                        <a class="dropdown-item" href="zeitstrahl.html">Zeitstrahl</a>
                                     </li>
                                 </ul>
                             </li>

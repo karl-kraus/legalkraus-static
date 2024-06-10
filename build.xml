@@ -97,6 +97,15 @@
         <factory name="net.sf.saxon.TransformerFactoryImpl"/>
         <classpath location="${basedir}/saxon/saxon9he.jar"/>
     </xslt>-->
+     <!-- Visualisierungen -->
+    <xslt in="./data/vocabulary/legalkraus.rdf" out="${target}/fallstatistik.html" style="./xslt/vocabs.xsl">
+      <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+        <classpath location="${basedir}/saxon/saxon9he.jar"/>
+    </xslt>
+    <xslt in="${index}" out="${target}/zeitstrahl.html" style="./xslt/timeline.xsl">
+      <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+        <classpath location="${basedir}/saxon/saxon9he.jar"/>
+    </xslt>
     <replace dir="${target}" value="">
         <include name="*.html"/>
         <replacetoken> xmlns=""</replacetoken>
