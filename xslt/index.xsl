@@ -68,7 +68,7 @@
                             <div class="col-md-auto justify-content-center d-flex px-md-0">
                               <div class="card rounded-0 border-0  d-block w-8r pt-3">
                                 <div class="card-body p-0">
-                                  <p class="card-title fw-bolder"><a href="" class="stretched-link" alt="...">Fallstatistik</a></p>
+                                  <p class="card-title fw-bolder"><a href="fallstatistik.html" class="stretched-link" alt="link zur fallstatistik">Fallstatistik</a></p>
                                 </div>
                                 <img src="images/fallstatistik.png" alt="..." class="border border-primary border-8 mw-100"/>
                               </div>
