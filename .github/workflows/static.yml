@@ -47,6 +47,8 @@ jobs:
           ./shellscripts/script.sh
       - name: Fetch Data
         run: ./fetch_data.sh
+      - name: Process Data
+        run: ./process_data.sh
       - name: Build Search Index
         run: python make_ts_index.py
       - name: update favicons
