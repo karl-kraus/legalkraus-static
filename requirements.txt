@@ -1,4 +1,5 @@
 acdh-tei-pyutils
 acdh-cfts-pyutils
 python-slugify
+python-dateutil
 favicons
