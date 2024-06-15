@@ -152,4 +152,3 @@ html/*.txt
 locales
 data
 secret.env
-favicons/
