@@ -69,35 +69,21 @@
                 </xsl:if>
                 <tr>
                     <th>links</th>
-                    <th>
+                    <td>
+                        <ul class="list-unstyled">
                         <xsl:for-each select="./tei:idno[@type='URL']">
-                            <a>
+                            <li>
+                                <a>
                                 <xsl:attribute name="href">
                                     <xsl:value-of select="./text()"/>
                                 </xsl:attribute>
-                                <span class="badge rounded-pill m-1 bg-warning"><xsl:value-of select="@subtype"/></span>
-                            </a>
+                                <xsl:value-of select="./text()"/>
+                                </a>
+                            </li>
                         </xsl:for-each>
-                    </th>
-                </tr>
-                <xsl:if test=".//tei:event[@type='mentioned']">
-                <tr>
-                    <th>
-                        Erwähnt in
-                    </th>
-                    <td>
-                        <ul>
-                            <xsl:for-each select=".//tei:event[@type='mentioned']">
-                                <li>
-                                    <a href="{replace(tokenize(./tei:linkGrp/tei:link/@target, '/')[last()], '.xml', '.html')}">
-                                        <xsl:value-of select="./tei:p/tei:title"/>
-                                    </a>
-                                </li>
-                            </xsl:for-each>
                         </ul>
                     </td>
                 </tr>
-                </xsl:if>
             </tbody>
         </table>
     </xsl:template>

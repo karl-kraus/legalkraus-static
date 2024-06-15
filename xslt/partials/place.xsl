@@ -12,11 +12,11 @@
                     </th>
                     <td>
                         <xsl:choose>
-                            <xsl:when test="./tei:settlement/tei:placeName">
-                                <xsl:value-of select="./tei:settlement/tei:placeName"/>
+                            <xsl:when test="./tei:settlement/tei:placeName[1]/text()">
+                                <xsl:value-of select="./tei:settlement/tei:placeName[1]/text()"/>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:value-of select="./tei:placeName"/>
+                                <xsl:value-of select="./tei:placeName[1]/text()"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </td>
@@ -61,42 +61,6 @@
                     </td>
                 </tr>
                 </xsl:if>
-                <xsl:if test="./tei:idno[@type='GEONAMES']">
-                <tr>
-                    <th>
-                        Geonames ID
-                    </th>
-                    <td>
-                        <a href="{./tei:idno[@type='GEONAMES']}" target="_blank">
-                            <xsl:value-of select="tokenize(./tei:idno[@type='GEONAMES'], '/')[4]"/>
-                        </a>
-                    </td>
-                </tr>
-                </xsl:if>
-                <xsl:if test="./tei:idno[@type='WIKIDATA']">
-                <tr>
-                    <th>
-                        Wikidata ID
-                    </th>
-                    <td>
-                        <a href="{./tei:idno[@type='WIKIDATA']}" target="_blank">
-                            <xsl:value-of select="tokenize(./tei:idno[@type='WIKIDATA'], '/')[last()]"/>
-                        </a>
-                    </td>
-                </tr>
-                </xsl:if>
-                <xsl:if test="./tei:idno[@type='GND']">
-                <tr>
-                    <th>
-                        GND ID
-                    </th>
-                    <td>
-                        <a href="{./tei:idno[@type='GND']}" target="_blank">
-                            <xsl:value-of select="tokenize(./tei:idno[@type='GND'], '/')[last()]"/>
-                        </a>
-                    </td>
-                </tr>
-                </xsl:if>
                 <xsl:if test="./tei:location">
                 <tr>
                     <th>
@@ -119,35 +83,21 @@
                 </xsl:if>
                 <tr>
                     <th>links</th>
-                    <th>
-                        <xsl:for-each select="./tei:idno[@type='URL']">
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:value-of select="./text()"/>
-                                </xsl:attribute>
-                                <span class="badge rounded-pill m-1 bg-warning"><xsl:value-of select="@subtype"/></span>
-                            </a>
-                        </xsl:for-each>
-                    </th>
+                    <td>
+                        <ul class="list-unstyled">
+                            <xsl:for-each select="./tei:idno[@type='URL']">
+                                <li>
+                                    <a>
+                                        <xsl:attribute name="href">
+                                            <xsl:value-of select="./text()"/>
+                                        </xsl:attribute>
+                                        <xsl:value-of select="./text()"/>
+                                    </a>
+                                </li>
+                            </xsl:for-each>
+                        </ul>
+                    </td>
                 </tr>
-                <xsl:if test="./tei:listEvent">
-                    <tr>
-                        <th>
-                            Erwähnt in
-                        </th>
-                        <td>
-                            <ul>
-                                <xsl:for-each select=".//tei:event[@type='mentioned']">
-                                    <li>
-                                        <a href="{replace(tokenize(./tei:linkGrp/tei:link/@target, '/')[last()], '.xml', '.html')}">
-                                            <xsl:value-of select="./tei:p/tei:title"/>
-                                        </a>
-                                    </li>
-                                </xsl:for-each>
-                            </ul>
-                        </td>
-                    </tr>
-                </xsl:if>
             </tbody>
         </table>
     </xsl:template>

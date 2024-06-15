@@ -13,9 +13,14 @@
                             Name
                         </th>
                         <td>
-                            <ul>
+                            <ul class="list-unstyled">
                                 <xsl:for-each select="./tei:orgName">
-                                    <li><xsl:value-of select="."/></li>
+                                    <xsl:choose>
+                                        <xsl:when test="./@type eq 'werk_link-anno'"></xsl:when>
+                                        <xsl:otherwise>
+                                            <li><xsl:value-of select="."/></li>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
                                 </xsl:for-each>
                             </ul>
                         </td>
@@ -37,13 +42,14 @@
                             Teil von
                         </th>
                         <td>
-                            <ul>
-                                <xsl:for-each select="./tei:location[@type='located_in_place']">
-                                    <xsl:variable name="key" select="./tei:placeName/@key"/>
-                                    <xsl:variable name="coords" select="tokenize(./tei:location[@type='coords']/tei:geo, ', ')"/>
-                                    <li class="map-coordinates" lat="{$coords[1]}" long="{$coords[2]}" subtitle="{./tei:orgName}">
-                                        <a href="{$key}.html">
-                                            <xsl:value-of select="./tei:placeName"/>
+                            <ul class="list-unstyled">
+                                <xsl:for-each select="./tei:location">
+                                    <li>
+                                        <a>
+                                            <xsl:attribute name="href">
+                                                <xsl:value-of select="concat(./tei:placeName/@key, '.html')"/>
+                                            </xsl:attribute>
+                                            <xsl:value-of select="./tei:placeName/text()"/>
                                         </a>
                                     </li>
                                 </xsl:for-each>
@@ -53,35 +59,22 @@
                 </xsl:if>
                 <tr>
                     <th>links</th>
-                    <th>
-                        <xsl:for-each select="./tei:idno[@type='URL']">
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:value-of select="./text()"/>
-                                </xsl:attribute>
-                                <span class="badge rounded-pill m-1 bg-warning"><xsl:value-of select="@subtype"/></span>
-                            </a>
-                        </xsl:for-each>
-                    </th>
+                    <td>
+                        <ul class="list-unstyled">
+                            <xsl:for-each select="./tei:idno[@type='URL']">
+                                <li>
+                                    <a>
+                                        <xsl:attribute name="href">
+                                            <xsl:value-of select="./text()"/>
+                                        </xsl:attribute>
+                                        <xsl:value-of select="./text()"/>
+                                    </a>
+                                </li>
+                            </xsl:for-each>
+                        </ul>
+                    </td>
                 </tr>
-                <xsl:if test="./tei:listEvent">
-                    <tr>
-                        <th>
-                            Erwähnt in
-                        </th>
-                        <td>
-                            <ul>
-                                <xsl:for-each select=".//tei:event[@type='mentioned']">
-                                    <li>
-                                        <a href="{replace(tokenize(./tei:linkGrp/tei:link/@target, '/')[last()], '.xml', '.html')}">
-                                            <xsl:value-of select="./tei:p/tei:title"/>
-                                        </a>
-                                    </li>
-                                </xsl:for-each>
-                            </ul>
-                        </td>
-                    </tr>
-                </xsl:if>
+                
             </tbody>
         </table>
     </xsl:template>
