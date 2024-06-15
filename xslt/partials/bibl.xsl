@@ -58,7 +58,7 @@
                                 <xsl:for-each select="./tei:listEvent/tei:event">
                                     <li>
                                         <a href="{replace(./tei:linkGrp/tei:link/@target, '.xml', '.html')}">
-                                            <xsl:value-of select="./tei:p/tei:title"/>
+                                            <xsl:value-of select="./text()"/>
                                         </a>
                                     </li>
                                 </xsl:for-each>

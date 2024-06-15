@@ -32,7 +32,7 @@
                         </ol>
                     </nav>
                     
-                    <div class="container-fluid">                        
+                    <div class="container">                        
                         <div class="card rounded-0">
                             <div class="card-header rounded-0 bg-darker-gray">
                                 <h1><xsl:value-of select="$doc_title"/></h1>
@@ -44,6 +44,7 @@
                                             <th scope="col">Ortsname</th>
                                             <th scope="col">gelegen in</th>
                                             <th scope="col">Typ</th>
+                                            <th scope="col">Erwähnungen</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -65,6 +66,9 @@
                                                 </td>
                                                 <td>
                                                     <xsl:value-of select="./tei:desc[@type='entity_type']/text()"/>
+                                                </td>
+                                                <td>
+                                                    <xsl:value-of select="count(.//tei:note[@type='mentions'])"/>
                                                 </td>
                                             </tr>
                                         </xsl:for-each>
@@ -104,15 +108,33 @@
                                 </ol>
                             </nav>
                             
-                            <div class="container-fluid">
-                                <div class="card">
-                                    <div class="card-header">
+                            <div class="container">
+                                <div class="card rounded-0">
+                                    <div class="card-header rounded-0 bg-darker-gray">
                                         <h1>
                                             <xsl:value-of select="$name"/>
                                         </h1>
                                     </div>
                                     <div class="card-body">
-                                        <xsl:call-template name="place_detail"/>  
+                                        <xsl:call-template name="place_detail"/> 
+                                        <xsl:if test=".//tei:note[@type='mentions']">
+                                            <tr>
+                                                <th>
+                                                    Erwähnt in
+                                                </th>
+                                                <td>
+                                                    <ul>
+                                                        <xsl:for-each select=".//tei:note[@type='mentions']">
+                                                            <li>
+                                                                <a href="{replace(@target, '.xml', '.html')}">
+                                                                    <xsl:value-of select="./text()"/>
+                                                                </a>
+                                                            </li>
+                                                        </xsl:for-each>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </xsl:if>
                                     </div>
                                 </div>
                             </div>

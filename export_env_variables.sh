@@ -1,1 +1,1 @@
-export $(grep -v '^#' dummy.env | xargs)
+export $(grep -v '^#' secret.env | xargs)

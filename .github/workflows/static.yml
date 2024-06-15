@@ -45,12 +45,10 @@ jobs:
           pip install -r requirements.txt
           apt-get update && apt-get install openjdk-11-jre-headless ant -y --no-install-recommend
           ./shellscripts/script.sh
-      - name: Fetch Data
+      - name: Fetch and process Data
         run: ./fetch_data.sh
       - name: Build Search Index
         run: python make_ts_index.py
-      - name: update favicons
-        run: python update_favicons.py
       - name: Build
         run: ant
       - name: Setup Pages
@@ -58,7 +56,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
           path: './html'
       - name: Deploy to GitHub Pages
         id: deployment
