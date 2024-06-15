@@ -53,12 +53,11 @@ const Pager = (() => {
   ##################################################################
   */
   var tileSources = [];
-  viewerWidth = document.getElementById("viewer").clientWidth
   if (document.getElementById("page-selector")) {
     [...document.getElementById("page-selector").options].map(o => {
       var imageURL = {
         type: 'image',
-        url: o.value.replace('full/full', `full/${viewerWidth},`)
+        url: o.value
       };
       tileSources.push(imageURL)
     })
