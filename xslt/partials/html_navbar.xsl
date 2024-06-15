@@ -95,7 +95,7 @@
                                         <a class="dropdown-item" href="listbibl.html">Juristische Texte</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item disabled" href="#">Fackel</a>
+                                        <a class="dropdown-item" href="listfackel.html">Fackel</a>
                                     </li>
                                 </ul>
                             </li>
