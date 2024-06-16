@@ -4,5 +4,4 @@ unzip main
 mv ./legalkraus-data-main/data .
 rm main.zip
 rm -rf ./legalkraus-data-main
-./shellscripts/dl_imprint.sh
 ./process_data.sh
