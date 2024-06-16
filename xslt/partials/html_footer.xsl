@@ -32,7 +32,7 @@
                 <div class="col-xs-12 col-md-4">
                     <div>
                         <p class="fw-bolder">
-                            <router-link class="imprint-link" to="/impressum">Impressum</router-link>
+                            <a class="imprint-link" href="imprint.html">Impressum</a>
                         </p>
                     </div>
                     <p class="fw-bolder text-primary">HELPDESK</p>
