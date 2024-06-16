@@ -1,6 +1,3 @@
-echo "write mentions into listlegal.xml"
-python listlegal.py
-
 echo "add xml:id, prev and next attributes"
 add-attributes -g "./data/editions/*.xml" -b "https://id.acdh.oeaw.ac.at/legalkraus"
 add-attributes -g "./data/indices/*.xml" -b "https://id.acdh.oeaw.ac.at/legalkraus"
@@ -14,6 +11,9 @@ denormalize-indices -f "./data/editions/D_*.xml" -i "./data/indices/*.xml" -m ".
 
 echo "remove listevents in back elements"
 python rm_listevent.py
+
+echo "write mentions into listlegal.xml"
+python listlegal.py
 
 echo "create cases-json"
 python create_case_index.py
