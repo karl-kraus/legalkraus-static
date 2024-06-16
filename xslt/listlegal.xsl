@@ -9,7 +9,7 @@
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="./partials/html_footer.xsl"/>
-    <xsl:import href="./partials/bibl.xsl"/>
+    <xsl:import href="./partials/legal.xsl"/>
     <xsl:template match="/">
         <xsl:variable name="doc_title">
             <xsl:value-of select="'Juristische Texte'"/>
@@ -32,7 +32,7 @@
                         </ol>
                     </nav>
                     
-                    <div class="container-fluid">                        
+                    <div class="container">                        
                         <div class="card rounded-0">
                             <div class="card-header rounded-0 bg-darker-gray">
                                 <h1><xsl:value-of select="$doc_title"/></h1>
@@ -44,7 +44,7 @@
                                             <th scope="col">Titel</th>
                                             <th scope="col">Gesetz</th>
                                             <th scope="col">Datum</th>
-                                            <th scope="col">erwähnt in</th>
+                                            <th scope="col">Erwähnungen</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -54,7 +54,7 @@
                                             </xsl:variable>
                                             <tr>
                                                 <td>
-                                                    <a href="{@corresp}">
+                                                    <a href="{concat($id, '.html')}">
                                                     <xsl:value-of select=".//tei:title[1]/text()"/>
                                                     </a>
                                                 </td>
@@ -63,13 +63,7 @@
                                                     <xsl:value-of select=".//tei:date[1]/text()"/>
                                                 </td>
                                                 <td>
-                                                    <ul>
-                                                        <xsl:for-each select=".//tei:ref">
-                                                            <li>
-                                                                <a href="{replace(./@target, '.xml', '.html')}"><xsl:value-of select="./text()"/></a>
-                                                            </li>
-                                                        </xsl:for-each>
-                                                    </ul>
+                                                    <xsl:value-of select="count(./tei:ref)"/>
                                                 </td>
                                             </tr>
                                         </xsl:for-each>
@@ -89,7 +83,7 @@
                 </div>
             </body>
         </html>
-        <!--<xsl:for-each select=".//tei:bibl">
+        <xsl:for-each select=".//tei:bibl">
             <xsl:variable name="filename" select="concat(./@xml:id, '.html')"/>
             <xsl:variable name="name" select="./tei:title[1]/text()"></xsl:variable>
             <xsl:result-document href="{$filename}">
@@ -101,23 +95,36 @@
                     <body class="page">
                         <div class="hfeed site" id="page">
                             <xsl:call-template name="nav_bar"/>
-                            <nav style="-\-bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
+                            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                    <li class="breadcrumb-item" aria-current="page"><a href="listorg.html"><xsl:value-of select="$doc_title"/></a></li>
+                                    <li class="breadcrumb-item" aria-current="page"><a href="listlegal.html"><xsl:value-of select="$doc_title"/></a></li>
                                     <li class="breadcrumb-item active" aria-current="page"><xsl:value-of select="$name"/></li>
                                 </ol>
                             </nav>
                             
-                            <div class="container-fluid">
-                                <div class="card">
-                                    <div class="card-header">
+                            <div class="container">                        
+                                <div class="card rounded-0">
+                                    <div class="card-header rounded-0 bg-darker-gray">
                                         <h1>
                                             <xsl:value-of select="$name"/>
+                                            <a class="ps-2" title="zur Online Ausgabe von {$name}" href="{./@corresp}"><i class="fas fa-external-link-alt fa-sm"></i></a>
                                         </h1>
                                     </div>
                                     <div class="card-body">
-                                        <xsl:call-template name="bibl_detail"/>  
+                                        <xsl:call-template name="legal_detail"/>
+                                        <div>
+                                            <h3>erwähnt in</h3>
+                                            <ul>
+                                                <xsl:for-each select="./tei:ref[@target]">
+                                                    <li>
+                                                        <a href="{replace(@target, '.xml', '.html')}">
+                                                            <xsl:value-of select="."/>
+                                                        </a>
+                                                    </li>
+                                                </xsl:for-each>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -128,7 +135,7 @@
                 </html>
             </xsl:result-document>
             
-        </xsl:for-each>-->
+        </xsl:for-each>
     </xsl:template>
     
 </xsl:stylesheet>
