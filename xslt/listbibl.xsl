@@ -31,7 +31,7 @@
                             <li class="breadcrumb-item active" aria-current="page"><xsl:value-of select="$doc_title"/></li>
                         </ol>
                     </nav>
-                    <div class="container-fluid">                        
+                    <div class="container">                        
                         <div class="card rounded-0">
                             <div class="card-header rounded-0 bg-darker-gray">
                                 <h1><xsl:value-of select="$doc_title"/></h1>
@@ -43,7 +43,8 @@
                                             <th scope="col">Titel</th>
                                             <th scope="col">Autor</th>
                                             <th scope="col">Datum</th>
-                                            <th scope="col">ID</th>
+                                            <th scope="col">Textgattung</th>
+                                            <th scope="col">Erwähnungen</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -53,7 +54,12 @@
                                             </xsl:variable>
                                             <tr>
                                                 <td>
-                                                    <xsl:value-of select="./tei:title[@type='main']/text()"/>
+                                                    <a>
+                                                        <xsl:attribute name="href">
+                                                            <xsl:value-of select="concat($id, '.html')"/>
+                                                        </xsl:attribute>
+                                                        <xsl:value-of select="./tei:title[@type='main']/text()"/>
+                                                    </a>
                                                 </td>
                                                 <td>
                                                     <xsl:value-of select="./tei:author[1]/text()"/>
@@ -62,12 +68,10 @@
                                                     <xsl:value-of select="./tei:date[1]/text()"/>
                                                 </td>
                                                 <td>
-                                                    <a>
-                                                        <xsl:attribute name="href">
-                                                            <xsl:value-of select="concat($id, '.html')"/>
-                                                        </xsl:attribute>
-                                                        <xsl:value-of select="$id"/>
-                                                    </a> 
+                                                    <xsl:value-of select="./tei:note[@type='work_kind']/text()"/>
+                                                </td>
+                                                <td>
+                                                    <xsl:value-of select="count(.//tei:note[@type='mentions'])"/>
                                                 </td>
                                             </tr>
                                         </xsl:for-each>
@@ -107,15 +111,28 @@
                                 </ol>
                             </nav>
                             
-                            <div class="container-fluid">
-                                <div class="card">
-                                    <div class="card-header">
+                            <div class="container">
+                                <div class="card rounded-0">
+                                    <div class="card-header rounded-0 bg-darker-gray">
                                         <h1>
                                             <xsl:value-of select="$name"/>
+                                            <a class="ps-2" title="zum PMB-Eintrag von {$name}" href="{concat('https://pmb.acdh.oeaw.ac.at/entity/', replace(@xml:id, 'pmb', ''))}"><i class="fas fa-external-link-alt fa-sm"></i></a>
                                         </h1>
                                     </div>
                                     <div class="card-body">
-                                        <xsl:call-template name="bibl_detail"/>  
+                                        <xsl:call-template name="bibl_detail"/> 
+                                        <div>
+                                            <h3>erwähnt in</h3>
+                                            <ul>
+                                                <xsl:for-each select=".//tei:note[@type='mentions']">
+                                                    <li>
+                                                        <a href="{replace(@target, '.xml', '.html')}">
+                                                            <xsl:value-of select="."/>
+                                                        </a>
+                                                    </li>
+                                                </xsl:for-each>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

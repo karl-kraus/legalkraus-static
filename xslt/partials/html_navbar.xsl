@@ -89,10 +89,10 @@
                                         <a class="dropdown-item" href="listorg.html">Institutionen</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="listlegal.html">Werke</a>
+                                        <a class="dropdown-item" href="listbibl.html">Werke</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="listbibl.html">Juristische Texte</a>
+                                        <a class="dropdown-item" href="listlegal.html">Juristische Texte</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="listfackel.html">Fackel</a>

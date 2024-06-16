@@ -93,12 +93,12 @@
                                                     </td>
                                                     <td>
                                                         <xsl:for-each select="//tei:particDesc/tei:listPerson/tei:person[ends-with(data(@role), 'ANK') or ends-with(data(@role), 'AKV')]">
-                                                            <span class="badge rounded-pill m-1 bg-danger"><xsl:value-of select="./tei:persName/text()"/></span>
+                                                            <span class="badge rounded-pill m-1 bg-dark-gray"><xsl:value-of select="./tei:persName/text()"/></span>
                                                         </xsl:for-each>
                                                     </td>
                                                     <td>
                                                         <xsl:for-each select="//tei:particDesc/tei:listPerson/tei:person[ends-with(data(@role), 'ANG') or ends-with(data(@role), 'ANV')]">
-                                                            <span class="badge rounded-pill m-1 bg-warning"><xsl:value-of select="./tei:persName/text()"/></span>
+                                                            <span class="badge rounded-pill m-1 bg-light-blue"><xsl:value-of select="./tei:persName/text()"/></span>
                                                         </xsl:for-each>
                                                     </td>
                                                 </tr>
