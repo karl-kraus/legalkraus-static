@@ -11,6 +11,7 @@
     <xsl:import href="partials/html_footer.xsl"/>
     <xsl:import href="partials/osd-container.xsl"/>
     <xsl:import href="partials/tei-facsimile.xsl"/>
+    <xsl:import href="partials/teiheader.xsl"/>
     <xsl:import href="partials/shared.xsl"/>
     <xsl:import href="partials/aot-options.xsl"/>
     <xsl:import href="utils.xsl"/>
@@ -33,7 +34,7 @@
         <xsl:value-of select="replace($teiSource, '.xml', '.html')"/>
     </xsl:variable>
     <xsl:variable name="doc_title">
-        <xsl:value-of select=".//tei:title[@type = 'label'][1]/text()"/>
+      <xsl:value-of select="head(.//tei:title)/text()"/>
     </xsl:variable>
     <xsl:variable name="colId">
         <xsl:value-of
@@ -45,9 +46,6 @@
     </xsl:variable>
 
     <xsl:template match="/">
-        <xsl:variable name="doc_title">
-            <xsl:value-of select="head(.//tei:title)/text()"/>
-        </xsl:variable>
 
         <html lang="de">
             <head>
@@ -59,7 +57,7 @@
             <body class="page">
                 <div class="hfeed site" id="page">
                     <xsl:call-template name="nav_bar"/>
-                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3 pb-0">
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3 pb-0 bg-dark-gray">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
                                 <a href="toc.html">Akten</a>
@@ -72,123 +70,121 @@
                                     <xsl:value-of select="$colTitle"/>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active text-truncate" aria-current="page">
+                            <li class="breadcrumb-item active text-truncate fw-bolder" aria-current="page">
                                 <xsl:value-of select="$doc_title"/>
                             </li>
                         </ol>
                     </nav>
+                    <main id="content" class="container-fluid">
+                      <section class="row bg-dark-gray px-5">
+                          <div class="col-md-1 d-none d-md-block">
+                              <xsl:if test="ends-with($prev, '.html')">
+                                      <a>
+                                        <xsl:attribute name="href">
+                                        <xsl:value-of select="$prev"/>
+                                        </xsl:attribute>
+                                        <i class="fas fa-chevron-left" title="prev"/>
+                                      </a>
+                              </xsl:if>
+                          </div>
+                          <div class="col-md-10 col-lg-10 col-sm-12">
+                            <h1 align="center" class="fs-3 fw-bold">
+                              <xsl:value-of select="$doc_title"/>
+                            </h1>
+                          </div>
+                          <div class="col-md-1 d-none d-md-block"
+                              style="text-align:right">
+                              <xsl:if test="ends-with($next, '.html')">
+                                      <a>
+                                        <xsl:attribute name="href">
+                                        <xsl:value-of select="$next"/>
+                                        </xsl:attribute>
+                                        <i class="fas fa-chevron-right" title="next"/>
+                                      </a>
+                              </xsl:if>
+                          </div>
+                          <div class="row mb-5 mt-2 px-5 fs-9">
+                            <xsl:call-template name="create-header"/>
+                          </div>
+                        </section>    
+                        <section class="row py-3 {if (count(//tei:pb) = 0 and count(//tei:graphic) = 0) then 'invisible' else ()}">
+                            <div class="col-12" id="reader" data-page="1">
+                                <div
+                                  class="d-flex justify-content-center align-items-center gap-3 mb-3">
+                                  <div>
+                                  <a href="{$teiSource}">
+                                  <i class="fas fa-download fa-lg"
+                                  title="show TEI source"/>
+                                  </a>
+                                  </div>
+                                  <div class="ms-2">
+                                  <span>
+                                  <span>
+                                  <button id="prevPage" onclick="Pager.selectPage('prev')" class="me-1 bg-white border-0 align-middle">
+                                  <i class="fas fa-arrow-left fa-lg"
+                                  title="go to previous page"/>
+                                  </button></span>
+                                  <xsl:text>Seite </xsl:text>
+                                  <xsl:variable name="select_enabled">
+                                  <xsl:value-of
+                                  select="count(//tei:pb) > 1 or (not(//tei:pb) and count(//tei:graphic[@source = 'wienbibliothek']) > 1)"
+                                  />
+                                  </xsl:variable>
+                                  <select id="page-selector" onchange="Pager.selectPage()"
+                                  class="form-select form-select-sm w-auto ml-2 d-inline"
+                                  aria-label="page selector">
+                                  <xsl:if test="$select_enabled = false()">
+                                  <xsl:attribute name="disabled"/>
+                                  </xsl:if>
 
-                    <div id="content" class="container-fluid w-xl-90 p-3">
-                        <div class="wp-transcript">
-                            <div class="card-header">
-                                <div class="row">
-                                    <div class="col-md-2 d-none d-md-block">
-                                        <xsl:if test="ends-with($prev, '.html')">
-                                                <a>
-                                                  <xsl:attribute name="href">
-                                                  <xsl:value-of select="$prev"/>
-                                                  </xsl:attribute>
-                                                  <i class="fas fa-chevron-left" title="prev"/>
-                                                </a>
-                                        </xsl:if>
-                                    </div>
-                                    <div class="col-md-8 col-lg-8 col-sm-12">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h1 align="center">
-                                                  <xsl:value-of select="$doc_title"/>
-                                                </h1>
-                                            </div>
-                                        </div>
-                                        <div class="row py-3">
-                                            <div class="col-12" id="reader" data-page="1">
-                                                <div
-                                                  class="d-flex justify-content-center align-items-center gap-3 mb-3">
-                                                  <div>
-                                                  <a href="{$teiSource}">
-                                                  <i class="fas fa-download fa-lg"
-                                                  title="show TEI source"/>
-                                                  </a>
-                                                  </div>
-                                                  <div class="ms-2">
-                                                  <span>
-                                                  <span>
-                                                  <button id="prevPage" onclick="Pager.selectPage('prev')" class="me-1 bg-white border-0 align-middle">
-                                                  <i class="fas fa-arrow-left fa-lg"
-                                                  title="go to previous page"/>
-                                                  </button></span>
-                                                  <xsl:text>Seite </xsl:text>
-                                                  <xsl:variable name="select_enabled">
-                                                  <xsl:value-of
-                                                  select="count(//tei:pb) > 1 or (not(//tei:pb) and count(//tei:graphic[@source = 'wienbibliothek']) > 1)"
-                                                  />
-                                                  </xsl:variable>
-                                                  <select id="page-selector" onchange="Pager.selectPage()"
-                                                  class="form-select form-select-sm w-auto ml-2 d-inline"
-                                                  aria-label="page selector">
-                                                  <xsl:if test="$select_enabled = false()">
-                                                  <xsl:attribute name="disabled"/>
-                                                  </xsl:if>
-
-                                                  <xsl:for-each select="//tei:pb">
-                                                  <xsl:apply-templates select="current()"
-                                                  mode="page-selector"/>
-                                                  <xsl:variable name="page_nr"
-                                                  select="count(preceding::tei:pb) + 1"/>
-                                                  </xsl:for-each>
-                                                  <xsl:if test="count(//tei:pb) = 0">
-                                                  <xsl:for-each
-                                                  select="//tei:graphic[@source = 'wienbibliothek']">
-                                                  <option value="{current()/@url}">
-                                                  <xsl:value-of
-                                                  select="count(current()/preceding::tei:graphic[@source = 'wienbibliothek']) + 1"
-                                                  />
-                                                  </option>
-                                                  </xsl:for-each>
-                                                  </xsl:if>
-                                                  </select>
-                                                  <xsl:text> von </xsl:text>
-                                                  <xsl:value-of select="
-                                                                    if (//tei:pb) then
-                                                                        count(//tei:pb)
-                                                                    else
-                                                                        count(//tei:graphic[@source = 'wienbibliothek'])"
-                                                  />
-                                                  <button id="nextPage" onclick="Pager.selectPage('next')" class="ms-1 bg-white border-0 align-middle">
-                                                  <i class="fas fa-arrow-right fa-lg"
-                                                  title="go to next page"/>
-                                                  </button>
-                                                  </span>
-                                                  </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                              <div class="d-flex justify-content-center gap-2">
-                                                <full-size opt="fls"></full-size>
-                                                <image-switch opt="es"></image-switch>
-                                              </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 d-none d-md-block"
-                                        style="text-align:right">
-                                        <xsl:if test="ends-with($next, '.html')">
-                                                <a>
-                                                  <xsl:attribute name="href">
-                                                  <xsl:value-of select="$next"/>
-                                                  </xsl:attribute>
-                                                  <i class="fas fa-chevron-right" title="next"/>
-                                                </a>
-                                        </xsl:if>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-between">
-                                    <!--<div class="col-12">
-                                    
-                                  </div>-->
+                                  <xsl:for-each select="//tei:pb">
+                                  <xsl:apply-templates select="current()"
+                                  mode="page-selector"/>
+                                  <xsl:variable name="page_nr"
+                                  select="count(preceding::tei:pb) + 1"/>
+                                  </xsl:for-each>
+                                  <xsl:if test="count(//tei:pb) = 0">
+                                  <xsl:for-each
+                                  select="//tei:graphic[@source = 'wienbibliothek']">
+                                  <option value="{current()/@url}">
+                                  <xsl:value-of
+                                  select="count(current()/preceding::tei:graphic[@source = 'wienbibliothek']) + 1"
+                                  />
+                                  </option>
+                                  </xsl:for-each>
+                                  </xsl:if>
+                                  </select>
+                                  <xsl:text> von </xsl:text>
+                                  <xsl:value-of select="
+                                                    if (//tei:pb) then
+                                                        count(//tei:pb)
+                                                    else
+                                                        count(//tei:graphic[@source = 'wienbibliothek'])"
+                                  />
+                                  <button id="nextPage" onclick="Pager.selectPage('next')" class="ms-1 bg-white border-0 align-middle">
+                                  <i class="fas fa-arrow-right fa-lg"
+                                  title="go to next page"/>
+                                  </button>
+                                  </span>
+                                  </div>
                                 </div>
                             </div>
-                            <div id="container-resize" class="row transcript active gy-2">
+                            <div class="col-12">
+                              <div class="d-flex justify-content-center gap-2">
+                                <full-size opt="fls"></full-size>
+                                <image-switch opt="es"></image-switch>
+                              </div>
+                            </div>
+                            <xsl:if test="(count(//tei:pb) = 0 and count(//tei:graphic) = 0)">
+                              <div class="row">
+                                <div class="col-12">
+                                  <div class="text-center">
+                                    <xsl:apply-templates select="//tei:body"/>
+                                  </div>
+                                </div>
+                              </div>
+                            </xsl:if>
+                            <div id="container-resize" class="row transcript active gy-2 {if (count(//tei:pb) = 0 and count(//tei:graphic) = 0) then 'd-none' else ()}">
                                 <div id="img-resize" class="col-12 col-md-6 facsimiles">
                                     
                                       <div id="viewer" class=" bg-white-gray h-auto w-auto">
@@ -198,12 +194,12 @@
                                       </div>
                                 </div>
                                 <div id="text-resize"
-                                    class="col-12 col-md-6 text yes-index">
-                                    <div id="section" class="bg-white-gray d-flex flex-column position-relative p-md-5">
+                                    class="col-12 text yes-index">
+                                    <div id="section" class="bg-white-gray d-flex flex-column position-relative p-md-5 ps-md-2">
                                       <div id="editor-widget">
                                         <xsl:call-template name="annotation-options"/>
                                       </div>
-                                      <div id="doc-wrapper" class="overflow-auto mw-100">
+                                      <div id="doc-wrapper" class="overflow-auto mw-100 ps-md-5">
                                             <!--<xsl:apply-templates select="//tei:body"></xsl:apply-templates>-->
                                             <xsl:choose>
                                                 <xsl:when test="//tei:pb">
@@ -260,6 +256,7 @@
                                     </div>
                                 </div>
                             </div>
+                            </section>
                             <!-- create list* elements for entities bs-modal -->
                             <xsl:for-each select="//tei:back">
                                 <div class="tei-back">
@@ -289,8 +286,7 @@
                                   </div>
                               </div>
                             </xsl:for-each>
-                        </div>
-                    </div>
+                    </main>
                     <xsl:call-template name="html_footer">
                         <xsl:with-param name="include_jquery" select="false()"/>                   
                     </xsl:call-template>
@@ -307,7 +303,9 @@
                     </div>
                 </div>
                 <script src="https://unpkg.com/de-micro-editor@0.2.6/dist/de-editor.min.js"/>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"/>
+                <xsl:if test="count(//tei:graphic) > 0">
+                  <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"/>
+                </xsl:if>
                 <script type="text/javascript" src="js/osd_select.js"/>
                 <script type="text/javascript" src="js/run.js"/>
             </body>
@@ -365,12 +363,11 @@
             </a>
         </span>
     </xsl:template>
-    <xsl:template match="tei:note[@type = 'marginal']">
+    <xsl:template match="tei:note[@type = 'marginal'][not(@hand)]">
         <span class="marginalie-text {@rend}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
-
     <xsl:template match="tei:hi[@rend = 'underlined'][not(@hand)]">
         <span class="hi-underlined">
             <xsl:apply-templates/>
@@ -419,24 +416,24 @@
         </span>
     </xsl:template>
 
-
-
     <xsl:template match="tei:metamark[@function = 'marginal'][@hand][@rend]">
         <span class="metamark-no-text {@rend}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
     <xsl:template match="tei:metamark[@function = 'transposition']">
-        <xsl:variable name="target" select="@target"/>
+        <xsl:variable name="target" select="if(contains(@target,'#')) then @target else '#'||@target"/>
         <xsl:variable name="ptrpos"
             select="$teiHeader//tei:transpose[@hand = ./@hand]//tei:ptr[@target = $target]/(count(preceding-sibling::tei:ptr) + 1)"/>
         <xsl:variable name="seg">
-            <xsl:copy-of select="./root()//tei:seg[@type = 'transposition'][position() = $ptrpos]"/>
+            <xsl:copy-of select="(./root()//tei:seg[@type = 'transposition'])[$ptrpos]"/>
         </xsl:variable>
         <xsl:if test="not(preceding::*[2]/name() = 'metamark')">
             <xsl:value-of select="'{'"/>
         </xsl:if>
-        <xsl:apply-templates select="$seg"/>
+        
+      
+        <xsl:apply-templates select="$seg/node()"/>
         <xsl:if test="not(following::*[2]/name() = 'metamark')">
             <xsl:value-of select="'}'"/>
         </xsl:if>
@@ -447,7 +444,7 @@
         </xsl:if>
     </xsl:template>
 
-    <xsl:template match="tei:note[@type = 'paratext' and @resp = 'law-firm']">
+    <xsl:template match="tei:note[@type = 'paratext'][@resp = 'law-firm']">
         <span class="paratext">
             <xsl:apply-templates/>
         </span>
@@ -465,8 +462,7 @@
         <span class="lb">
         <xsl:if test="(count(preceding::tei:lb) + 1) mod 5 = 0">
                 <xsl:attribute name="data-linenr" select="count(preceding::tei:lb) + 1"/>
-            </xsl:if>
-        -</span>
+            </xsl:if>-</span>
     </xsl:template>
     <xsl:template match="tei:rdg">
         <xsl:variable name="witid" select="substring-after(@wit, '#')"/>
