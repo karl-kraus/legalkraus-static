@@ -55,11 +55,13 @@ const Pager = (() => {
   var tileSources = [];
   if (document.getElementById("page-selector")) {
     [...document.getElementById("page-selector").options].map(o => {
+      if (o.value) {
       var imageURL = {
         type: 'image',
         url: o.value
       };
       tileSources.push(imageURL)
+      }
     })
   }
 
@@ -68,6 +70,7 @@ const Pager = (() => {
   initialize osd
   ##################################################################
   */
+ if (tileSources.length > 0) {
   var viewer = OpenSeadragon({
     id: 'container_facs_1',
     prefixUrl: 'https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/images/',
@@ -75,6 +78,7 @@ const Pager = (() => {
     showNavigator: false,
     tileSources: tileSources
   });
+}
   /*
   ##################################################################
   remove container holding the images url
@@ -100,8 +104,8 @@ const Pager = (() => {
     mutations.forEach(mutation => {
       if (mutation.type === "attributes") {
         reader_page = reader.getAttribute("data-page")
-        if (viewer.currentPage !== reader_page - 1) {
-          viewer.goToPage(reader_page - 1)
+        if (viewer?.currentPage !== reader_page - 1) {
+          viewer?.goToPage(reader_page - 1)
         }
         if (pageSelector.selectedIndex !== reader_page - 1) {
           pageSelector.selectedIndex = reader_page - 1
@@ -132,10 +136,10 @@ const Pager = (() => {
   var prevPageButton = document.querySelector("#prevPage");
   var nextPageButton = document.querySelector("#nextPage");
 
-  prev.addEventListener("click", () => {
+  prev?.addEventListener("click", () => {
     prevPageButton.click();
   });
-  next.addEventListener("click", () => {
+  next?.addEventListener("click", () => {
     nextPageButton.click();
   });
 
@@ -255,8 +259,8 @@ const Pager = (() => {
         el.classList.add("d-none")
       }
       )
-      document.getElementById(`page_${pageNr}`).classList.remove("d-none")
-      document.getElementById(`page_${pageNr}`).classList.add("d-block")
+      document.getElementById(`page_${pageNr}`)?.classList.remove("d-none")
+      document.getElementById(`page_${pageNr}`)?.classList.add("d-block")
     }
   }
 
