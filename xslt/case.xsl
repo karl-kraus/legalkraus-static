@@ -39,26 +39,36 @@
                         <h1 class="text-center">
                             <xsl:value-of select="$doc_title"/>
                         </h1>
-                        <xsl:apply-templates select="//tei:abstract"></xsl:apply-templates>
+                        <div>
+                          <a class="btn btn-primary text-white d-block mt-3" data-bs-toggle="collapse" href="#collapseAbstract" role="button" aria-expanded="false" aria-controls="collapseAbstract">
+                            <xsl:value-of select="count(collection(concat('../data/editions?select=', $caseId, '*.xml'))//tei:TEI)||' Dokumente: Zusammenfassung'"/>
+                          </a>
+                          <div class="collapse" id="collapseAbstract">
+                            <xsl:apply-templates select="//tei:abstract"></xsl:apply-templates>
+                          </div>
+                        </div>
+                        <div class="text-center mt-4">
                         <h2 class="text-center">Schlagworte</h2>
-                        <div class="text-center"><xsl:for-each select="//tei:profileDesc/tei:textClass/tei:keywords/tei:term">
+                        <xsl:for-each select="//tei:profileDesc/tei:textClass/tei:keywords/tei:term">
                             <span class="badge bg-secondary m-1"><xsl:value-of select="./text()"/></span>
                         </xsl:for-each></div>
-                        <h2 class="text-center">Gerichtsparteien</h2>
-                        <div class="row">
-                            <div class="col-6 text-center">
-                                <h3>Kläger</h3>
-                            <xsl:for-each select="//tei:particDesc/tei:listPerson/tei:person[ends-with(data(@role), 'ANK') or ends-with(data(@role), 'AKV')]">
-                                <span class="badge rounded-pill bg-dark-gray"><xsl:value-of select="./tei:persName/text()"/></span>
-                            </xsl:for-each>
-                            </div>
-                            <div class="col-6 text-center">
-                                <h3 >Beklagte</h3>
-                                <xsl:for-each select="//tei:particDesc/tei:listPerson/tei:person[ends-with(data(@role), 'ANG') or ends-with(data(@role), 'ANV')]">
-                                    <span class="badge rounded-pill bg-light-blue"><xsl:value-of select="./tei:persName/text()"/></span>
-                                </xsl:for-each>
-                            </div>
-                        </div>
+                        <xsl:if test="count(//tei:particDesc/tei:listPerson/tei:person[ends-with(data(@role), 'ANG') or ends-with(data(@role), 'ANV')]) > 0 or count(//tei:particDesc/tei:listPerson/tei:person[ends-with(data(@role), 'ANG') or ends-with(data(@role), 'ANV')]) > 0">
+                          <div class="row">
+                              <h2 class="text-center mt-4">Gerichtsparteien</h2>
+                              <div class="col-6 text-center">
+                                  <h3>Kläger</h3>
+                              <xsl:for-each select="//tei:particDesc/tei:listPerson/tei:person[ends-with(data(@role), 'ANK') or ends-with(data(@role), 'AKV')]">
+                                  <span class="badge rounded-pill bg-dark-gray"><xsl:value-of select="./tei:persName/text()"/></span>
+                              </xsl:for-each>
+                              </div>
+                              <div class="col-6 text-center">
+                                  <h3>Beklagte</h3>
+                                  <xsl:for-each select="//tei:particDesc/tei:listPerson/tei:person[ends-with(data(@role), 'ANG') or ends-with(data(@role), 'ANV')]">
+                                      <span class="badge rounded-pill bg-light-blue"><xsl:value-of select="./tei:persName/text()"/></span>
+                                  </xsl:for-each>
+                              </div>
+                          </div>
+                        </xsl:if>
                         <div class="row mt-3">
                             <xsl:for-each select="collection(concat('../data/editions?select=', $caseId, '*.xml'))//tei:TEI">
                                 <xsl:sort select="document-uri(/)"></xsl:sort>
@@ -77,59 +87,58 @@
 
                                 
                                
-                                <div class="card case-card mb-2 shadow-0 bg-lighter-gray mx-auto">
-                                    <div class="row g-0 h-100">
-                                        <div class="col-md-5 align-self-center">
+                                <div class="card case-card mb-4 shadow-0 bg-lighter-gray mx-auto border-0 rounded-0">
+                                    <div class="row g-0 h-90">
+                                        <div class="col-5 align-self-center">
                                             <img class="img-fluid rounded-0 mw-100" loading="lazy" alt="kein Bild" >
                                                 <xsl:attribute name="src"><xsl:value-of select="$facsUrl"/></xsl:attribute>
                                             </img>
                                         </div>
-                                        <div class="col-md-7 align-self-center h-100 overflow-auto">
+                                        <div class="col-7 align-self-center h-100 overflow-auto pt-3">
                                             <div class="card-body">
-                                                <h5 class="card-title">
+                                                <p class="card-title fw-bold border-bottom border-primary border-5 pb-2">
                                                     <a href="{$fullPath}">
                                                         <xsl:value-of select="$fileName"/>
                                                     </a>
-                                                </h5>
-                                                <hr class="horizontal"/>
+                                                </p>
                                                 <p class="card-text"><xsl:value-of select="$creationDate"/></p>
-                                                <h6 class="card-title">Orte</h6>
+                                                <h6 class="card-title fw-bold">Orte</h6>
                                                 <xsl:choose>
                                                     <xsl:when test=".//tei:listPlace">
-                                                        <ul >
+                                                        <ul class="list-unstyled">
                                                             <xsl:for-each select=".//tei:listPlace/tei:place">
                                                                 <li><xsl:value-of select="./tei:placeName[1]/text()"/></li>
                                                             </xsl:for-each>
                                                         </ul>
                                                     </xsl:when>
                                                     <xsl:otherwise>
-                                                        <span class="text-muted">keine Orte</span>
+                                                        <p class="text-muted">keine Orte</p>
                                                     </xsl:otherwise>
                                                 </xsl:choose>
-                                                <h6 class="card-title">Aktenklassifkiation</h6>
+                                                <h6 class="card-title fw-bold">Aktenklassifkiation</h6>
                                                 <xsl:choose>
                                                     <xsl:when test=".//tei:listPlace">
-                                                        <ul >
+                                                        <ul class="list-unstyled">
                                                             <xsl:for-each select="/tei:TEI/tei:teiHeader/tei:profileDesc/tei:textClass/tei:keywords/tei:term">
                                                                 <li><xsl:value-of select="./text()"/></li>
                                                             </xsl:for-each>
                                                         </ul>
                                                     </xsl:when>
                                                     <xsl:otherwise>
-                                                        <span class="text-muted">keine Klassifikation</span>
+                                                        <p class="text-muted">keine Klassifikation</p>
                                                     </xsl:otherwise>
                                                 </xsl:choose>
-                                                <h6 class="card-title">Materialität</h6>
+                                                <h6 class="card-title fw-bold">Materialität</h6>
                                                 <xsl:choose>
                                                     <xsl:when test="//tei:listPlace">
-                                                        <ul >
+                                                        <ul class="list-unstyled">
                                                             <xsl:for-each select="//tei:objectType">
                                                                 <li><xsl:value-of select="./text()"/></li>
                                                             </xsl:for-each>
                                                         </ul>
                                                     </xsl:when>
                                                     <xsl:otherwise>
-                                                        <span class="text-muted">keine Angaben</span>
+                                                        <p class="text-muted">keine Angaben</p>
                                                     </xsl:otherwise>
                                                 </xsl:choose>
                                                 
@@ -183,7 +192,7 @@
     </xsl:template>
 
     <xsl:template match="tei:p">
-        <p id="{generate-id()}">
+        <p id="{generate-id()}" class="mb-0 pt-3">
             <xsl:apply-templates/>
         </p>
     </xsl:template>
