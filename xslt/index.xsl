@@ -54,7 +54,7 @@
                         <div class="pt-3 pb-1 pb-md-5 pr-2 bg-secondary carousel-wrapper-bottom"/>
                     </div>
                     <div class="container">
-                        <h1 class="pt-5 pb-1">Mögliche Einstiege</h1>
+                        <h1 class="pt-5 pb-1 fw-bold">Mögliche Einstiege</h1>
                         <div class="row row-cols-1 row-cols-md-5 justify-content-between border-bottom border-primary border-8 pb-5">
                           <!--<div class="card-group justify-content-between">-->
                             <div class="col-md-auto justify-content-center d-flex px-md-0">
@@ -62,7 +62,7 @@
                                   <div class="card-body p-0">
                                     <p class="card-title fw-bolder"><a href="oskar-samek.html" class="stretched-link" alt="...">Oskar Samek</a></p>
                                   </div>
-                                  <img src="images/samek.png"  alt="..." class="border border-primary border-8 mw-100"/>
+                                  <img src="images/samek.png"  alt="..." class="border border-primary border-13 mw-100"/>
                               </div>
                             </div>
                             <div class="col-md-auto justify-content-center d-flex px-md-0">
@@ -70,7 +70,7 @@
                                 <div class="card-body p-0">
                                   <p class="card-title fw-bolder"><a href="fallstatistik.html" class="stretched-link" alt="link zur fallstatistik">Fallstatistik</a></p>
                                 </div>
-                                <img src="images/fallstatistik.png" alt="..." class="border border-primary border-8 mw-100"/>
+                                <img src="images/fallstatistik.png" alt="..." class="border border-primary border-13 mw-100"/>
                               </div>
                             </div>
                             <div class="col-md-auto justify-content-center d-flex px-md-0">
@@ -78,7 +78,7 @@
                                 <div class="card-body p-0">
                                     <p class="card-title fw-bolder"><a href="beitraege.html" class="stretched-link" alt="...">Beiträge</a></p>
                                   </div>
-                                  <img src="images/beitraege.png"  alt="..." class="border border-primary border-8 mw-100"/>
+                                  <img src="images/beitraege.png"  alt="..." class="border border-primary border-13 mw-100"/>
                               </div>
                             </div>
                             <div class="col-md-auto justify-content-center d-flex px-md-0">
@@ -86,7 +86,7 @@
                                   <div class="card-body p-0">
                                       <p class="card-title fw-bolder"><a href="" class="stretched-link" alt="...">Verlage</a></p>
                                   </div>
-                                  <img src="images/verlage.png" alt="..." class="border border-primary border-8 mw-100" /> 
+                                  <img src="images/verlage.png" alt="..." class="border border-primary border-13 mw-100" /> 
                               </div>
                             </div>
                             <div class="col-md-auto justify-content-center d-flex px-md-0">
@@ -94,7 +94,7 @@
                                   <div class="card-body p-0">
                                       <p class="card-title fw-bolder"><a href="" class="stretched-link" alt="...">Sozialdemokratie</a></p>
                                   </div>
-                                  <img src="images/sozialdemokratie.png" alt="..." class="border border-primary border-8 mw-100"/>
+                                  <img src="images/sozialdemokratie.png" alt="..." class="border border-primary border-13 mw-100"/>
                               </div>
                             </div>
                           <!--</div>-->  
@@ -108,7 +108,7 @@
                                     <path fill-rule="evenodd"
                                         d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                 </svg><span class="align-text-top fw-bolder">700 Vorlesungen von Karl Kraus</span></p>
-                                <p class="w-75 fs-7"><i>Rechtsakten Karl Kraus</i> baut auf <i>Karl Kraus Online</i>, einem Kooperationsprojekt der Wienbibliothek im Rathaus mit dem ehemaligen Ludwig Boltzmann Institut für Geschichte und Theorie der Biografie (2005–2018), auf. Der Rechtsaktenbestand wurde zu der hier vorliegenden Edition aufbereitet und überschrieb somit die ältere Fassung. Die 700 Vorlesungen hingegen liegen noch in der alten Version vor und sind hier zu finden:</p>
+                                <p class="w-75 small"><i>Rechtsakten Karl Kraus</i> baut auf <i>Karl Kraus Online</i>, einem Kooperationsprojekt der Wienbibliothek im Rathaus mit dem ehemaligen Ludwig Boltzmann Institut für Geschichte und Theorie der Biografie (2005–2018), auf. Der Rechtsaktenbestand wurde zu der hier vorliegenden Edition aufbereitet und überschrieb somit die ältere Fassung. Die 700 Vorlesungen hingegen liegen noch in der alten Version vor und sind hier zu finden:</p>
                                 <p><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="var(--bs-primary)" class="bi bi-box-arrow-right me-1" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                                     <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
