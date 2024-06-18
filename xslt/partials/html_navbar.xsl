@@ -15,11 +15,11 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Projekt</a>
-                                <ul class="dropdown-menu">
+                                <a class="nav-link dropdown-toggle pe-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Projekt</a>
+                                <ul class="dropdown-menu bg-primary">
                                     <li>
                                         <a class="dropdown-item" href="about.html">Projektinformation</a>
                                     </li>
@@ -46,8 +46,8 @@
                             </li>
                             
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Akten-Edition</a>
-                                <ul class="dropdown-menu">
+                                <a class="nav-link dropdown-toggle pe-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Akten-Edition</a>
+                                <ul class="dropdown-menu bg-primary">
                                     <li>
                                         <a class="dropdown-item" href="kultur.html">Kultur</a>
                                     </li>
@@ -66,8 +66,8 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown disabled">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Visualisierungen</a>
-                                <ul class="dropdown-menu">
+                                <a class="nav-link dropdown-toggle pe-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Visualisierungen</a>
+                                <ul class="dropdown-menu bg-primary">
                                     <li>
                                         <a class="dropdown-item" href="fallstatistik.html">Fallstatistik</a>
                                     </li>
@@ -77,8 +77,8 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown disabled">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Register</a>
-                                <ul class="dropdown-menu">
+                                <a class="nav-link dropdown-toggle pe-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Register</a>
+                                <ul class="dropdown-menu bg-primary">
                                     <li>
                                         <a class="dropdown-item" href="listperson.html">Personen</a>
                                     </li>
@@ -100,8 +100,8 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown disabled">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Handapparat</a>
-                                <ul class="dropdown-menu">
+                                <a class="nav-link dropdown-toggle pe-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Handapparat</a>
+                                <ul class="dropdown-menu bg-primary">
                                     <li>
                                         <a class="dropdown-item" href="boehm.html">Hermann Böhm: „Karl Kraus contra …“</a>
                                     </li>
