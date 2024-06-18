@@ -23,7 +23,7 @@
             </head>
 
             <body class="page">
-                <div class="hfeed site" id="page">
+                <div class="hfeed site d-flex flex-column min-vh-100" id="page">
                     <xsl:call-template name="nav_bar"/>
                     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
                         <ol class="breadcrumb">
@@ -34,7 +34,7 @@
 
                     <div class="container">
                         
-                        <h1>
+                        <h1 class="fw-bold">
                             <xsl:value-of select="$doc_title"/>
                         </h1>
                         <div class="row">
@@ -45,7 +45,7 @@
                             </div>
                             <div class="col-md-5 ">
                                 <div class="bg-cite-card-gray p-4 fs-8">
-                                    <p class="fw-bold">
+                                    <p class="fw-bold mb-0">
                                         Karl Kraus: Rechtsakten der Kanzlei Oskar Samek. Wissenschaftliche
                                         Edition
                                     </p>
@@ -81,7 +81,7 @@
         </ul>
     </xsl:template>
     <xsl:template match="tei:bibl">
-        <li>
+        <li class="mb-3">
             <xsl:apply-templates/>
         </li>
     </xsl:template>
@@ -92,13 +92,13 @@
         </ul>
     </xsl:template>
     <xsl:template match="tei:item">
-        <li>
+        <li class="mb-3">
             <xsl:apply-templates/>
         </li>
     </xsl:template>
     
     <xsl:template match="tei:ref[@target]">
-        <a>
+        <a class="link-primary">
             <xsl:attribute name="href"><xsl:value-of select="@target"/></xsl:attribute>
             <xsl:value-of select="./text()"/>
         </a>

@@ -266,12 +266,14 @@ br {
 }
 
 .rdg {
-  background: $rdg-bg;
+  background: $rdg-bg;  
+  max-width:10rem;
 }
 .marginalie-text.marginRight, .rdg {
   padding-top: .2rem;
   position: absolute;
   font-size: 80%;
+  right: 7rem;
 }
 
 .marginalie-text.marginLeft, .rdg.marginLeft {

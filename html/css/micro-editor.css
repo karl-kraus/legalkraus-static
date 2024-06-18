@@ -203,12 +203,11 @@ input:checked + .i-slider:before {
   background-color: transparent !important;
 }
 
-/* single page */
+/* edition specifics classes */
 .doc-page {
   min-width: max-content;
 }
 
-/* edition specifics classes */
 .note-hand {
   font-weight: 600;
   font-style: italic;
@@ -262,12 +261,14 @@ br {
 
 .rdg {
   background: rgb(223, 211, 195);
+  max-width: 10rem;
 }
 
 .marginalie-text.marginRight, .rdg {
   padding-top: 0.2rem;
   position: absolute;
   font-size: 80%;
+  right: 7rem;
 }
 
 .marginalie-text.marginLeft, .rdg.marginLeft {
@@ -288,7 +289,9 @@ br {
   background-color: rgb(223, 177, 177);
 }
 
-.active .link-ext {
+.annot_law .link-ext,
+.annot_quote .link-ext,
+.annot_work .link-ext {
   display: inline !important;
 }
 

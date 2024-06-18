@@ -23,7 +23,7 @@
             </head>
             
             <body class="page">
-                <div class="hfeed site" id="page">
+                <div class="hfeed site d-flex flex-column min-vh-100" id="page">
                     <xsl:call-template name="nav_bar"/>
                     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
                         <ol class="breadcrumb">
@@ -61,13 +61,13 @@
         </ul>
     </xsl:template>
     <xsl:template match="tei:item">
-        <li>
+        <li class="mb-3">
             <xsl:apply-templates/>
         </li>
     </xsl:template>
     
     <xsl:template match="tei:ref[@target]">
-        <a>
+        <a class="link-primary">
             <xsl:attribute name="href"><xsl:value-of select="@target"/></xsl:attribute>
             <xsl:value-of select="./text()"/>
         </a>
