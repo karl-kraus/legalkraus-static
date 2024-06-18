@@ -10,7 +10,7 @@
             <nav class="navbar navbar-expand-lg bg-white border-bottom border-primary border-3">
                 <div class="container-fluid">
                     <a href="index.html" class="navbar-brand custom-logo-link" rel="home" itemprop="url">
-                        <p class="mb-0 border-top border-primary border-8 lh-1">RECHTSAKTEN <br></br>Karl Kraus</p>
+                   <img src="images/rechtsakten_karl_kraus_logo.svg" width="160" height="auto"/>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
