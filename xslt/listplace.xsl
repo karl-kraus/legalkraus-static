@@ -23,7 +23,7 @@
             </head>
             
             <body class="page">
-                <div class="hfeed site" id="page">
+                <div class="hfeed site d-flex flex-column min-vh-100" id="page">
                     <xsl:call-template name="nav_bar"/>
                     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
                         <ol class="breadcrumb">
@@ -98,7 +98,7 @@
                     </xsl:call-template>
                     
                     <body class="page">
-                        <div class="hfeed site" id="page">
+                        <div class="hfeed site d-flex flex-column min-vh-100" id="page">
                             <xsl:call-template name="nav_bar"/>
                             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
                                 <ol class="breadcrumb">

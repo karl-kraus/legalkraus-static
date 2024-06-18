@@ -9,7 +9,7 @@
     <xsl:param name="include_jquery" select="true()"/>
 
 
-        <footer tabindex="-1" class="bg-dark-gray">
+        <footer tabindex="-1" class="bg-dark-gray fs-9 mt-auto">
             <div class="row p-5 gx-0 d-flex justify-content-between">
                 <div class="col-xs-12 col-md-4">
                     <p class="fw-bolder mb-0"> Karl Kraus: Rechtsakten der Kanzlei Oskar Samek. <br></br>

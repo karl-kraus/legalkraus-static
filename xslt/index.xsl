@@ -23,7 +23,7 @@
                 </xsl:call-template>
             </head>
             <body class="page">
-                <div class="hfeed site" id="page">
+                <div class="hfeed site d-flex flex-column min-vh-100" id="page">
                     <xsl:call-template name="nav_bar" />
 
                     <div class="container carousel-wrapper bg-primary p-0">
