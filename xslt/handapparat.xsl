@@ -61,13 +61,13 @@
         </ul>
     </xsl:template>
     <xsl:template match="tei:item">
-        <li>
+        <li class="mb-3">
             <xsl:apply-templates/>
         </li>
     </xsl:template>
     
     <xsl:template match="tei:ref[@target]">
-        <a>
+        <a class="link-primary">
             <xsl:attribute name="href"><xsl:value-of select="@target"/></xsl:attribute>
             <xsl:value-of select="./text()"/>
         </a>
