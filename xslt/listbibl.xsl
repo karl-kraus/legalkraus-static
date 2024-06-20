@@ -10,6 +10,7 @@
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="./partials/html_footer.xsl"/>
     <xsl:import href="./partials/bibl.xsl"/>
+    <xsl:import href="./partials/list_mentions.xsl"/>
     <xsl:template match="/">
         <xsl:variable name="doc_title">
             <xsl:value-of select="'Werkregister'"/>
@@ -121,18 +122,7 @@
                                     </div>
                                     <div class="card-body">
                                         <xsl:call-template name="bibl_detail"/> 
-                                        <div>
-                                            <h3>erwähnt in</h3>
-                                            <ul>
-                                                <xsl:for-each select=".//tei:note[@type='mentions']">
-                                                    <li>
-                                                        <a href="{replace(@target, '.xml', '.html')}">
-                                                            <xsl:value-of select="."/>
-                                                        </a>
-                                                    </li>
-                                                </xsl:for-each>
-                                            </ul>
-                                        </div>
+                                        <xsl:call-template name="list_mentions"/>
                                     </div>
                                 </div>
                             </div>

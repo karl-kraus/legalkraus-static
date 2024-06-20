@@ -10,6 +10,7 @@
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="./partials/html_footer.xsl"/>
     <xsl:import href="./partials/place.xsl"/>
+    <xsl:import href="partials/list_mentions.xsl"/>
     <xsl:template match="/">
         <xsl:variable name="doc_title">
             <xsl:value-of select="'Ortsregister'"/>
@@ -117,24 +118,7 @@
                                     </div>
                                     <div class="card-body">
                                         <xsl:call-template name="place_detail"/> 
-                                        <xsl:if test=".//tei:note[@type='mentions']">
-                                            <tr>
-                                                <th>
-                                                    Erwähnt in
-                                                </th>
-                                                <td>
-                                                    <ul>
-                                                        <xsl:for-each select=".//tei:note[@type='mentions']">
-                                                            <li>
-                                                                <a href="{replace(@target, '.xml', '.html')}">
-                                                                    <xsl:value-of select="./text()"/>
-                                                                </a>
-                                                            </li>
-                                                        </xsl:for-each>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                        </xsl:if>
+                                        <xsl:call-template name="list_mentions"/>
                                     </div>
                                 </div>
                             </div>
