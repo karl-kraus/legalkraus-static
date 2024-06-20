@@ -7,7 +7,7 @@ add-attributes -g "./data/meta/*.xml" -b "https://id.acdh.oeaw.ac.at/legalkraus"
 add-attributes -g "./data/topics/*.xml" -b "https://id.acdh.oeaw.ac.at/legalkraus"
 
 echo "denormalize indices in objects"
-denormalize-indices -f "./data/editions/D_*.xml" -i "./data/indices/*.xml" -m ".//@*[contains(., '#pmb')]" -x ".//tei:titleStmt/tei:title[1]/text()" -b pmb11988
+denormalize-indices -f "./data/editions/D_*.xml" -i "./data/indices/*.xml" -m ".//@*[contains(., '#pmb') or contains(., '#lk_fackel__')]" -x ".//tei:titleStmt/tei:title[1]/text()" -b pmb11988
 
 echo "remove listevents in back elements"
 python rm_listevent.py
