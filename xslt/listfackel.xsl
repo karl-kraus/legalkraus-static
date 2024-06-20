@@ -10,6 +10,7 @@
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="./partials/html_footer.xsl"/>
     <xsl:import href="./partials/fackel.xsl"/>
+    <xsl:import href="./partials/list_mentions.xsl"/>
     <xsl:template match="/">
         <xsl:variable name="doc_title">
             <xsl:value-of select=".//tei:titleStmt/tei:title[1]/text()"/>
@@ -81,7 +82,7 @@
                                                     <xsl:value-of select="./tei:biblScope/text()"/>
                                                 </td>
                                                 <td>
-                                                    <xsl:value-of select="count(./tei:ref)"/>
+                                                    <xsl:value-of select="count(.//tei:note[@type='mentions'])"/>
                                                 </td>
                                             </tr>
                                         </xsl:for-each>
@@ -141,25 +142,8 @@
                                         </h1>
                                     </div>
                                     <div class="card-body">
-                                        <xsl:call-template name="fackel_detail"/>  
-                                       
-                                            <p class="pt-2">
-                                                <h3>erwähnt in</h3>
-                                                    <ul>
-                                                        <xsl:for-each select="./tei:ref">
-                                                            <xsl:variable name="docTitle">
-                                                                <xsl:value-of select="tokenize(./text(), '\|')[1]"/>
-                                                            </xsl:variable>
-                                                            <xsl:variable name="docId">
-                                                                <xsl:value-of select="replace(tokenize(./text(), '\|')[2], '.xml', '.html')"/>
-                                                            </xsl:variable>
-                                                            <li>
-                                                                <a href="{$docId}"><xsl:value-of select="$docTitle"/></a>
-                                                            </li>
-                                                        </xsl:for-each>
-                                                    </ul>
-                                            </p>
-                                        
+                                        <xsl:call-template name="fackel_detail"/>
+                                        <xsl:call-template name="list_mentions"/>
                                     </div>
                                 </div>
                             </div>

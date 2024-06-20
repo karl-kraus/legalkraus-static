@@ -10,6 +10,7 @@
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="./partials/html_footer.xsl"/>
     <xsl:import href="./partials/legal.xsl"/>
+    <xsl:import href="./partials/list_mentions.xsl"/>
     <xsl:template match="/">
         <xsl:variable name="doc_title">
             <xsl:value-of select="'Juristische Texte'"/>
@@ -63,7 +64,7 @@
                                                     <xsl:value-of select=".//tei:date[1]/text()"/>
                                                 </td>
                                                 <td>
-                                                    <xsl:value-of select="count(./tei:ref)"/>
+                                                    <xsl:value-of select="count(.//tei:note[@type='mentions'])"/>
                                                 </td>
                                             </tr>
                                         </xsl:for-each>
@@ -113,18 +114,7 @@
                                     </div>
                                     <div class="card-body">
                                         <xsl:call-template name="legal_detail"/>
-                                        <div>
-                                            <h3>erwähnt in</h3>
-                                            <ul>
-                                                <xsl:for-each select="./tei:ref[@target]">
-                                                    <li>
-                                                        <a href="{replace(@target, '.xml', '.html')}">
-                                                            <xsl:value-of select="."/>
-                                                        </a>
-                                                    </li>
-                                                </xsl:for-each>
-                                            </ul>
-                                        </div>
+                                        <xsl:call-template name="list_mentions"/>
                                     </div>
                                 </div>
                             </div>
