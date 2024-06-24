@@ -18,33 +18,33 @@
             </xsl:if>
             <xsl:if test="./tei:desc[@type='entity_type']">
                <dt>Beschreibung</dt>
-                    <dl>
+                    <dd>
                         <xsl:value-of select="./tei:desc[@type='entity_type']"/>
-                    </dl>
+                    </dd>
             </xsl:if>
             <xsl:if test="./tei:location[@type='located_in_place']">
                 <dt>Teil von</dt>
                 <xsl:for-each select="./tei:location">
-                    <dl>
+                    <dd>
                         <a>
                             <xsl:attribute name="href">
                                 <xsl:value-of select="concat(./tei:placeName/@key, '.html')"/>
                             </xsl:attribute>
                             <xsl:value-of select="./tei:placeName/text()"/>
                         </a>
-                    </dl>
+                    </dd>
                 </xsl:for-each>
             </xsl:if>
             <dt>links</dt>
             <xsl:for-each select="./tei:idno[@type='URL']">
-                <dl>
+                <dd>
                     <a>
                         <xsl:attribute name="href">
                             <xsl:value-of select="./text()"/>
                         </xsl:attribute>
                         <xsl:value-of select="./text()"/>
                     </a>
-                </dl>
+                </dd>
             </xsl:for-each>
         </dl>
     </xsl:template>

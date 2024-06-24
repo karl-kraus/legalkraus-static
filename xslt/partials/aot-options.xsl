@@ -28,25 +28,25 @@
               </ul>
               <ul class="row list-unstyled mx-auto">
                   <li class="col-12">
-                      <annotation-slider opt="ef"  class="d-flex justify-content-between"></annotation-slider>
+                      <annotation-slider opt="ef"  class="d-flex justify-content-between justify-content-md-end gap-md-3"></annotation-slider>
                   </li>
                   <li class="col-12 col-md-6 col-lg-4">
-                      <annotation-slider opt="prs" class="d-flex justify-content-between"></annotation-slider>
+                      <annotation-slider opt="prs" class="d-flex justify-content-between justify-content-xxl-end gap-xxl-3"></annotation-slider>
                   </li>
                   <li class="col-12 col-md-6 col-lg-4">                  
-                      <annotation-slider opt="inst" class="d-flex justify-content-between"></annotation-slider>
+                      <annotation-slider opt="inst" class="d-flex justify-content-between justify-content-xxl-end gap-xxl-3 "></annotation-slider>
                   </li>
                   <li class="col-12 col-md-6 col-lg-4">
-                      <annotation-slider opt="plc" class="d-flex justify-content-between"></annotation-slider>
+                      <annotation-slider opt="plc" class="d-flex justify-content-between justify-content-xxl-end gap-xxl-3"></annotation-slider>
                   </li>
                   <li class="col-12 col-md-6 col-lg-4">
-                      <annotation-slider opt="ltxts" class="d-flex justify-content-between"></annotation-slider>
+                      <annotation-slider opt="ltxts" class="d-flex justify-content-between justify-content-xxl-end gap-xxl-3"></annotation-slider>
                   </li>
                   <li class="col-12 col-md-6 col-lg-4">
-                      <annotation-slider opt="wrk" class="d-flex justify-content-between"></annotation-slider>
+                      <annotation-slider opt="wrk" class="d-flex justify-content-between justify-content-xxl-end gap-xxl-3"></annotation-slider>
                   </li>
                   <li class="col-12 col-md-6 col-lg-4">
-                      <annotation-slider opt="quts" class="d-flex justify-content-between"></annotation-slider>
+                      <annotation-slider opt="quts" class="d-flex justify-content-between justify-content-xxl-end gap-xxl-3"></annotation-slider>
                   </li>
               </ul>
             </div>                                                    
