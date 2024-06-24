@@ -135,3 +135,9 @@
 annotation-slider .slider-number::after {
   display:none;
 }
+
+/** definition list (used in modals) **/
+dd {
+  margin-left: 1rem;
+  word-break: break-word;
+}
