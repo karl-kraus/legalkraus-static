@@ -16,7 +16,28 @@
     <xsl:import href="partials/html_footer.xsl"/>
     <xsl:import href="partials/osd-container.xsl"/>
     <xsl:import href="partials/tei-facsimile.xsl"/>
-    <xsl:variable name="cases" select="json-doc('../data/meta/cases-index.json')?cases"/>
+    <xsl:variable name="cases" as="array(*)">
+        <xsl:variable name="case-objects" as="map(*)*">
+            <xsl:for-each
+                select="collection('../data/cases_tei?select=*.xml')//tei:TEI[descendant::tei:origDate[@notBefore-iso]]">
+                <xsl:sort select="number(translate(@xml:id, 'C_.xml', ''))"/>
+                <xsl:variable name="id" select="replace(@xml:id, '.xml', '')" as="xs:string"/>
+                <xsl:variable name="keywords"
+                    select="array {current()//tei:keywords//tei:term/data()}"/>
+                <xsl:variable name="year"
+                    select="year-from-date(xs:date(current()//tei:teiHeader//tei:origDate/@notBefore-iso))"
+                    as="xs:integer"/>
+                <xsl:copy-of select="
+                        map {
+                            'name': current()//tei:title/data(),
+                            'keywords': $keywords,
+                            'id': $id,
+                            'year': $year
+                        }"/>
+            </xsl:for-each>
+        </xsl:variable>
+        <xsl:copy-of select="array {$case-objects}"/>
+    </xsl:variable>
     <xsl:template match="/">
         <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
         <html lang="de">
@@ -40,7 +61,6 @@
                             </li>
                         </ol>
                     </nav>
-
                     <div class="container">
                         <div class="col-12">
                             <xsl:apply-templates
@@ -59,8 +79,6 @@
         <xsl:variable name="label" select="." as="xs:string"/>
         <xsl:map>
             <xsl:map-entry key="'name'" select="$label"/>
-            <!--<xsl:map-entry key="'data'" select="array{filter($cases?*, function ($case) {
-                $label = $case?keywords})}"/>-->
             <xsl:map-entry key="'data'" select="$cases?*[$label = .?keywords]"/>
         </xsl:map>
     </xsl:template>
@@ -84,10 +102,7 @@
 
                     <xsl:for-each select="current()?data">
                         <xsl:sequence>
-                            <xsl:if test="matches(substring(current()?start_date, 1, 4), '\d{4}')">
-                                <xsl:value-of select="number(substring(current()?start_date, 1, 4))"
-                                />
-                            </xsl:if>
+                            <xsl:value-of select="current()?year"/>
                         </xsl:sequence>
                     </xsl:for-each>
                 </xsl:for-each>
@@ -104,9 +119,7 @@
                         <xsl:map-entry key="'name'" select="current()?name"/>
                         <xsl:variable name="counts" as="xs:integer*">
                             <xsl:for-each select="$years?*">
-                                <xsl:value-of
-                                    select="count($cases[current() = number(substring(.?start_date, 1, 4))])"
-                                />
+                                <xsl:value-of select="count($cases[current() = .?year])"/>
                             </xsl:for-each>
                         </xsl:variable>
                         <xsl:map-entry key="'data'" select="array {$counts}"/>
@@ -117,9 +130,7 @@
         </xsl:variable>
         <xsl:variable name="tmp" as="xs:integer*">
             <xsl:for-each select="$years?*">
-                <xsl:value-of
-                    select="number(count($cases?*[current() = number(substring(.?start_date, 1, 4))]))"
-                />
+                <xsl:value-of select="number(count($cases?*[current() = .?year]))"/>
             </xsl:for-each>
         </xsl:variable>
         <xsl:variable name="totals" select="array {$tmp}" as="array(xs:integer*)"/>
