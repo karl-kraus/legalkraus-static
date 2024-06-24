@@ -76,7 +76,7 @@
                         </ol>
                     </nav>
                     <main id="content" class="container-fluid">
-                      <section class="row bg-dark-gray px-5">
+                      <section class="row bg-dark-gray px-md-5">
                           <div class="col-md-1 d-none d-md-block">
                               <xsl:if test="ends-with($prev, '.html')">
                                       <a>
@@ -103,7 +103,7 @@
                                       </a>
                               </xsl:if>
                           </div>
-                          <div class="row mb-5 mt-2 px-5 fs-9">
+                          <div class="row mb-2 mb-md-5 mt-2 px-md-5 fs-9">
                             <xsl:call-template name="create-header"/>
                           </div>
                         </section>    
@@ -184,7 +184,7 @@
                                 </div>
                               </div>
                             </xsl:if>
-                            <div id="container-resize" class="row transcript active gy-2 {if (count(//tei:pb) = 0 and count(//tei:graphic) = 0) then 'd-none' else ()}">
+                            <div id="container-resize" class="row transcript active gy-2 {if (count(//tei:pb) = 0 and count(//tei:graphic) = 0) then 'd-none' else ()} mx-auto">
                                 <div id="img-resize" class="col-12 col-md-6 facsimiles">
                                     
                                       <div id="viewer" class=" bg-white-gray h-auto w-auto">
@@ -199,7 +199,7 @@
                                       <div id="editor-widget">
                                         <xsl:call-template name="annotation-options"/>
                                       </div>
-                                      <div id="doc-wrapper" class="overflow-auto mw-100 ps-md-5">
+                                      <div id="doc-wrapper" class="overflow-auto mw-100 ps-5">
                                             <!--<xsl:apply-templates select="//tei:body"></xsl:apply-templates>-->
                                             <xsl:choose>
                                                 <xsl:when test="//tei:pb">
