@@ -55,7 +55,7 @@
                                         <a class="dropdown-item" href="politik.html">Politik</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item disabled" href="recht.html">Recht</a>
+                                        <a class="dropdown-item" href="recht.html">Recht</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="cases.html">Alle Akten</a>

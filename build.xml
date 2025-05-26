@@ -6,6 +6,39 @@
     <delete>
         <fileset dir="${target}" includes="*.html"/>
     </delete>
+    <!-- startpage-->
+     <xslt in="${index}" out="${target}/index.html" style="./xslt/index.xsl">
+        <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+        <classpath location="${basedir}/saxon/saxon9he.jar"/>
+    </xslt>
+
+    <!-- Recht -->
+     <xslt in="${index}" out="${target}/recht.html" style="./xslt/recht.xsl">
+        <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+        <classpath location="${basedir}/saxon/saxon9he.jar"/>
+    </xslt>
+    <xslt in="${index}" out="${target}/privatrecht.html" style="./xslt/recht-toc.xsl">
+        <param name="legalTopic" expression="Privatrecht"/>
+        <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+        <classpath location="${basedir}/saxon/saxon9he.jar"/>
+    </xslt>
+    <xslt in="${index}" out="${target}/strafrecht.html" style="./xslt/recht-toc.xsl">
+        <param name="legalTopic" expression="Strafrecht"/>
+        <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+        <classpath location="${basedir}/saxon/saxon9he.jar"/>
+    </xslt>
+    <xslt in="${index}" out="${target}/verwaltungsrecht.html" style="./xslt/recht-toc.xsl">
+        <param name="legalTopic" expression="Verwaltungsrecht"/>
+        <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+        <classpath location="${basedir}/saxon/saxon9he.jar"/>
+    </xslt>
+    <xslt in="${index}" out="${target}/zivilrecht.html" style="./xslt/recht-toc.xsl">
+        <param name="legalTopic" expression="Zivilrecht"/>
+        <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+        <classpath location="${basedir}/saxon/saxon9he.jar"/>
+    </xslt>
+   
+
     
     <!-- Para Texte -->
     <xslt style="./xslt/meta.xsl"  basedir="./data/meta" destdir="${target}" includes="*.xml">
@@ -16,10 +49,7 @@
         <factory name="net.sf.saxon.TransformerFactoryImpl"/>
         <classpath location="${basedir}/saxon/saxon9he.jar"/>
     </xslt>
-    <xslt in="${index}" out="${target}/index.html" style="./xslt/index.xsl">
-        <factory name="net.sf.saxon.TransformerFactoryImpl"/>
-        <classpath location="${basedir}/saxon/saxon9he.jar"/>
-    </xslt>
+    
 
     <!-- Topics -->
     <xslt in="${index}" out="${target}/kultur.html" style="./xslt/kultur.xsl">
@@ -42,6 +72,11 @@
     </xslt>
     <!-- Fälle -->
     <xslt in="${index}" out="${target}/cases.html" style="./xslt/toc-col.xsl">
+        <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+        <classpath location="${basedir}/saxon/saxon9he.jar"/>
+    </xslt>
+    <xslt in="${index}" out="${target}/cases.html" style="./xslt/toc-col.xsl">
+        <param name="legalTopic" expression="Privatrecht"/>
         <factory name="net.sf.saxon.TransformerFactoryImpl"/>
         <classpath location="${basedir}/saxon/saxon9he.jar"/>
     </xslt>
