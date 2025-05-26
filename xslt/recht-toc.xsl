@@ -37,6 +37,7 @@
                     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="recht.html">Recht</a></li>
                             <li class="breadcrumb-item active" aria-current="page"><xsl:value-of select="$doc_title"/></li>
                         </ol>
                     </nav>
