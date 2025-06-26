@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0" exclude-result-prefixes="xsl tei xs">
-    <xsl:output encoding="UTF-8" media-type="text/html" method="xhtml" version="1.0" indent="yes"
-        omit-xml-declaration="yes"/>
+    <xsl:output encoding="UTF-8" media-type="text/html" method="xhtml" version="1.0" indent="yes" omit-xml-declaration="yes"/>
 
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
@@ -18,7 +18,7 @@
             <xsl:value-of select=".//tei:keywords/tei:term[1]"/>
         </xsl:variable>
         <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
-        <html>
+        <html lang="de">
             <head>
                 <xsl:call-template name="html_head">
                     <xsl:with-param name="html_title" select="$doc_title"/>
@@ -30,14 +30,22 @@
                     <xsl:call-template name="nav_bar"/>
                     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{lower-case($category)||'.html'}"><xsl:value-of select="$category"/></a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><xsl:value-of select="$doc_title"/></li>
+                            <li class="breadcrumb-item">
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="{lower-case($category)||'.html'}">
+                                    <xsl:value-of select="$category"/>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <xsl:value-of select="$doc_title"/>
+                            </li>
                         </ol>
                     </nav>
 
                     <div class="container">
-                        
+
                         <h1>
                             <xsl:value-of select="$doc_title"/>
                         </h1>
@@ -69,15 +77,15 @@
                                             <xsl:variable name="fileNr">
                                                 <xsl:value-of select="tokenize($fileName)[2]"/>
                                             </xsl:variable>
-                                            
+
                                             <xsl:if test=".//tei:keywords/tei:term[./text()=$doc_title]">
                                                 <tr>
-                                                    <td>                                        
+                                                    <td>
                                                         <xsl:value-of select="$fileNr"/>
                                                     </td>
                                                     <td>
                                                         <a>
-                                                            <xsl:attribute name="href">                                                
+                                                            <xsl:attribute name="href">
                                                                 <xsl:value-of select="replace(tokenize($full_path, '/')[last()], '.xml', '.html')"/>
                                                             </xsl:attribute>
                                                             <xsl:value-of select="$fileName"/>
@@ -88,28 +96,34 @@
                                                     </td>
                                                     <td>
                                                         <xsl:for-each select="//tei:textClass/tei:keywords/tei:term/text()">
-                                                            <span class="badge bg-secondary"><xsl:value-of select="."/></span>
+                                                            <span class="badge bg-secondary">
+                                                                <xsl:value-of select="."/>
+                                                            </span>
                                                         </xsl:for-each>
                                                     </td>
                                                     <td>
                                                         <xsl:for-each select="//tei:particDesc/tei:listPerson/tei:person[ends-with(data(@role), 'ANK') or ends-with(data(@role), 'AKV')]">
-                                                            <span class="badge rounded-pill m-1 bg-dark-gray"><xsl:value-of select="./tei:persName/text()"/></span>
+                                                            <span class="badge rounded-pill m-1 bg-dark-gray">
+                                                                <xsl:value-of select="./tei:persName/text()"/>
+                                                            </span>
                                                         </xsl:for-each>
                                                     </td>
                                                     <td>
                                                         <xsl:for-each select="//tei:particDesc/tei:listPerson/tei:person[ends-with(data(@role), 'ANG') or ends-with(data(@role), 'ANV')]">
-                                                            <span class="badge rounded-pill m-1 bg-light-blue"><xsl:value-of select="./tei:persName/text()"/></span>
+                                                            <span class="badge rounded-pill m-1 bg-light-blue">
+                                                                <xsl:value-of select="./tei:persName/text()"/>
+                                                            </span>
                                                         </xsl:for-each>
                                                     </td>
                                                 </tr>
                                             </xsl:if>
-                                            
+
                                         </xsl:for-each>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        
+
                     </div>
                     <xsl:call-template name="html_footer"/>
                     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.11.0/b-2.0.0/b-html5-2.0.0/cr-1.5.4/r-2.2.9/sp-1.4.0/datatables.min.js"></script>
@@ -139,7 +153,7 @@
             <xsl:apply-templates/>
         </li>
     </xsl:template>
-    
+
     <xsl:template match="tei:list">
         <ul class="list-unstyled">
             <xsl:apply-templates/>
@@ -150,10 +164,12 @@
             <xsl:apply-templates/>
         </li>
     </xsl:template>
-    
+
     <xsl:template match="tei:ref[@target]">
         <a>
-            <xsl:attribute name="href"><xsl:value-of select="@target"/></xsl:attribute>
+            <xsl:attribute name="href">
+                <xsl:value-of select="@target"/>
+            </xsl:attribute>
             <xsl:value-of select="./text()"/>
         </a>
     </xsl:template>
@@ -187,16 +203,22 @@
             <xsl:apply-templates/>
         </del>
     </xsl:template>
-    
+
     <xsl:template match="tei:table">
-        <table><xsl:apply-templates/></table>
+        <table>
+            <xsl:apply-templates/>
+        </table>
     </xsl:template>
-    
+
     <xsl:template match="tei:row">
-        <tr><xsl:apply-templates/></tr>
+        <tr>
+            <xsl:apply-templates/>
+        </tr>
     </xsl:template>
-    
+
     <xsl:template match="tei:cell">
-        <td><xsl:apply-templates/></td>
+        <td>
+            <xsl:apply-templates/>
+        </td>
     </xsl:template>
 </xsl:stylesheet>

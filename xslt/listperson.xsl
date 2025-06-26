@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet 
-    xmlns="http://www.w3.org/1999/xhtml"
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    version="2.0" exclude-result-prefixes="xsl tei xs">
+    xmlns:tei="http://www.tei-c.org/ns/1.0"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0" exclude-result-prefixes="xsl tei xs">
     <xsl:output encoding="UTF-8" media-type="text/html" method="xhtml" version="1.0" indent="yes" omit-xml-declaration="yes"/>
-    
+
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="./partials/html_footer.xsl"/>
@@ -16,29 +15,35 @@
             <xsl:value-of select="'Personenregister'"/>
         </xsl:variable>
         <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
-        <html>
+        <html lang="de">
             <head>
                 <xsl:call-template name="html_head">
                     <xsl:with-param name="html_title" select="$doc_title"></xsl:with-param>
                 </xsl:call-template>
             </head>
-            
+
             <body class="page">
                 <div class="hfeed site d-flex flex-column min-vh-100" id="page">
                     <xsl:call-template name="nav_bar"/>
                     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><xsl:value-of select="$doc_title"/></li>
+                            <li class="breadcrumb-item">
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <xsl:value-of select="$doc_title"/>
+                            </li>
                         </ol>
                     </nav>
-                    
-                    <div class="container">                        
+
+                    <div class="container">
                         <div class="card rounded-0">
                             <div class="card-header bg-darker-gray rounded-0">
-                                <h1><xsl:value-of select="$doc_title"/></h1>
+                                <h1>
+                                    <xsl:value-of select="$doc_title"/>
+                                </h1>
                             </div>
-                            <div class="card-body">                                
+                            <div class="card-body">
                                 <table class="table table-striped display" id="tocTable" style="width:100%">
                                     <thead>
                                         <tr>
@@ -60,28 +65,43 @@
                                                         <xsl:attribute name="href">
                                                             <xsl:value-of select="concat($id, '.html')"/>
                                                         </xsl:attribute>
-                                                    <xsl:choose>
-                                                        <xsl:when test="./tei:persName/tei:forename">
-                                                            <xsl:value-of select=".//tei:surname/text()"/>,  <xsl:value-of select=".//tei:forename/text()"/>
-                                                        </xsl:when>
-                                                        <xsl:otherwise>
-                                                            <xsl:value-of select=".//tei:surname/text()"/>
-                                                        </xsl:otherwise>
-                                                    </xsl:choose>
+                                                        <xsl:choose>
+                                                            <xsl:when test="./tei:persName/tei:forename">
+                                                                <xsl:value-of select=".//tei:surname/text()"/>
+,                                                                <xsl:value-of select=".//tei:forename/text()"/>
+                                                            </xsl:when>
+                                                            <xsl:otherwise>
+                                                                <xsl:value-of select=".//tei:surname/text()"/>
+                                                            </xsl:otherwise>
+                                                        </xsl:choose>
                                                     </a>
                                                 </td>
-                                                <td>                                        
-                                                    <xsl:value-of select="./tei:birth/tei:date/text()"/><xsl:if test="./tei:birth//tei:placeName">, <a>
-                                                        <xsl:attribute name="href"><xsl:value-of select="concat(data(./tei:birth/tei:settlement[1]/@key[1]), '.html')"/></xsl:attribute><xsl:value-of select="./tei:birth//tei:placeName[1]/text()"/></a></xsl:if>
+                                                <td>
+                                                    <xsl:value-of select="./tei:birth/tei:date/text()"/>
+                                                    <xsl:if test="./tei:birth//tei:placeName">,                                                        <a>
+                                                            <xsl:attribute name="href">
+                                                                <xsl:value-of select="concat(data(./tei:birth/tei:settlement[1]/@key[1]), '.html')"/>
+                                                            </xsl:attribute>
+                                                            <xsl:value-of select="./tei:birth//tei:placeName[1]/text()"/>
+                                                        </a>
+                                                    </xsl:if>
                                                 </td>
-                                                <td>                                        
-                                                    <xsl:value-of select="./tei:death/tei:date/text()"/><xsl:if test="./tei:death//tei:placeName">, <a>
-                                                        <xsl:attribute name="href"><xsl:value-of select="concat(data(./tei:death/tei:settlement[1]/@key[1]), '.html')"/></xsl:attribute><xsl:value-of select="./tei:death//tei:placeName[1]/text()"/></a></xsl:if>
+                                                <td>
+                                                    <xsl:value-of select="./tei:death/tei:date/text()"/>
+                                                    <xsl:if test="./tei:death//tei:placeName">,                                                        <a>
+                                                            <xsl:attribute name="href">
+                                                                <xsl:value-of select="concat(data(./tei:death/tei:settlement[1]/@key[1]), '.html')"/>
+                                                            </xsl:attribute>
+                                                            <xsl:value-of select="./tei:death//tei:placeName[1]/text()"/>
+                                                        </a>
+                                                    </xsl:if>
                                                 </td>
                                                 <td>
                                                     <ul class="list-unstyled">
                                                         <xsl:for-each select=".//tei:occupation">
-                                                            <li><xsl:value-of select="./text()"/></li>
+                                                            <li>
+                                                                <xsl:value-of select="./text()"/>
+                                                            </li>
                                                         </xsl:for-each>
                                                     </ul>
                                                 </td>
@@ -93,7 +113,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </div>                       
+                        </div>
                     </div>
                     <xsl:call-template name="html_footer"/>
                     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.11.0/b-2.0.0/b-html5-2.0.0/cr-1.5.4/r-2.2.9/sp-1.4.0/datatables.min.js"></script>
@@ -110,19 +130,27 @@
             <xsl:variable name="filename" select="concat(./@xml:id, '.html')"/>
             <xsl:variable name="name" select="normalize-space(string-join(./tei:persName[1]//text()))"></xsl:variable>
             <xsl:result-document href="{$filename}">
-                <html xmlns="http://www.w3.org/1999/xhtml">
+                <html lang="de">
                     <xsl:call-template name="html_head">
                         <xsl:with-param name="html_title" select="$name"></xsl:with-param>
                     </xsl:call-template>
-                    
+
                     <body class="page">
                         <div class="hfeed site d-flex flex-column min-vh-100" id="page">
                             <xsl:call-template name="nav_bar"/>
                             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="p-3">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                    <li class="breadcrumb-item" aria-current="page"><a href="listperson.html"><xsl:value-of select="$doc_title"/></a></li>
-                                    <li class="breadcrumb-item active" aria-current="page"><xsl:value-of select="$name"/></li>
+                                    <li class="breadcrumb-item">
+                                        <a href="index.html">Home</a>
+                                    </li>
+                                    <li class="breadcrumb-item" aria-current="page">
+                                        <a href="listperson.html">
+                                            <xsl:value-of select="$doc_title"/>
+                                        </a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">
+                                        <xsl:value-of select="$name"/>
+                                    </li>
                                 </ol>
                             </nav>
                             <div class="container">
@@ -133,19 +161,19 @@
                                         </h1>
                                     </div>
                                     <div class="card-body">
-                                        <xsl:call-template name="person_detail"/>  
+                                        <xsl:call-template name="person_detail"/>
                                         <xsl:call-template name="list_mentions"/>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <xsl:call-template name="html_footer"/>
                         </div>
                     </body>
                 </html>
             </xsl:result-document>
-            
+
         </xsl:for-each>
     </xsl:template>
-    
+
 </xsl:stylesheet>
