@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:fn="http://www.w3.org/2005/xpath-functions"
     xmlns:array="http://www.w3.org/2005/xpath-functions/array"
     xmlns:map="http://www.w3.org/2005/xpath-functions/map"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-    xmlns:local="http://legalraus.acdh.oeaw.ac.at" version="3.0"
-    exclude-result-prefixes="xsl tei xs">
-    <xsl:output encoding="UTF-8" media-type="text/html" method="xhtml" version="1.0" indent="yes"
-        omit-xml-declaration="yes"/>
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:local="http://legalraus.acdh.oeaw.ac.at" version="3.0" exclude-result-prefixes="xsl tei xs">
+    <xsl:output encoding="UTF-8" media-type="text/html" method="xhtml" version="1.0" indent="yes" omit-xml-declaration="yes"/>
     <xsl:mode on-no-match="deep-skip"/>
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
@@ -18,15 +18,11 @@
     <xsl:import href="partials/tei-facsimile.xsl"/>
     <xsl:variable name="cases" as="array(*)">
         <xsl:variable name="case-objects" as="map(*)*">
-            <xsl:for-each
-                select="collection('../data/cases_tei?select=*.xml')//tei:TEI[descendant::tei:origDate[@notBefore-iso]]">
+            <xsl:for-each select="collection('../data/cases_tei?select=*.xml')//tei:TEI[descendant::tei:origDate[@notBefore-iso]]">
                 <xsl:sort select="number(translate(@xml:id, 'C_.xml', ''))"/>
                 <xsl:variable name="id" select="replace(@xml:id, '.xml', '')" as="xs:string"/>
-                <xsl:variable name="keywords"
-                    select="array {current()//tei:keywords//tei:term/data()}"/>
-                <xsl:variable name="year"
-                    select="year-from-date(xs:date(current()//tei:teiHeader//tei:origDate/@notBefore-iso))"
-                    as="xs:integer"/>
+                <xsl:variable name="keywords" select="array {current()//tei:keywords//tei:term/data()}"/>
+                <xsl:variable name="year" select="year-from-date(xs:date(current()//tei:teiHeader//tei:origDate/@notBefore-iso))" as="xs:integer"/>
                 <xsl:copy-of select="
                         map {
                             'name': current()//tei:title/data(),
@@ -43,8 +39,7 @@
         <html lang="de">
             <head>
                 <xsl:call-template name="html_head">
-                    <xsl:with-param name="html_title"
-                        select="'Karl Kraus Rechtsakten - Fallstatistik'"/>
+                    <xsl:with-param name="html_title" select="'Karl Kraus Rechtsakten - Fallstatistik'"/>
                 </xsl:call-template>
                 <script src="js/vendor/highcharts.js"/>
             </head>
@@ -63,9 +58,7 @@
                     </nav>
                     <div class="container">
                         <div class="col-12">
-                            <xsl:apply-templates
-                                select="//skos:Concept[skos:prefLabel/text() = ('Rechtsbereich', 'Art der Akte / des Deliktes', 'Delikttyp', 'Ausgang / Ende des Verfahrens')]"
-                            />
+                            <xsl:apply-templates select="//skos:Concept[skos:prefLabel/text() = ('Rechtsbereich', 'Art der Akte / des Deliktes', 'Delikttyp', 'Ausgang / Ende des Verfahrens')]" />
                         </div>
                     </div>
                     <xsl:call-template name="html_footer">
@@ -87,9 +80,7 @@
         <xsl:variable name="concepts-cases" as="array(map(*))">
             <xsl:variable name="items" as="map(*)*">
                 <xsl:for-each select="skos:narrower">
-                    <xsl:apply-templates
-                        select="(root()//skos:Concept[@rdf:about = current()/@rdf:resource]/skos:prefLabel, current()/skos:Concept/skos:prefLabel)"
-                        mode="concept-cases"/>
+                    <xsl:apply-templates select="(root()//skos:Concept[@rdf:about = current()/@rdf:resource]/skos:prefLabel, current()/skos:Concept/skos:prefLabel)" mode="concept-cases"/>
                 </xsl:for-each>
             </xsl:variable>
             <xsl:copy-of select="array {$items}"/>
@@ -114,8 +105,7 @@
                 <xsl:for-each select="$concepts-cases?*">
                     <xsl:variable name="cases" select="current()?data"/>
                     <xsl:map>
-                        <xsl:map-entry key="'visible'"
-                            select="current()?name = array:head($concepts-cases)?name"/>
+                        <xsl:map-entry key="'visible'" select="current()?name = array:head($concepts-cases)?name"/>
                         <xsl:map-entry key="'name'" select="current()?name"/>
                         <xsl:variable name="counts" as="xs:integer*">
                             <xsl:for-each select="$years?*">
@@ -135,15 +125,19 @@
         </xsl:variable>
         <xsl:variable name="totals" select="array {$tmp}" as="array(xs:integer*)"/>
 
-        <div id="{$id}-chart-container" class="chart-container"
-            data-series="{serialize($totals,map{'method':'json'})}" data-title="{$label}">
+        <div id="{$id}-chart-container" class="chart-container" data-series="{serialize($totals,map{'method':'json'})}" data-title="{$label}">
             <script>
                 (function() {
-                    const chartTitle = '<xsl:value-of select="$label"/>';
-                    const years = <xsl:value-of select="serialize($years, map {'method': 'json'})"/>;
-                    const totals = <xsl:value-of select="serialize($totals, map {'method': 'json'})"/>;
-                    const chartContainerId = '<xsl:value-of select="$id || '-chart-container'"/>';
-                    let series = <xsl:value-of select="serialize($series, map {'method': 'json'})"/>;
+                    const chartTitle = '<xsl:value-of select="$label"/>
+';
+                    const years = <xsl:value-of select="serialize($years, map {'method': 'json'})"/>
+;
+                    const totals = <xsl:value-of select="serialize($totals, map {'method': 'json'})"/>
+;
+                    const chartContainerId = '<xsl:value-of select="$id || '-chart-container'"/>
+';
+                    let series = <xsl:value-of select="serialize($series, map {'method': 'json'})"/>
+;
                     
                     
                     series[0].color = '#C6C2BC';
@@ -209,7 +203,7 @@
                         },
                     })
                 })();
-            </script>
-        </div>
-    </xsl:template>
+</script>
+</div>
+</xsl:template>
 </xsl:stylesheet>
