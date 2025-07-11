@@ -55,7 +55,7 @@
                                                 <xsl:value-of select="document-uri(/)"/>
                                             </xsl:variable>
                                             <xsl:variable name="fileName">
-                                                <xsl:value-of select=".//tei:title[1]/text()"/>
+                                                <xsl:value-of select=".//tei:titleStmt/tei:title[1]/text()"/>
                                             </xsl:variable>
                                             <xsl:variable name="fileNr">
                                                 <xsl:value-of select="tokenize($fileName)[2]"/>
