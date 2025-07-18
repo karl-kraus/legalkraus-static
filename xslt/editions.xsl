@@ -317,7 +317,8 @@
         <xsl:variable name="facsUrl" select=".//root()//*[@xml:id = ($facs, substring-after(data($facs), '#'))]//tei:graphic[@source = 'wienbibliothek']/@url"/>
         <!--<span class="anchor-pb"></span>-->
         <option value="{$facsUrl}">
-            <xsl:value-of select="@n"/>
+        <xsl:variable name="pageNr" select="count(preceding::tei:pb) + 1"/>
+            <xsl:value-of select="$pageNr"/>
         </option>
     </xsl:template>
     <!-- copied from old legalkraus app - adapted -->
