@@ -128,16 +128,11 @@
         <div id="{$id}-chart-container" class="chart-container" data-series="{serialize($totals,map{'method':'json'})}" data-title="{$label}">
             <script>
                 (function() {
-                    const chartTitle = '<xsl:value-of select="$label"/>
-';
-                    const years = <xsl:value-of select="serialize($years, map {'method': 'json'})"/>
-;
-                    const totals = <xsl:value-of select="serialize($totals, map {'method': 'json'})"/>
-;
-                    const chartContainerId = '<xsl:value-of select="$id || '-chart-container'"/>
-';
-                    let series = <xsl:value-of select="serialize($series, map {'method': 'json'})"/>
-;
+                    const chartTitle = '<xsl:value-of select="$label"/>';
+                    const years = <xsl:value-of select="serialize($years, map {'method': 'json'})"/>;
+                    const totals = <xsl:value-of select="serialize($totals, map {'method': 'json'})"/>;
+                    const chartContainerId = '<xsl:value-of select="$id || '-chart-container'"/>';
+                    let series = <xsl:value-of select="serialize($series, map {'method': 'json'})"/>;
                     
                     
                     series[0].color = '#C6C2BC';
