@@ -40,10 +40,11 @@ jobs:
         with:
           python-version: '3.11'
           cache: 'pip'
-      - name: Install Python Packages
-        run: pip install -r requirements.txt
       - name: Install Saxon, Ant and Python
-        run: apt-get update && apt-get install openjdk-11-jre-headless ant -y --no-install-recommend
+        run: |
+          pip install -r requirements.txt
+          apt-get update && apt-get install openjdk-11-jre-headless ant -y --no-install-recommend
+          echo "done"
       - name: Fetch and process Data
         run: ./fetch_data.sh
       - name: Build Search Index

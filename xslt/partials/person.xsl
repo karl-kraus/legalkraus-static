@@ -89,6 +89,16 @@
                                 </a>
                             </dd>
                         </xsl:when>
+                        <xsl:when test="contains(./text(), 'geonames')">
+                            <dd>
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="./text()"/>
+                                    </xsl:attribute>
+                                    <xsl:value-of select="./text()"/>
+                                </a>
+                            </dd>
+                        </xsl:when>
                         <xsl:when test="contains(./text(), 'd-nb.info/gnd')">
                             <dd>
                                 <a>
