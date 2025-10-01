@@ -9,8 +9,8 @@
             <a class="skip-link screen-reader-text sr-only" href="#content">Skip to content</a>
             <nav class="navbar navbar-expand-lg bg-white border-bottom border-primary border-3">
                 <div class="container-fluid">
-                    <a href="index.html" class="navbar-brand custom-logo-link" rel="home" itemprop="url">
-                   <img src="images/rechtsakten_karl_kraus_logo.svg" width="160" height="auto"/>
+                    <a href="index.html" class="navbar-brand custom-logo-link" rel="home" itemprop="url"><span class="visually-hidden">Startseite</span>
+                   <img src="images/rechtsakten_karl_kraus_logo.svg" width="160" height="auto" alt="Projekt-Logo"/>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
