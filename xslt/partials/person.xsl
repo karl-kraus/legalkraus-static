@@ -68,14 +68,40 @@
             <xsl:if test="./tei:idno[@type = 'URL']">
                 <dt>links</dt>
                 <xsl:for-each select="./tei:idno[@type = 'URL']">
-                    <dd>
-                        <a>
-                            <xsl:attribute name="href">
-                                <xsl:value-of select="./text()"/>
-                            </xsl:attribute>
-                            <xsl:value-of select="./text()"/>
-                        </a>
-                    </dd>
+                    <xsl:choose>
+                        <xsl:when test="contains(./text(), 'pmb.acdh.oeaw.ac.at/entity/')">
+                            <dd>
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="./text()"/>
+                                    </xsl:attribute>
+                                    <xsl:value-of select="./text()"/>
+                                </a>
+                            </dd>
+                        </xsl:when>
+                        <xsl:when test="contains(./text(), 'wikidata.org')">
+                            <dd>
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="./text()"/>
+                                    </xsl:attribute>
+                                    <xsl:value-of select="./text()"/>
+                                </a>
+                            </dd>
+                        </xsl:when>
+                        <xsl:when test="contains(./text(), 'd-nb.info/gnd')">
+                            <dd>
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="./text()"/>
+                                    </xsl:attribute>
+                                    <xsl:value-of select="./text()"/>
+                                </a>
+                            </dd>
+                        </xsl:when>
+                    </xsl:choose>
+                    
+                    
                 </xsl:for-each>
                 
             </xsl:if>
