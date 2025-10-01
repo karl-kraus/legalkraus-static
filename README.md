@@ -29,6 +29,9 @@ python -m http.server
 * open http://127.0.0.1:8000/
 
 
+# LICENSE
+see LICENSE.md
 
+For the included Saxon library, see saxon/notices/LICENSE.txt
 ----
 * build with [DSE-Static-Cookiecutter](https://github.com/acdh-oeaw/dse-static-cookiecutter)

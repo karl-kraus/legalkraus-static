@@ -17,6 +17,3 @@ python rm_listevent.py
 
 echo "create cases-json"
 python create_case_index.py
-
-echo "fetch imprint data"
-shellscripts/dl_imprint.sh

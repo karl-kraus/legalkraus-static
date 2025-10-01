@@ -44,7 +44,6 @@ jobs:
         run: |
           pip install -r requirements.txt
           apt-get update && apt-get install openjdk-11-jre-headless ant -y --no-install-recommend
-          ./shellscripts/script.sh
       - name: Fetch and process Data
         run: ./fetch_data.sh
       - name: Build Search Index

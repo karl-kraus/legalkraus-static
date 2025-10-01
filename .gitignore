@@ -1,7 +1,6 @@
 # project specific
 *.html
 !search.html
-/saxon
 /scss/bootstrap
 data/imprint.xml
 /static-search
@@ -144,7 +143,6 @@ desktop.ini
 .DS_Store
 
 data/
-saxon/
 html/*.html
 html/*.xml
 html/*.rdf
