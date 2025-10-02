@@ -17,3 +17,6 @@ python rm_listevent.py
 
 echo "create cases-json"
 python create_case_index.py
+
+echo "create up statit oai-pmh files"
+python oai-pmh/make_files.py
