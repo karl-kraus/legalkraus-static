@@ -17,9 +17,6 @@
                         Untner, Andrea Ortner, Ingo Börner und Vanessa Hannesschläger (Wien
                         2022, 2025)
                     </p>
-                    <p class="fw-bolder">
-                            <a class="imprint-link" href="imprint.html">Impressum</a>
-                    </p>
                 </div>
                 <div class="col-xs-12 col-md-auto">
                     <p class="fw-bolder">Kontakt</p>
@@ -32,7 +29,15 @@
                     <a class="fw-bolder link-secondary"
                             href="mailto:isabel.langkabel@wien.gv.at">isabel.langkabel@wien.gv.at</a>
                     <br />
-                        Wienbibliothek im Rathaus<br /> 1010 Wien, Rathaus, Stiege 6</p>
+                        Wienbibliothek im Rathaus, 1010 Wien, Rathaus, Stiege 6</p>
+
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div>
+                        <p class="fw-bolder">
+                            <a class="imprint-link" href="imprint.html">Impressum</a>
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="row bg-light-gray gx-0">
