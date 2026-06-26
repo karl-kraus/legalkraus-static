@@ -130,6 +130,11 @@ except ObjectNotFound:
 current_schema = {
     "name": schema_name,
     "enable_nested_fields": True,
+    "metadata": {
+        "owners": ["Peter Andorfer", "Barbara Krautgartner"],
+        "description": "https://github.com/karl-kraus/legalkraus-static/",
+        "service_ids": [22730],
+    },
     "fields": [
         {"name": "id", "type": "string"},
         {"name": "rec_id", "type": "string", "sort": True},
